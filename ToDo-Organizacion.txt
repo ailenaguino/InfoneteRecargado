@@ -1,38 +1,44 @@
 Paginas:
+Tomi
 *Home*
 -Inicio (2 infonetes)
 -Ingresar (4 infonetes)
 -Registrar (3 infonetes)
 -Salir (1 infonete)
 
+Fede
 *Consorcios*
 -MisConsorcios (4 infonetes)
 -NuevoConsorcio (4 infonetes)
 -Editar (3 infonetes?)
 -Eliminar (2 infonetes)
 
+Ailu
 *Unidades*
 -VerUnidades (3 infonetes eso de previous y next me vuela la cabeza bue)
 -CrearUnidad (4 infonetes)
 -Editar (es lo mismo que crear xd 3 infonetes(?))
 -Eliminar (2 infonetes)
 
+Marquitos
 *Gastos*
 -VerGastos (4/5 infonetes, nontendi mu bien)
 -NuevoGasto (4 infonetes)
 -Editar (4 infonetes, por eso del comprobante ni idea)
 -Eliminar (2 infonetes)
 
+Tomi
 *Expensas*
 -VerExpensas (5 infonetes)
 
+El que tenga ganas
 *Error*
 -Es parte de home pero lo pongo aca jas (1 infonete)
 
 Layouts y PVs:
--Hacer la partial del footer y el BaseLayout
--Hacer AnonimoLayout
--Hacer LogueadoLayout
+-Hacer la partial del footer y el BaseLayout HECHO
+-Hacer AnonimoLayout HECHO
+-Hacer LogueadoLayout HECHO
 
 To do:
 -Crear los proyectos/capas
