@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "~/Views/Shared/AnonimoLayout.cshtml";
+}
+@section Styles
+{
+    <link href="\assets\signin.css" rel="stylesheet">
+}
+
+<form class="form-signin text-center">
+    <h1 class="h3 mb-3 font-weight-normal">Ingreso</h1>
+    <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+    <div class="checkbox mb-3">
+        <a>Registrarse</a>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+</form>
