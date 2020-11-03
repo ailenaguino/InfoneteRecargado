@@ -235,6 +235,7 @@
     </Compile>
     <Compile Include="Helpers\SessionFilter.cs" />
     <Compile Include="Helpers\SessionHelper.cs" />
+    <Compile Include="Models\GastoVM.cs" />
     <Compile Include="Models\UsuarioVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -261,6 +262,10 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\pv_Footer.cshtml" />
     <Content Include="Views\Consorcio\Index.cshtml" />
+    <Content Include="Views\Gastos\Lista.cshtml" />
+    <Content Include="Views\Gastos\Index.cshtml" />
+    <Content Include="Views\Gastos\DownloadFile.cshtml" />
+    <Content Include="Views\Gastos\Alta.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -271,7 +276,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Expensas\" />
-    <Folder Include="Views\Gasto\" />
     <Folder Include="Views\Unidad\" />
   </ItemGroup>
   <ItemGroup>
