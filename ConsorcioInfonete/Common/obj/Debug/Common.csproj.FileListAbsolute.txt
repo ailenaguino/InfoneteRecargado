@@ -1,6 +1,0 @@
-C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Common\bin\Debug\Common.dll
-C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Common\bin\Debug\Common.pdb
-C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Common\obj\Debug\Common.csprojAssemblyReference.cache
-C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
-C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Common\obj\Debug\Common.dll
-C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Common\obj\Debug\Common.pdb
