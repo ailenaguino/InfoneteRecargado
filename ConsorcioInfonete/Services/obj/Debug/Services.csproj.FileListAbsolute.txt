@@ -1,3 +1,15 @@
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Services\bin\Debug\Services.dll
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Services\bin\Debug\Services.pdb
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Services\bin\Debug\Repositories.dll
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Services\bin\Debug\EntityFramework.dll
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Services\bin\Debug\Repositories.pdb
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Services\bin\Debug\Repositories.dll.config
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Services\bin\Debug\EntityFramework.xml
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Services\obj\Debug\Services.csprojAssemblyReference.cache
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Services\obj\Debug\Services.csproj.CoreCompileInputs.cache
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Services\obj\Debug\Services.csproj.CopyComplete
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Services\obj\Debug\Services.dll
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Services\obj\Debug\Services.pdb
 D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Services\bin\Debug\Services.dll
 D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Services\bin\Debug\Services.pdb
 D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Services\bin\Debug\Repositories.dll
