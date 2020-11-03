@@ -261,6 +261,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\pv_Footer.cshtml" />
     <Content Include="Views\Consorcio\Index.cshtml" />
+    <Content Include="Views\Unidad\VerUnidades.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -272,7 +273,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Expensas\" />
     <Folder Include="Views\Gasto\" />
-    <Folder Include="Views\Unidad\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
