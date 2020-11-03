@@ -226,6 +226,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ConsorcioController.cs" />
     <Compile Include="Controllers\ExpensasController.cs" />
+    <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\GastosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UnidadController.cs" />
@@ -275,7 +276,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Gastos\" />
     <Folder Include="Views\Expensas\" />
+    <Folder Include="Views\FileUpload\" />
     <Folder Include="Views\Unidad\" />
   </ItemGroup>
   <ItemGroup>

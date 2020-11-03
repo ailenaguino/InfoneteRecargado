@@ -46,7 +46,7 @@
                     </td>
                     <td>
                         @Html.DisplayFor(Model => m.ArchivoComprobante)
-                        <a href="@m.ArchivoComprobante">archivo</a>
+                        <a target="_blank" href="/Gastos/Download?t=@m.ArchivoComprobante">archivo</a>
                     </td>
                     <td>
                         <a href="/Gastos/Eliminar?id=@m.IdGasto">Eliminar</a>
