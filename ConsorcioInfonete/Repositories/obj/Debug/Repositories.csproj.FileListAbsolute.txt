@@ -1,0 +1,12 @@
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Repositories\bin\Debug\Repositories.dll.config
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Repositories\bin\Debug\Repositories.dll
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Repositories\bin\Debug\Repositories.pdb
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Repositories\bin\Debug\EntityFramework.dll
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Repositories\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Repositories\bin\Debug\EntityFramework.xml
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Repositories\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Repositories\obj\Debug\Repositories.csprojAssemblyReference.cache
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Repositories\obj\Debug\Repositories.csproj.CoreCompileInputs.cache
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Repositories\obj\Debug\Repositories.csproj.CopyComplete
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Repositories\obj\Debug\Repositories.dll
+C:\Users\Tomas\source\repos\InfoneteRecargado\ConsorcioInfonete\Repositories\obj\Debug\Repositories.pdb

@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "BaseLayout.cshtml";
 }
+@RenderSection("Styles", false)
 
 @section NavBar{
     <div class="navbar navbar-expand-md navbar-dark bg-dark mb-4" role="navigation">
@@ -77,3 +78,5 @@
         </div>
     </div>
 }
+@RenderBody()
+@RenderSection("Scripts", false)

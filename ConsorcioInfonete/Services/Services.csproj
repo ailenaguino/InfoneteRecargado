@@ -41,7 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseService.cs" />
+    <Compile Include="IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Repositories\Repositories.csproj">
+      <Project>{EAFDA870-3EFE-461C-A3BE-C69C2FE952EF}</Project>
+      <Name>Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
