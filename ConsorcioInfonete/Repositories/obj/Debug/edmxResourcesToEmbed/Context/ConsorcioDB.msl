@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ConsorcioDBStoreContainer" CdmEntityContainer="PW3_TP_20202CEntities">
+    <EntitySetMapping Name="Consorcio">
+      <EntityTypeMapping TypeName="ConsorcioDB.Consorcio">
+        <MappingFragment StoreEntitySet="Consorcio">
+          <ScalarProperty Name="IdConsorcio" ColumnName="IdConsorcio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="Altura" ColumnName="Altura" />
+          <ScalarProperty Name="DiaVencimientoExpensas" ColumnName="DiaVencimientoExpensas" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="IdUsuarioCreador" ColumnName="IdUsuarioCreador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gasto">
+      <EntityTypeMapping TypeName="ConsorcioDB.Gasto">
+        <MappingFragment StoreEntitySet="Gasto">
+          <ScalarProperty Name="IdGasto" ColumnName="IdGasto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdConsorcio" ColumnName="IdConsorcio" />
+          <ScalarProperty Name="IdTipoGasto" ColumnName="IdTipoGasto" />
+          <ScalarProperty Name="FechaGasto" ColumnName="FechaGasto" />
+          <ScalarProperty Name="AnioExpensa" ColumnName="AnioExpensa" />
+          <ScalarProperty Name="MesExpensa" ColumnName="MesExpensa" />
+          <ScalarProperty Name="ArchivoComprobante" ColumnName="ArchivoComprobante" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="IdUsuarioCreador" ColumnName="IdUsuarioCreador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provincia">
+      <EntityTypeMapping TypeName="ConsorcioDB.Provincia">
+        <MappingFragment StoreEntitySet="Provincia">
+          <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoGasto">
+      <EntityTypeMapping TypeName="ConsorcioDB.TipoGasto">
+        <MappingFragment StoreEntitySet="TipoGasto">
+          <ScalarProperty Name="IdTipoGasto" ColumnName="IdTipoGasto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unidad">
+      <EntityTypeMapping TypeName="ConsorcioDB.Unidad">
+        <MappingFragment StoreEntitySet="Unidad">
+          <ScalarProperty Name="IdUnidad" ColumnName="IdUnidad" />
+          <ScalarProperty Name="IdConsorcio" ColumnName="IdConsorcio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="NombrePropietario" ColumnName="NombrePropietario" />
+          <ScalarProperty Name="ApellidoPropietario" ColumnName="ApellidoPropietario" />
+          <ScalarProperty Name="EmailPropietario" ColumnName="EmailPropietario" />
+          <ScalarProperty Name="Superficie" ColumnName="Superficie" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="IdUsuarioCreador" ColumnName="IdUsuarioCreador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="ConsorcioDB.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FechaRegistracion" ColumnName="FechaRegistracion" />
+          <ScalarProperty Name="FechaUltLogin" ColumnName="FechaUltLogin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
