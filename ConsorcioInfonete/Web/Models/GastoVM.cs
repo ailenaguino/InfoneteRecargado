@@ -28,7 +28,7 @@ namespace Web.Models
         public int idTipoGasto { get; set; }
         public int idUsuario { get; set; }
         public string Descripcion { get; set; } = string.Empty;
-        // public File ArchivoComprobante=new File();
+        public string ArchivoComprobante { get; set; }
 
 
 

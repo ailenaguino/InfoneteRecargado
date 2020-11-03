@@ -2,6 +2,7 @@
 using Services;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Mime;
 using System.Web;
@@ -57,16 +58,32 @@ namespace Web.Controllers
                 };
                 gastoService.Alta(g);
             }
-            return RedirectToAction("/Lista");
+            return RedirectToAction("Lista");
 
         }
-        /*public ActionResult DownloadFile(string ld)
+        public ActionResult Download(string t)
         {
+            var document = t;
+            var cd = new System.Net.Mime.ContentDisposition
+            {
+                // for example foo.bak
+                FileName = t,
 
-            string filename = ld;
-            string filepath = AppDomain.CurrentDomain.BaseDirectory+ "/Gastos/" +filename;
+                // always prompt the user for downloading, set to true if you want 
+                // the browser to try to show the file inline
+                Inline = false,
+            };
+            Response.AppendHeader("Content-Disposition", "attachment; filename="+t);
+            Response.TransmitFile(t);
+            Response.End();
+            // return File(t, document);
+            return RedirectToAction("Lista");
+        }
 
-            return File(filepath, MediaTypeNames.Text.Plain, ld);
-        }*/
+        public ActionResult Eliminar(int id)
+        {
+            gastoService.Eliminar(id);
+            return RedirectToAction("Lista");
+        }
     }
 }
