@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Mime;
 using System.Web;
 using System.Web.Mvc;
+using Web.Helpers;
 using Web.Models;
 
 namespace Web.Controllers
@@ -39,6 +40,7 @@ namespace Web.Controllers
 
             if (ModelState.IsValid)
             {
+               int idusuario= SessionHelper.GetCurrentSession().IdUsuario;
                 Gasto g = new Gasto()
                 {
                     Nombre=gasto.Nombre,
@@ -51,11 +53,11 @@ namespace Web.Controllers
                     ArchivoComprobante="",
                     Monto=gasto.Monto,
                     FechaCreacion=DateTime.Now,
-                    IdUsuarioCreador=gasto.idUsuario
+                    IdUsuarioCreador= idusuario
                 };
                 gastoService.Alta(g);
             }
-            return View("/Lista");
+            return RedirectToAction("/Lista");
 
         }
         /*public ActionResult DownloadFile(string ld)
