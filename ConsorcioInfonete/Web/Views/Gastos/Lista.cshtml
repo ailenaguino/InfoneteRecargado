@@ -1,0 +1,58 @@
+﻿@model List<Repositories.Context.Gasto>
+@{
+    ViewBag.Title = "Lista";
+    Layout = "~/Views/Shared/LogueadoLayout.cshtml";
+}
+
+<h2>Lista</h2>
+<div class="table-responsive-lg">
+    <a href="/Gastos/Alta">Nuevo Gasto</a>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th class="align-middle text-center">Año Expensa</th>
+                <th class="align-middle text-center">Mes Expensa</th>
+                <th class="align-middle text-center">Nombre</th>
+                <th class="align-middle text-center">Tipo Gasto</th>
+                <th class="align-middle text-center">Fecha</th>
+                <th class="align-middle text-center">Monto($)</th>
+                <th class="align-middle text-center">Comprobante</th>
+                <th class="align-middle text-center">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            @foreach (var m in Model)
+            {
+                <tr class="align-middle text-center">
+                    <td>
+                        @Html.DisplayFor(Model => m.AnioExpensa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(Model => m.MesExpensa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(Model => m.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(Model => m.TipoGasto.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(Model => m.FechaGasto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(Model => m.Monto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(Model => m.ArchivoComprobante)
+                        <a target="_blank" href="/Gastos/Download?t=@m.ArchivoComprobante">archivo</a>
+                    </td>
+                    <td>
+                        <a href="/Gastos/Eliminar?id=@m.IdGasto">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

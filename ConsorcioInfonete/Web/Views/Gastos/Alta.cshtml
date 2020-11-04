@@ -1,0 +1,74 @@
+﻿@model Web.Models.GastoVM
+@{
+    Layout = "~/Views/Shared/LogueadoLayout.cshtml";
+    string error = ViewBag.Error ?? "";
+    Services.TipoGastoService t = new Services.TipoGastoService(new Repositories.Context.PW3_TP_20202CEntities());
+    List<Repositories.Context.TipoGasto> TipoGasto = t.ObtenerTodos();
+
+
+    List<SelectListItem> tiposGastos = TipoGasto.Select(o => new SelectListItem()
+    {
+        Text = o.Nombre,
+        Value = o.IdTipoGasto.ToString()
+    }).ToList();
+}
+
+<h2>Alta</h2>
+
+<form class="form-signin text-center" action="/Gastos/Alta" method="post">
+    <h2 class="h3 mb-3 font-weight-normal">Cargar Nuevo Gasto</h2>
+    <div class="form-group">
+        @Html.EditorFor(Model => Model.idConsorcio, new { htmlAttributes = new { @Value = 1, @class = "form-control", placeholder = "consorcio" } })
+    </div>
+    <div class="form-group">
+        @Html.DropDownListFor(Model => Model.idTipoGasto, tiposGastos, new { @class = "mt-1 form-control" })
+    </div>
+    <div class="form-group">
+        @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Nombre" } })
+        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.EditorFor(Model => Model.Descripcion, new { htmlAttributes = new { @class = "mt-1 form-control", rows = "3", placeholder = "Descripcion del gasto" } })
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.EditorFor(Model => Model.Fecha, new { htmlAttributes = new { @type = "date", @min = "2000-01-01", @max = "2020-12-31", @Value = "2020-11-24", @class = "form-control", placeholder = "fecha" } })
+                @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.EditorFor(Model => Model.Monto, new { htmlAttributes = new { @min = 1, @Value = "0,00", @class = "mt-1 form-control", placeholder = "monto" } })
+                @Html.ValidationMessageFor(model => model.Monto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @Html.EditorFor(Model => Model.AnioExpensa, new { htmlAttributes = new { @type = "number", @Value = "2020", @min = "2000", @max = "2020", @class = "mt-1 form-control", placeholder = "anio" } })
+            @Html.ValidationMessageFor(model => model.AnioExpensa, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="col-md-6">
+            @Html.EditorFor(Model => Model.MesExpensa, new { htmlAttributes = new { @type = "number", @Value = "11", @min = "1", @max = "12", @class = "mt-1 form-control", placeholder = "mes" } })
+            @Html.ValidationMessageFor(model => model.MesExpensa, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    
+   
+         
+
+    <span class="text-danger">@error</span>
+    <div class="row">
+        <div class="col-md-4">
+            <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Guardar</button>
+        </div>
+        <div class="col-md-4">
+            <a class="btn btn-lg btn-primary btn-block mt-4" href="/Gastos/Alta">Guardar y Crear otro Gasto</a>
+        </div>
+        <div class="col-md-4">
+            <a class="btn btn-lg btn-danger btn-block mt-4" href="/Gastos/Lista">Cancelar</a>
+        </div>
+    </div>
+</form>

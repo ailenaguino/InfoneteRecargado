@@ -72,6 +72,7 @@
     <Compile Include="Context\Gasto.cs">
       <DependentUpon>ConsorcioDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="GastoRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Context\Provincia.cs">
       <DependentUpon>ConsorcioDB.tt</DependentUpon>
@@ -86,10 +87,12 @@
       <DependentUpon>ConsorcioDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnidadRepository.cs" />
+    <Compile Include="TipoGastoRepository.cs" />
     <Compile Include="UsuarioRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Gastos\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <EntityDeploy Include="Context\ConsorcioDB.edmx">

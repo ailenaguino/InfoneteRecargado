@@ -226,6 +226,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ConsorcioController.cs" />
     <Compile Include="Controllers\ExpensasController.cs" />
+    <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\GastosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UnidadController.cs" />
@@ -235,6 +236,7 @@
     </Compile>
     <Compile Include="Helpers\SessionFilter.cs" />
     <Compile Include="Helpers\SessionHelper.cs" />
+    <Compile Include="Models\GastoVM.cs" />
     <Compile Include="Models\UsuarioVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -261,7 +263,10 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\pv_Footer.cshtml" />
     <Content Include="Views\Consorcio\Index.cshtml" />
-    <Content Include="Views\Unidad\VerUnidades.cshtml" />
+    <Content Include="Views\Gastos\Lista.cshtml" />
+    <Content Include="Views\Gastos\Index.cshtml" />
+    <Content Include="Views\Gastos\DownloadFile.cshtml" />
+    <Content Include="Views\Gastos\Alta.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -271,8 +276,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Gastos\" />
     <Folder Include="Views\Expensas\" />
-    <Folder Include="Views\Gasto\" />
+    <Folder Include="Views\FileUpload\" />
+    <Folder Include="Views\Unidad\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
