@@ -88,7 +88,10 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoGastoRepository.cs" />
+    <Compile Include="UnidadRepository.cs" />
     <Compile Include="UsuarioRepository.cs" />
+    <Compile Include="Context\Validations\Unidad.cs" />
+    <Compile Include="Context\Validations\UnidadMetadata.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Gastos\" />

@@ -17,27 +17,27 @@ namespace Services
             repo = Activator.CreateInstance(typeof(T), new object[] { contexto }) as T;
         }
 
-        public void Alta(J p)
+        public virtual void Alta(J p)
         {
             repo.Alta(p);
         }
 
-        public void Eliminar(int id)
+        public virtual void Eliminar(int id)
         {
             repo.Eliminar(id);
         }
 
-        public void Modificar(J p)
+        public virtual void Modificar(J p)
         {
             repo.Modificar(p);
         }
 
-        public J ObtenerPorId(int id)
+        public virtual J ObtenerPorId(int id)
         {
             return repo.ObtenerPorId(id);
         }
 
-        public List<J> ObtenerTodos()
+        public virtual List<J> ObtenerTodos()
         {
             return repo.ObtenerTodos();
         }
