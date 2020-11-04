@@ -15,7 +15,7 @@ namespace Repositories
         public List<Unidad> ObtenerTodosConsorcio(Consorcio c)
         {
             return (from u in ctx.Unidad
-                 where u.Consorcio == c
+                 where u.IdConsorcio == c.IdConsorcio
                  orderby u.IdUnidad descending
                  select u).ToList();
 

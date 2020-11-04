@@ -23,7 +23,7 @@ namespace Services
         {
             //Consorcio c = CR.ObtenerPorId(idConsorcio);
 
-            Consorcio c = new Consorcio() { IdConsorcio = 5 };
+            Consorcio c = new Consorcio() { IdConsorcio = 1 };
 
             return UR.ObtenerTodosConsorcio(c);
         }

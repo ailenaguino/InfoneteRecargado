@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "VerUnidades";
-    Layout = "~/Views/Shared/BaseLayout.cshtml";
+
 }
 
 <h2>VerUnidades</h2>
@@ -31,7 +31,7 @@
                 @Html.DisplayFor(m => u.ApellidoPropietario)
             </td>
             <td>
-                @Html.DisplayFor(m =>u u.NombrePropietario)
+                @Html.DisplayFor(m =>u.NombrePropietario)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

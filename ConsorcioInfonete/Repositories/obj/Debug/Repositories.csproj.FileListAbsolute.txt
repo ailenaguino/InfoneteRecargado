@@ -21,3 +21,4 @@ D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonet
 D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Repositories\obj\Debug\Repositories.csproj.CopyComplete
 D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Repositories\obj\Debug\Repositories.dll
 D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Repositories\obj\Debug\Repositories.pdb
+D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Repositories\obj\Debug\Repositories.csprojAssemblyReference.cache
