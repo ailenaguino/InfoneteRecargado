@@ -267,6 +267,7 @@
     <Content Include="Views\Gastos\Index.cshtml" />
     <Content Include="Views\Gastos\DownloadFile.cshtml" />
     <Content Include="Views\Gastos\Alta.cshtml" />
+    <Content Include="VerUnidades.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -186,3 +186,7 @@ C:\Users\Marcos\source\repos\InfoneteRecargado\ConsorcioInfonete\Web\obj\Debug\W
 C:\Users\Marcos\source\repos\InfoneteRecargado\ConsorcioInfonete\Web\obj\Debug\Web.csproj.CopyComplete
 C:\Users\Marcos\source\repos\InfoneteRecargado\ConsorcioInfonete\Web\obj\Debug\Web.dll
 C:\Users\Marcos\source\repos\InfoneteRecargado\ConsorcioInfonete\Web\obj\Debug\Web.pdb
+D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Web\obj\Debug\Web.csprojAssemblyReference.cache
+D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Web\obj\Debug\Web.csproj.CoreCompileInputs.cache
+D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Web\obj\Debug\Web.dll
+D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Web\obj\Debug\Web.pdb
