@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="ConsorcioRepository.cs" />
     <Compile Include="Context\Consorcio.cs">
       <DependentUpon>ConsorcioDB.tt</DependentUpon>
     </Compile>
