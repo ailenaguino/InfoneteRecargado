@@ -24,13 +24,13 @@ namespace Services
 
             Consorcio c = new Consorcio() { IdConsorcio = 1 };
 
-            return UR.ObtenerTodosConsorcio(c);
+            return repo.ObtenerTodosConsorcio(c);
         }
 
         public override void Alta(Unidad u)
         {
             u.FechaCreacion = System.DateTime.Now;
-            UR.Alta(u);
+            repo.Alta(u);
         }
 
     }

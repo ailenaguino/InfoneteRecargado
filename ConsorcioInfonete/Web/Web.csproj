@@ -268,6 +268,8 @@
     <Content Include="Views\Gastos\DownloadFile.cshtml" />
     <Content Include="Views\Gastos\Alta.cshtml" />
     <Content Include="VerUnidades.cshtml" />
+    <Content Include="Views\Unidad\VerUnidades.cshtml" />
+    <Content Include="Views\Unidad\CrearUnidad.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -280,7 +282,6 @@
     <Folder Include="Gastos\" />
     <Folder Include="Views\Expensas\" />
     <Folder Include="Views\FileUpload\" />
-    <Folder Include="Views\Unidad\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

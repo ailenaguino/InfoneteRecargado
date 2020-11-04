@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repositories.Validations
+namespace Repositories.Context
 {
     [MetadataType(typeof(UnidadMetadata))]
     public partial class Unidad

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Repositories.Validations
+namespace Repositories.Context
 {
     internal class UnidadMetadata
     {
