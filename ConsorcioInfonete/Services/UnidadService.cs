@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class UnidadService
+    public class UnidadService : BaseService<UnidadRepository, Unidad>
     {
         UnidadRepository UR;
         //ConsorcioRespository CR;
 
-        public UnidadService(PW3_TP_20202CEntities ctx)
+        public UnidadService(PW3_TP_20202CEntities ctx) : base(ctx)
         {
-            UR = new UnidadRepository(ctx);
             //CR = new ConsorcioRespositoy(ctx);
         }
 
@@ -28,7 +27,7 @@ namespace Services
             return UR.ObtenerTodosConsorcio(c);
         }
 
-        public void Alta(Unidad u)
+        public override void Alta(Unidad u)
         {
             u.FechaCreacion = System.DateTime.Now;
             UR.Alta(u);
