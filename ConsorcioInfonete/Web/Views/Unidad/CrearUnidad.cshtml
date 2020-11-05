@@ -1,0 +1,38 @@
+﻿@model Repositories.Context.Unidad
+@{
+    ViewBag.Title = "CrearUnidad";
+    Layout = "~/Views/Shared/LogueadoLayout.cshtml";
+    Repositories.Context.Consorcio Consorcio = (Repositories.Context.Consorcio)ViewData["Consorcio"];
+}
+
+<h2>CrearUnidad</h2>
+<form action="/unidad/crearunidad" method="post">
+    <label>Consorcio:</label>
+    @Consorcio.Nombre
+
+    Nombre de la Unidad:
+    @Html.EditorFor(m => m.Nombre)
+    @Html.ValidationMessageFor(m => m.Nombre)
+
+    Nombre del propietario:
+    @Html.EditorFor(m => m.NombrePropietario)
+    @Html.ValidationMessageFor(m => m.NombrePropietario)
+
+    Apellido del propietario:
+    @Html.EditorFor(m => m.ApellidoPropietario)
+    @Html.ValidationMessageFor(m => m.ApellidoPropietario)
+
+    Email del propietario:
+    @Html.EditorFor(m => m.EmailPropietario)
+    @Html.ValidationMessageFor(m => m.EmailPropietario)
+
+    Superficie (m2):
+    @Html.EditorFor(m => m.Superficie)
+    @Html.ValidationMessageFor(m => m.Superficie)
+
+    <input type="hidden" name="IdConsorcio" value="@Consorcio.IdConsorcio" />
+
+    <input type="submit" name="name" value="Guardar" />
+    <a href="/Home/Index">Cancelar</a>
+</form>
+
