@@ -12,7 +12,9 @@ namespace Services
     {
         public GastoService(PW3_TP_20202CEntities ctx):base(ctx)
         {
-
+             
         }
+       
+
     }
 }
