@@ -14,9 +14,19 @@ namespace Repositories
 
         }
 
-        public override void Modificar(Gasto m)
+        public override void Modificar(Gasto g)
         {
-            throw new NotImplementedException();
+            Gasto gastoActual = ObtenerPorId(g.IdGasto);
+            gastoActual.IdTipoGasto = g.IdTipoGasto;
+            gastoActual.Nombre = g.Nombre;
+            gastoActual.Descripcion = g.Descripcion;
+            gastoActual.FechaGasto = g.FechaGasto;
+            gastoActual.AnioExpensa = g.AnioExpensa;
+            gastoActual.MesExpensa = g.MesExpensa;
+            gastoActual.ArchivoComprobante = g.ArchivoComprobante;
+            gastoActual.Monto = g.Monto;
+
+            ctx.SaveChanges();
         }
     }
 }

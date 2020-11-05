@@ -267,6 +267,8 @@
     <Content Include="Views\Gastos\Index.cshtml" />
     <Content Include="Views\Gastos\DownloadFile.cshtml" />
     <Content Include="Views\Gastos\Alta.cshtml" />
+    <Content Include="Views\Gastos\Eliminar.cshtml" />
+    <Content Include="Views\Gastos\Modificar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
