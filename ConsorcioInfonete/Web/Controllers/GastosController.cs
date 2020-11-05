@@ -36,31 +36,54 @@ namespace Web.Controllers
             return View(new GastoVM());
         }
         [HttpPost]
-        public ActionResult Alta(GastoVM gasto)
+        public ActionResult Alta(GastoVM gasto, string accion)
         {
-
-            if (ModelState.IsValid)
+            if (accion == "Cancelar")
             {
-               int idusuario= SessionHelper.GetCurrentSession().IdUsuario;
-                Gasto g = new Gasto()
-                {
-                    Nombre=gasto.Nombre,
-                    Descripcion=gasto.Descripcion,
-                    IdConsorcio = gasto.idConsorcio,
-                    IdTipoGasto=gasto.idTipoGasto,
-                    FechaGasto=gasto.Fecha,
-                    AnioExpensa=gasto.AnioExpensa,
-                    MesExpensa=gasto.MesExpensa,
-                    ArchivoComprobante="",
-                    Monto=gasto.Monto,
-                    FechaCreacion=DateTime.Now,
-                    IdUsuarioCreador= idusuario
-                };
-                gastoService.Alta(g);
+                return RedirectToAction("Lista");
             }
-            return RedirectToAction("Lista");
 
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+           
+            int idUser = SessionHelper.GetCurrentSession().IdUsuario;
+            Gasto gast=gasto.Mapear(idUser, gasto);
+            gastoService.Alta(gast);
+
+            if (accion == "Guardar")
+            {
+                return RedirectToAction("Lista");                    
+            }
+          
+            ViewBag.msj = "Creado con exito";
+            return View();
         }
+        public ActionResult Eliminar(int id)
+        {
+            Gasto g = gastoService.ObtenerPorId(id);
+            return View(g);
+        }
+        [HttpPost]
+        public ActionResult EliminarGasto(Gasto gasto)
+        {
+            gastoService.Eliminar(gasto.IdGasto);
+            return RedirectToAction("Lista");
+        }
+
+        public ActionResult Modificar(int id)
+        {
+            Gasto gasto = gastoService.ObtenerPorId(id);
+            if (gasto==null)
+            {
+                return RedirectToAction("Lista");
+            }
+            GastoVM g = new GastoVM();
+            g=g.MapearInversa(gasto);
+            return View(g);
+        }
+         
         public ActionResult Download(string t)
         {
             var document = t;
@@ -80,9 +103,16 @@ namespace Web.Controllers
             return RedirectToAction("Lista");
         }
 
-        public ActionResult Eliminar(int id)
+        [HttpPost]
+        public ActionResult Modificar(GastoVM gasto)
         {
-            gastoService.Eliminar(id);
+            gasto.idUsuario = SessionHelper.GetCurrentSession().IdUsuario;
+            if (!ModelState.IsValid)
+            {
+                return View(gasto);
+            }
+            Gasto g = gasto.Mapear(gasto.idUsuario, gasto);
+            gastoService.Modificar(g);
             return RedirectToAction("Lista");
         }
     }

@@ -277,9 +277,14 @@
     <Content Include="Views\Gastos\Index.cshtml" />
     <Content Include="Views\Gastos\DownloadFile.cshtml" />
     <Content Include="Views\Gastos\Alta.cshtml" />
+<<<<<<< HEAD
     <Content Include="VerUnidades.cshtml" />
     <Content Include="Views\Unidad\VerUnidades.cshtml" />
     <Content Include="Views\Unidad\CrearUnidad.cshtml" />
+=======
+    <Content Include="Views\Gastos\Eliminar.cshtml" />
+    <Content Include="Views\Gastos\Modificar.cshtml" />
+>>>>>>> d34de153cc91c0a73b0db7f0a53d4bb6833a836f
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

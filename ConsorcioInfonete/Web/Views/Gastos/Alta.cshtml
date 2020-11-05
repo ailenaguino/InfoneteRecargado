@@ -56,19 +56,19 @@
         </div>
     </div>
     
-   
+   @ViewBag.msj
          
 
     <span class="text-danger">@error</span>
     <div class="row">
         <div class="col-md-4">
-            <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Guardar</button>
+            <input class="btn btn-lg btn-primary btn mt-4" type="submit" name="accion" value="Guardar" />
         </div>
         <div class="col-md-4">
-            <a class="btn btn-lg btn-primary btn-block mt-4" href="/Gastos/Alta">Guardar y Crear otro Gasto</a>
+            <input class="btn btn-lg btn-outline-success btn mt-4" type="submit" name="accion" value="Guardar y Crear otro Gasto" />
         </div>
         <div class="col-md-4">
-            <a class="btn btn-lg btn-danger btn-block mt-4" href="/Gastos/Lista">Cancelar</a>
+            <input class="btn btn-lg btn-danger btn mt-4" type="submit" name="accion" value="Cancelar" />
         </div>
     </div>
 </form>
