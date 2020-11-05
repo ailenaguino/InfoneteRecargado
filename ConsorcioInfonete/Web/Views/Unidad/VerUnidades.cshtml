@@ -9,38 +9,53 @@
 
 <h2>VerUnidades</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            Unidad
-        </th>
-        <th>
-            Apellido
-        </th>
-        <th>
-            Nombre
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var u in Model)
-    {
+<table id="tabla">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(m => u.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(m => u.ApellidoPropietario)
-            </td>
-            <td>
-                @Html.DisplayFor(m =>u.NombrePropietario)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Eliminar", new { id = u.IdUnidad})
-            </td>
+            <th>
+                Unidad
+            </th>
+            <th>
+                Apellido
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th></th>
         </tr>
-    }
+    </thead>
+
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => u.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => u.ApellidoPropietario)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => u.NombrePropietario)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "EditarUnidad", new { id = u.IdUnidad }) |
+                    @Html.ActionLink("Eliminar", "EliminarUnidad", new { id = u.IdUnidad })
+                </td>
+            </tr>
+        }
+    </tbody>
 
 </table>
+
+@section Scripts
+{
+    <script>
+        https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js
+    </script>
+    <script>   
+        $(document).ready(function () {
+            $('#tabla').DataTable();
+        });
+    </script>
+}

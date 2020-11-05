@@ -280,3 +280,9 @@ D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonet
 D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Web\bin\es\System.Web.Helpers.resources.dll
 D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Web\bin\es\System.Web.Mvc.resources.dll
 D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Web\obj\Debug\Web.csproj.CopyComplete
+D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Web\bin\xunit.abstractions.dll
+D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Web\bin\xunit.core.dll
+D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Web\bin\xunit.execution.desktop.dll
+D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Web\bin\xunit.abstractions.xml
+D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Web\bin\xunit.core.xml
+D:\Desktop\Cuatri 4\Progra Web III\TPFINALPW3\InfoneteRecargado\ConsorcioInfonete\Web\bin\xunit.execution.desktop.xml

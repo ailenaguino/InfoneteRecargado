@@ -280,6 +280,8 @@
     <Content Include="VerUnidades.cshtml" />
     <Content Include="Views\Unidad\VerUnidades.cshtml" />
     <Content Include="Views\Unidad\CrearUnidad.cshtml" />
+    <Content Include="Views\Unidad\EditarUnidad.cshtml" />
+    <Content Include="Views\Unidad\EliminarUnidad.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

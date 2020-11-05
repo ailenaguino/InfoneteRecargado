@@ -10,19 +10,17 @@ namespace Services
 {
     public class UnidadService : BaseService<UnidadRepository, Unidad>
     {
-        UnidadRepository UR;
-        //ConsorcioRespository CR;
+        
+        ConsorcioRepository CR;
 
         public UnidadService(PW3_TP_20202CEntities ctx) : base(ctx)
         {
-            //CR = new ConsorcioRespositoy(ctx);
+            CR = new ConsorcioRepository(ctx);
         }
 
         public List<Unidad> ObtenerTodos(int idConsorcio)
         {
-            //Consorcio c = CR.ObtenerPorId(idConsorcio);
-
-            Consorcio c = new Consorcio() { IdConsorcio = 1 };
+            Consorcio c = CR.ObtenerPorId(idConsorcio);
 
             return repo.ObtenerTodosConsorcio(c);
         }

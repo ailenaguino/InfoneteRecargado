@@ -12,13 +12,13 @@ namespace Web.Controllers
     public class UnidadController : Controller
     {
         UnidadService US;
-        //ConsorcioService CS;
+        ConsorcioService CS;
 
         public UnidadController()
         {
             PW3_TP_20202CEntities ctx = new PW3_TP_20202CEntities();
             US = new UnidadService(ctx);
-            //CS = new ConsorcioService(ctx);
+            CS = new ConsorcioService(ctx);
         }
 
         // GET: Unidad
@@ -31,9 +31,7 @@ namespace Web.Controllers
 
         public ActionResult CrearUnidad(int id)
         {
-            //ViewData["Consorcio"] = CS.ObtenerPorId(id);
-            Consorcio c = new Consorcio { IdConsorcio = id, Nombre = ":D" };
-            ViewData["Consorcio"] = c;
+            ViewData["Consorcio"] = CS.ObtenerPorId(id);
 
             return View();
         }
@@ -41,15 +39,16 @@ namespace Web.Controllers
         [HttpPost]
         public ActionResult CrearUnidad(Unidad u)
         {
-            Consorcio c = new Consorcio { IdConsorcio = u.IdConsorcio, Nombre = ":D" };
-            ViewData["Consorcio"] = c;
+            ViewData["Consorcio"] = CS.ObtenerPorId(u.IdConsorcio);
 
             if (ModelState.IsValid)
             {
                 u.IdUsuarioCreador = SessionHelper.GetCurrentSession().IdUsuario;
                 US.Alta(u);
+
+                return View();
             }
-            return View();
+            return RedirectToAction("/VerUnidades/" + u.IdConsorcio);
         }
 
         public ActionResult EditarUnidad(int id)
@@ -59,15 +58,36 @@ namespace Web.Controllers
             return View(u);
         }
 
+        [HttpPost]
         public ActionResult EditarUnidad(Unidad u)
         {
+            Unidad unidadObtenida = US.ObtenerPorId(u.IdUnidad);
+            u.Consorcio = unidadObtenida.Consorcio;
+
             if (ModelState.IsValid)
             {
+                u.FechaCreacion = unidadObtenida.FechaCreacion;
+                u.IdUsuarioCreador = unidadObtenida.IdUsuarioCreador;
+
                 US.Modificar(u);
-                return RedirectToAction("/Home/Index");
+                return RedirectToAction("/VerUnidades/" + u.Consorcio.IdConsorcio);
             }
 
-            return View();
+            return View(u);
+        }
+
+        public ActionResult EliminarUnidad(int id)
+        {
+            Unidad u = US.ObtenerPorId(id);
+            return View(u);
+        }
+
+        [HttpPost]
+        public ActionResult EliminarUnidad(Unidad u)
+        {
+            Unidad unidadObtenida = US.ObtenerPorId(u.IdUnidad);
+            US.Eliminar(u.IdUnidad);
+            return RedirectToAction("/VerUnidades/" + unidadObtenida.Consorcio.IdConsorcio);
         }
 
     }

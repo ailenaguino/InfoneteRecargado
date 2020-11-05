@@ -1,0 +1,38 @@
+﻿@model Repositories.Context.Unidad
+@{
+    ViewBag.Title = "EditarUnidad";
+    Layout = "~/Views/Shared/LogueadoLayout.cshtml";
+}
+
+<h2>EditarUnidad</h2>
+<form action="/unidad/editarunidad" method="post">
+    <label>Consorcio:</label>
+    @Model.Consorcio.Nombre
+
+    Nombre de la Unidad:
+    @Html.EditorFor(m => m.Nombre)
+    @Html.ValidationMessageFor(m => m.Nombre)
+
+    Nombre del propietario:
+    @Html.EditorFor(m => m.NombrePropietario)
+    @Html.ValidationMessageFor(m => m.NombrePropietario)
+
+    Apellido del propietario:
+    @Html.EditorFor(m => m.ApellidoPropietario)
+    @Html.ValidationMessageFor(m => m.ApellidoPropietario)
+
+    Email del propietario:
+    @Html.EditorFor(m => m.EmailPropietario)
+    @Html.ValidationMessageFor(m => m.EmailPropietario)
+
+    Superficie (m2):
+    @Html.EditorFor(m => m.Superficie)
+    @Html.ValidationMessageFor(m => m.Superficie)
+
+    <input type="hidden" name="IdUnidad" value="@Model.IdUnidad" />
+
+    <input type="submit" name="name" value="Guardar" />
+    <a href="/VerUnidades/@Model.IdConsorcio">Cancelar</a>
+</form>
+@Html.ActionLink("Eliminar", "EliminarUnidad", new { id = @Model.IdUnidad })
+
