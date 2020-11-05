@@ -83,18 +83,7 @@ namespace Web.Controllers
             g=g.MapearInversa(gasto);
             return View(g);
         }
-        [HttpPost]
-        public ActionResult Modificar(GastoVM gasto)
-        {
-            gasto.idUsuario = SessionHelper.GetCurrentSession().IdUsuario;
-            if (!ModelState.IsValid)
-            {
-                return View(gasto);
-            }
-            Gasto g = gasto.Mapear(gasto.idUsuario,gasto);
-            gastoService.Modificar(g);
-            return RedirectToAction("Lista");
-        }
+         
         public ActionResult Download(string t)
         {
             var document = t;
@@ -113,7 +102,18 @@ namespace Web.Controllers
             // return File(t, document);
             return RedirectToAction("Lista");
         }
-        
-      
+
+        [HttpPost]
+        public ActionResult Modificar(GastoVM gasto)
+        {
+            gasto.idUsuario = SessionHelper.GetCurrentSession().IdUsuario;
+            if (!ModelState.IsValid)
+            {
+                return View(gasto);
+            }
+            Gasto g = gasto.Mapear(gasto.idUsuario, gasto);
+            gastoService.Modificar(g);
+            return RedirectToAction("Lista");
+        }
     }
 }
