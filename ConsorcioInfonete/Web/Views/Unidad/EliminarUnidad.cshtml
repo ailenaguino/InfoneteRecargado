@@ -1,0 +1,14 @@
+﻿@model Repositories.Context.Unidad
+@{
+    ViewBag.Title = "EliminarUnidad";
+    Layout = "~/Views/Shared/LogueadoLayout.cshtml";
+}
+
+<h2>EliminarUnidad</h2>
+
+Esta seguro que desea eliminar la unidad @Model.Nombre del Consorcio @Model.Consorcio.Nombre?
+<form action="/Unidad/EliminarUnidad" method="post">
+    <input type="hidden" name="IdUnidad" value="@Model.IdUnidad" />
+    <input type="submit" name="name" value="Eliminar" />
+    <a href="/VerUnidades/@Model.IdConsorcio">Cancelar</a>
+</form>
