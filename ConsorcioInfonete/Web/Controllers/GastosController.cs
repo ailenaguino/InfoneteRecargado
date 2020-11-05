@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Mime;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using Web.Helpers;
 using Web.Models;
 
@@ -26,9 +27,13 @@ namespace Web.Controllers
             return View();
         }
 
-        public ActionResult Lista()
+        public ActionResult Lista(int id)
         {
-            List<Gasto> gastos = gastoService.ObtenerTodos();
+            List<Gasto> gastos = gastoService.ObtenerGastoPorConsorcio(id);
+            if (gastos != null)
+            {
+                ViewBag.nombre = gastos.First().Consorcio.Nombre;
+            }
             return View(gastos);
         }
         public ActionResult Alta()
@@ -36,27 +41,40 @@ namespace Web.Controllers
             return View(new GastoVM());
         }
         [HttpPost]
-        public ActionResult Alta(GastoVM gasto, string accion)
+        public ActionResult AltaGasto(GastoVM gasto, string accion, HttpPostedFileBase file)
         {
             if (accion == "Cancelar")
             {
-                return RedirectToAction("Lista");
+                return Redirect("/Gastos/Lista?id="+gasto.idConsorcio);
             }
-
+            
+                     
             if (!ModelState.IsValid)
             {
                 return View();
             }
-           
+
+            if (file != null)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Gastos"), fileName);
+                file.SaveAs(path);
+                gasto.ArchivoComprobante =fileName;
+            }
+            else
+            {
+                gasto.ArchivoComprobante = "";
+            }
             int idUser = SessionHelper.GetCurrentSession().IdUsuario;
-            Gasto gast=gasto.Mapear(idUser, gasto);
+            gasto.idUsuario = idUser;
+            Gasto gast = gasto.Mapear(gasto);
             gastoService.Alta(gast);
 
             if (accion == "Guardar")
             {
-                return RedirectToAction("Lista");                    
+                return Redirect("/Gastos/Lista?id=" + gasto.idConsorcio);
             }
-          
+
             ViewBag.msj = "Creado con exito";
             return View();
         }
@@ -65,11 +83,13 @@ namespace Web.Controllers
             Gasto g = gastoService.ObtenerPorId(id);
             return View(g);
         }
-        [HttpPost]
-        public ActionResult EliminarGasto(Gasto gasto)
+        
+        public ActionResult EliminarGasto(int idGasto)
         {
+            Gasto gasto = gastoService.ObtenerPorId(idGasto);
+            int idConsorcio = gasto.IdConsorcio;
             gastoService.Eliminar(gasto.IdGasto);
-            return RedirectToAction("Lista");
+            return Redirect("/Gastos/Lista?id=" + idConsorcio);
         }
 
         public ActionResult Modificar(int id)
@@ -79,6 +99,7 @@ namespace Web.Controllers
             {
                 return RedirectToAction("Lista");
             }
+          
             GastoVM g = new GastoVM();
             g=g.MapearInversa(gasto);
             return View(g);
@@ -94,13 +115,13 @@ namespace Web.Controllers
 
                 // always prompt the user for downloading, set to true if you want 
                 // the browser to try to show the file inline
-                Inline = false,
+                Inline = true,
             };
             Response.AppendHeader("Content-Disposition", "attachment; filename="+t);
             Response.TransmitFile(t);
             Response.End();
-            // return File(t, document);
-            return RedirectToAction("Lista");
+             return File(t, document);
+           // return RedirectToAction("Lista");
         }
 
         [HttpPost]
@@ -111,9 +132,10 @@ namespace Web.Controllers
             {
                 return View(gasto);
             }
-            Gasto g = gasto.Mapear(gasto.idUsuario, gasto);
+            Gasto g = gasto.Mapear(gasto);
             gastoService.Modificar(g);
-            return RedirectToAction("Lista");
+            return Redirect("/Gastos/Lista?id=" + g.IdConsorcio);
+
         }
     }
 }

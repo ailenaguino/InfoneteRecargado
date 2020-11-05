@@ -28,5 +28,13 @@ namespace Repositories
 
             ctx.SaveChanges();
         }
+        public List<Gasto> ObtenerGastoPorConsorcio(int c)
+        {
+            return (from g in ctx.Gasto
+                    where g.IdConsorcio == c
+                    orderby g.FechaGasto descending
+                    select g).ToList();
+
+        }
     }
 }
