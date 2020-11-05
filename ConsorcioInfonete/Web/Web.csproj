@@ -249,6 +249,7 @@
     <Compile Include="Helpers\SessionFilter.cs" />
     <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="Models\ConsorcioVM.cs" />
+    <Compile Include="Models\FileUploadModel.cs" />
     <Compile Include="Models\GastoVM.cs" />
     <Compile Include="Models\UsuarioVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

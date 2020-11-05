@@ -4,10 +4,10 @@
     Layout = "~/Views/Shared/LogueadoLayout.cshtml";
 }
 
-<h2>Lista</h2>
+<h2>Consorcio "@ViewBag.nombre" - Gastos</h2>
 <div class="table-responsive-lg">
     <a href="/Gastos/Alta" class="float-right mb-2">Nuevo Gasto</a>
-    <table class="table table-hover">
+    <table id="tabla" class="table table-hover table-striped table-bordered">
         <thead class="thead-dark">
             <tr>
                 <th class="align-middle text-center">Año Expensa</th>
@@ -67,3 +67,10 @@
         </tbody>
     </table>
 </div>
+
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/Scripts/datatable/datatables.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/datatable/pagination.js"></script>
+}

@@ -10,11 +10,15 @@ namespace Services
 {
     public class GastoService:BaseService<GastoRepository,Gasto>
     {
+        GastoRepository repo;
         public GastoService(PW3_TP_20202CEntities ctx):base(ctx)
         {
-             
+            repo = new GastoRepository(ctx);
         }
-       
 
+        public List<Gasto> ObtenerGastoPorConsorcio(int c)
+        {
+            return repo.ObtenerGastoPorConsorcio(c);
+        }
     }
 }

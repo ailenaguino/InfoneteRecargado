@@ -31,23 +31,21 @@ namespace Web.Models
         public int idGasto { get; set; }
         public string Descripcion { get; set; } = string.Empty;
         public string ArchivoComprobante { get; set; }
-
-        public Gasto Mapear(int idusuario, GastoVM gasto)
+        public Gasto Mapear(GastoVM gasto)
         {
             Gasto g = new Gasto()
-            {
-                Nombre = gasto.Nombre,
-                IdGasto=gasto.idGasto,
-                Descripcion = gasto.Descripcion,
-                IdConsorcio = gasto.idConsorcio,
+            {                
                 IdTipoGasto = gasto.idTipoGasto,
+                IdConsorcio = gasto.idConsorcio,
+                IdUsuarioCreador = gasto.idUsuario,
+                Nombre = gasto.Nombre,
+                Descripcion = gasto.Descripcion,
                 FechaGasto = gasto.Fecha,
                 AnioExpensa = gasto.AnioExpensa,
                 MesExpensa = gasto.MesExpensa,
-                ArchivoComprobante = "",
+                ArchivoComprobante = gasto.ArchivoComprobante,
                 Monto = gasto.Monto,
-                FechaCreacion = DateTime.Now,
-                IdUsuarioCreador = idusuario
+                FechaCreacion = DateTime.Now
             };
             return g;
         }
@@ -57,16 +55,16 @@ namespace Web.Models
             GastoVM g = new GastoVM()
             {
                 idGasto=gasto.IdGasto,
-                Nombre = gasto.Nombre,
-                Descripcion = gasto.Descripcion,
+                idUsuario = gasto.IdUsuarioCreador,
                 idConsorcio = gasto.IdConsorcio,
                 idTipoGasto = gasto.IdTipoGasto,
+                Nombre = gasto.Nombre,
+                Descripcion = gasto.Descripcion,
                 Fecha = gasto.FechaGasto,
                 AnioExpensa = gasto.AnioExpensa,
                 MesExpensa = gasto.MesExpensa,
-                ArchivoComprobante = "",
-                Monto = gasto.Monto,
-                idUsuario = gasto.IdUsuarioCreador
+                ArchivoComprobante = gasto.ArchivoComprobante,
+                Monto = gasto.Monto
             };
             return g;
         }
