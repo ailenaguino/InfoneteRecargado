@@ -9,7 +9,7 @@
         @Html.HiddenFor(Model => Model.IdGasto, new { htmlAttributes = new { @Value = Model.IdGasto } })
         <div class="mt-3">
             <button class="btn btn-lg btn-primary mr-4">Eliminar</button>        
-            <a href="/Gastos/Lista?id=@Model.IdConsorcio" class="btn btn-lg btn-danger">Cancelar</a>         
+            <a href="/Gastos/VerGastos?idConsorcio=@Model.IdConsorcio" class="btn btn-lg btn-danger">Cancelar</a>         
         </div> 
     </form>
 </div>

@@ -18,7 +18,8 @@ namespace Services
 
         public List<Gasto> ObtenerGastoPorConsorcio(int c)
         {
-            return repo.ObtenerGastoPorConsorcio(c);
+            return repo.ObtenerGastoPorConsorcio(c);        
         }
+        
     }
 }

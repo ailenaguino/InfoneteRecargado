@@ -238,7 +238,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ConsorcioController.cs" />
     <Compile Include="Controllers\ExpensasController.cs" />
-    <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\GastosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UnidadController.cs" />
@@ -277,10 +276,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\pv_Footer.cshtml" />
     <Content Include="Views\Consorcio\Index.cshtml" />
-    <Content Include="Views\Gastos\Lista.cshtml" />
-    <Content Include="Views\Gastos\Index.cshtml" />
-    <Content Include="Views\Gastos\DownloadFile.cshtml" />
-    <Content Include="Views\Gastos\Alta.cshtml" />
     <Content Include="VerUnidades.cshtml" />
     <Content Include="Views\Unidad\CrearUnidad.cshtml" />
     <Content Include="Views\Gastos\Eliminar.cshtml" />
@@ -288,6 +283,8 @@
     <Content Include="Views\Unidad\EditarUnidad.cshtml" />
     <Content Include="Views\Unidad\EliminarUnidad.cshtml" />
     <Content Include="Views\Unidad\VerUnidades.cshtml" />
+    <Content Include="Views\Gastos\VerGastos.cshtml" />
+    <Content Include="Views\Gastos\CrearGasto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -299,7 +296,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Gastos\" />
     <Folder Include="Views\Expensas\" />
-    <Folder Include="Views\FileUpload\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
