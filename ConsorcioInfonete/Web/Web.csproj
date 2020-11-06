@@ -305,7 +305,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Repositories\Repositories.csproj">
-      <Project>{EAFDA870-3EFE-461C-A3BE-C69C2FE952EF}</Project>
+      <Project>{eafda870-3efe-461c-a3be-c69c2fe952ef}</Project>
       <Name>Repositories</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
