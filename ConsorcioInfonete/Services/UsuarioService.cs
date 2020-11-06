@@ -8,7 +8,7 @@ using Repositories.Context;
 
 namespace Services
 {
-    public class UsuarioService:BaseService<UsuarioRepository, Usuario>
+    public class UsuarioService : BaseService<UsuarioRepository, Usuario>
     {
         public UsuarioService(PW3_TP_20202CEntities contexto) : base(contexto)
         {
@@ -22,6 +22,20 @@ namespace Services
         public void UpdateLoginDate(Usuario user)
         {
             repo.UpdateLoginDate(user);
+        }
+
+        public void Register(Usuario user)
+        {
+            if (repo.CheckEmail(user))
+            {
+                user.FechaRegistracion = DateTime.Now;
+                repo.Alta(user);
+            }
+            else
+            {
+                throw new Exception("El mail ya se encuentra en uso, pruebe utilizando otro");
+            }
+
         }
     }
 }
