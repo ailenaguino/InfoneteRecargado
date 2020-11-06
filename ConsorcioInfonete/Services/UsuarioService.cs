@@ -18,5 +18,10 @@ namespace Services
         {
             return repo.GetByEmailAndPassword(email, password);
         }
+
+        public void UpdateLoginDate(Usuario user)
+        {
+            repo.UpdateLoginDate(user);
+        }
     }
 }

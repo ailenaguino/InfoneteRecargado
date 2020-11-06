@@ -32,6 +32,7 @@ namespace Web.Controllers
                 Usuario usuario = servicio.GetByEmailAndPassword(user.Email, user.Password);
                 if (usuario != null)
                 {
+                    servicio.UpdateLoginDate(usuario);
                     SessionHelper.SetSession(usuario);
                     if (SessionFilter.LastUrl != null) return Redirect(SessionFilter.LastUrl);
                     return RedirectToAction("Index", "Consorcio");

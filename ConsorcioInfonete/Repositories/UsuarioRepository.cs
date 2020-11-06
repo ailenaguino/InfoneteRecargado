@@ -23,5 +23,11 @@ namespace Repositories
         {
             return ctx.Usuario.FirstOrDefault(usuario => usuario.Email == email && usuario.Password == password);
         }
+
+        public void UpdateLoginDate(Usuario user)
+        {
+            user.FechaUltLogin=DateTime.Now;
+            ctx.SaveChanges();
+        }
     }
 }
