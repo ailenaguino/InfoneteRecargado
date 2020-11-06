@@ -34,7 +34,8 @@ namespace Web.Models
         public Gasto Mapear(GastoVM gasto)
         {
             Gasto g = new Gasto()
-            {                
+            {        
+                IdGasto=gasto.idGasto,
                 IdTipoGasto = gasto.idTipoGasto,
                 IdConsorcio = gasto.idConsorcio,
                 IdUsuarioCreador = gasto.idUsuario,

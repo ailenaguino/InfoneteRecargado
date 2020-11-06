@@ -26,62 +26,61 @@ namespace Web.Controllers
         {
             return View();
         }
-
-        public ActionResult Lista(int id)
+        
+        public ActionResult VerGastos(int idConsorcio)
         {
-            List<Gasto> gastos = gastoService.ObtenerGastoPorConsorcio(id);
-            if (gastos != null)
+            List<Gasto> gastos = gastoService.ObtenerGastoPorConsorcio(idConsorcio);
+            if (gastos.Count>0)
             {
-                ViewBag.nombre = gastos.First().Consorcio.Nombre;
+                ViewBag.nombre = gastos[0].Consorcio.Nombre;
+                ViewBag.id = gastos[0].Consorcio.IdConsorcio;
             }
             return View(gastos);
         }
-        public ActionResult Alta()
+
+        public ActionResult CrearGasto(int idConsorcio)
         {
-            return View(new GastoVM());
+            GastoVM gasto= new GastoVM();
+            gasto.idConsorcio = idConsorcio;
+            return View(gasto);
         }
+
         [HttpPost]
-        public ActionResult AltaGasto(GastoVM gasto, string accion, HttpPostedFileBase file)
+        public ActionResult CrearGasto(GastoVM gasto, string accion, HttpPostedFileBase file)
         {
-            if (accion == "Cancelar")
-            {
-                return Redirect("/Gastos/Lista?id="+gasto.idConsorcio);
-            }
-            
-                     
+
             if (!ModelState.IsValid)
             {
-                return View();
+                return View(gasto);
             }
-
-            if (file != null)
-            {
-                var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/Gastos"), fileName);
-                file.SaveAs(path);
-                gasto.ArchivoComprobante =fileName;
-            }
-            else
-            {
-                gasto.ArchivoComprobante = "";
-            }
-            int idUser = SessionHelper.GetCurrentSession().IdUsuario;
-            gasto.idUsuario = idUser;
-            Gasto gast = gasto.Mapear(gasto);
-            gastoService.Alta(gast);
-
-            if (accion == "Guardar")
-            {
-                return Redirect("/Gastos/Lista?id=" + gasto.idConsorcio);
-            }
-
-            ViewBag.msj = "Creado con exito";
-            return View();
+                if (file != null)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Gastos/"), fileName);
+                    file.SaveAs(path);
+                    gasto.ArchivoComprobante = fileName;
+                }
+                else
+                {
+                    gasto.ArchivoComprobante = "";
+                }
+                int idUser = SessionHelper.GetCurrentSession().IdUsuario;
+                gasto.idUsuario = idUser;
+                Gasto gast = gasto.Mapear(gasto);
+                gastoService.Alta(gast);
+                if (accion == "Guardar")
+                {
+                    return Redirect("/Gastos/VerGastos?idConsorcio=" + gasto.idConsorcio);
+                }
+         
+              
+            return Redirect("/Gastos/VerGastos?idConsorcio=" + gasto.idConsorcio);
         }
-        public ActionResult Eliminar(int id)
+
+        public ActionResult Eliminar(int idGasto)
         {
-            Gasto g = gastoService.ObtenerPorId(id);
-            return View(g);
+            Gasto gasto = gastoService.ObtenerPorId(idGasto);
+            return View(gasto);
         }
         
         public ActionResult EliminarGasto(int idGasto)
@@ -89,22 +88,43 @@ namespace Web.Controllers
             Gasto gasto = gastoService.ObtenerPorId(idGasto);
             int idConsorcio = gasto.IdConsorcio;
             gastoService.Eliminar(gasto.IdGasto);
-            return Redirect("/Gastos/Lista?id=" + idConsorcio);
+            return Redirect("/Gastos/VerGastos?idConsorcio=" + idConsorcio);
         }
 
-        public ActionResult Modificar(int id)
+        public ActionResult Modificar(int idGasto)
         {
-            Gasto gasto = gastoService.ObtenerPorId(id);
-            if (gasto==null)
+            Gasto gasto = gastoService.ObtenerPorId(idGasto);
+                     
+            GastoVM gastoVM = new GastoVM();
+            gastoVM = gastoVM.MapearInversa(gasto);
+            return View(gastoVM);
+        }       
+     
+        [HttpPost]
+        public ActionResult Modificar(GastoVM gasto, HttpPostedFileBase file)
+        {
+            //gasto.idUsuario = SessionHelper.GetCurrentSession().IdUsuario;
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction("Lista");
+                return View(gasto);
             }
-          
-            GastoVM g = new GastoVM();
-            g=g.MapearInversa(gasto);
-            return View(g);
+            if (file != null || gasto.ArchivoComprobante=="")
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Gastos/"), fileName);
+                file.SaveAs(path);
+                gasto.ArchivoComprobante = fileName;
+            }
+            else
+            {
+                gasto.ArchivoComprobante = "";
+            }
+            Gasto g = gasto.Mapear(gasto);
+            gastoService.Modificar(g);
+            return Redirect("/Gastos/VerGastos?idConsorcio=" + g.IdConsorcio);
+
         }
-         
+
         public ActionResult Download(string t)
         {
             var document = t;
@@ -115,27 +135,13 @@ namespace Web.Controllers
 
                 // always prompt the user for downloading, set to true if you want 
                 // the browser to try to show the file inline
-                Inline = true,
+                Inline = false,
             };
-            Response.AppendHeader("Content-Disposition", "attachment; filename="+t);
+            Response.AppendHeader("Content-Disposition", "attachment; filename=" + t);
             Response.TransmitFile(t);
             Response.End();
-             return File(t, document);
-           // return RedirectToAction("Lista");
-        }
-
-        [HttpPost]
-        public ActionResult Modificar(GastoVM gasto)
-        {
-            gasto.idUsuario = SessionHelper.GetCurrentSession().IdUsuario;
-            if (!ModelState.IsValid)
-            {
-                return View(gasto);
-            }
-            Gasto g = gasto.Mapear(gasto);
-            gastoService.Modificar(g);
-            return Redirect("/Gastos/Lista?id=" + g.IdConsorcio);
-
+            return File(t, document);
+            // return RedirectToAction("Lista");
         }
     }
 }
