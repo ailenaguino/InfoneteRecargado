@@ -17,7 +17,7 @@ namespace Repositories
         public override void Modificar(Gasto g)
         {
             Gasto gastoActual = ObtenerPorId(g.IdGasto);
-            gastoActual.IdTipoGasto = g.IdTipoGasto;
+            gastoActual.IdTipoGasto = g.IdTipoGasto;            
             gastoActual.Nombre = g.Nombre;
             gastoActual.Descripcion = g.Descripcion;
             gastoActual.FechaGasto = g.FechaGasto;
@@ -25,8 +25,17 @@ namespace Repositories
             gastoActual.MesExpensa = g.MesExpensa;
             gastoActual.ArchivoComprobante = g.ArchivoComprobante;
             gastoActual.Monto = g.Monto;
-
+           
             ctx.SaveChanges();
+        }
+       
+        public List<Gasto> ObtenerGastoPorConsorcio(int c)
+        {
+            return (from g in ctx.Gasto
+                    where g.IdConsorcio == c
+                    orderby g.FechaGasto descending
+                    select g).ToList();
+
         }
     }
 }
