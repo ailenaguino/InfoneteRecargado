@@ -14,7 +14,7 @@ namespace Web.Helpers
         {
             if (SessionHelper.GetCurrentSession() == null)
             {
-                if (filterContext.Controller is UsuarioController == false&&filterContext.Controller is HomeController==false)
+                if (filterContext.Controller is HomeController==false)
                 {
                     LastUrl = "~"+filterContext.HttpContext.Request.RawUrl;
                     filterContext.HttpContext.Response.Redirect("~/Usuario/Login");
@@ -22,7 +22,7 @@ namespace Web.Helpers
             }
             else
             {
-                if (filterContext.Controller is UsuarioController || filterContext.Controller is HomeController)
+                if (filterContext.Controller is HomeController)
                 {
                     filterContext.HttpContext.Response.Redirect("~/Consorcio/Index");
                 }
