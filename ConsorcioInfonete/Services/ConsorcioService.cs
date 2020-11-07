@@ -10,9 +10,15 @@ namespace Services
 {
     public class ConsorcioService : BaseService<ConsorcioRepository, Consorcio>
     {
+        ConsorcioRepository repo;
         public ConsorcioService(PW3_TP_20202CEntities contexto) : base(contexto)
         {
-
+            repo = new ConsorcioRepository(contexto);
+        }
+        public List<Consorcio> ObtenerConsorciosDeUnUsuario(int id)
+        {
+            
+            return repo.ObtenerConsorciosDeUnUsuario(id);
         }
     }
 }

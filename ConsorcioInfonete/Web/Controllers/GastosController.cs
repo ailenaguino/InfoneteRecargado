@@ -82,7 +82,7 @@ namespace Web.Controllers
             Gasto gasto = gastoService.ObtenerPorId(idGasto);
             return View(gasto);
         }
-        
+
         public ActionResult EliminarGasto(int idGasto)
         {
             Gasto gasto = gastoService.ObtenerPorId(idGasto);

@@ -1,0 +1,54 @@
+﻿@model Web.Models.ConsorcioVM
+@{
+    ViewBag.Title = "CrearConsorcio";
+    Layout = "~/Views/Shared/LogueadoLayout.cshtml";
+}
+
+<form class="form-signin text-center" action="/Consorcio/CrearConsorcio" method="post" enctype="multipart/form-data">
+    <h2 class="h3 mb-3 font-weight-normal">Crear Nuevo Consorcio</h2>
+
+    <div class="form-group">
+        @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Nombre" } })
+        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.EditorFor(Model => Model.IdProvincia, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Provincia" } })
+    </div>
+
+    <div class="form-group">
+        @Html.EditorFor(Model => Model.Ciudad, new { htmlAttributes = new { @class = "mt-1 form-control", rows = "3", placeholder = "Ciudad" } })
+        @Html.ValidationMessageFor(model => model.Ciudad, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.EditorFor(Model => Model.Calle, new { htmlAttributes = new { @class = "mt-1 form-control", rows = "3", placeholder = "Calle" } })
+        @Html.ValidationMessageFor(model => model.Calle, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.EditorFor(Model => Model.Altura, new { htmlAttributes = new { @class = "mt-1 form-control", rows = "3", placeholder = "Altura" } })
+        @Html.ValidationMessageFor(model => model.Altura, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.EditorFor(Model => Model.DiaVencimientoExpensas, new { htmlAttributes = new { @min = 1, @max = "31", @Value = "24", @class = "mt-1 form-control", placeholder = "Dia vencimiento expensa" } })
+        @Html.ValidationMessageFor(model => model.DiaVencimientoExpensas, "", new { @class = "text-danger" })
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <input class="btn btn-lg btn-primary btn mt-4" type="submit" name="accion" value="Guardar" />
+        </div>
+        <div class="col-md-4">
+            <input class="btn btn-lg btn-outline-success btn mt-4" type="submit" name="accion" value="Guardar y Crear otro Consorcio" />
+        </div>
+        <div class="col-md-4">
+            <a href="/Unidad/CrearUnidad?id=@Model.IdConsorcio" class="btn btn-lg btn-danger btn mt-4">"Guardar y Crear Unidad"</a>
+        </div>
+        <div class="col-md-4">
+            <a href="/Consorcio/Lista" class="btn btn-lg btn-danger btn mt-4">"Cancelar"</a>
+        </div>
+    </div>
+</form>
