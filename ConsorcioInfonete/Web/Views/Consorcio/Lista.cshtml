@@ -1,0 +1,78 @@
+﻿@model List<Repositories.Context.Consorcio>
+
+@{
+    ViewBag.Title = "Lista";
+    Layout = "~/Views/Shared/LogueadoLayout.cshtml";
+
+
+}
+
+<h2>Ver Consorcios</h2>
+@Html.ActionLink("Crear Nuevo", "CrearConsorcio")
+
+<table id="tabla" class="table table-striped table-bordered" width="100%">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Provincia
+            </th>
+            <th>
+                Ciudad
+            </th>
+            <th>
+                Unidades
+            </th>
+            <th>
+                Expensas
+            </th>
+            <th>
+                Gastos
+            </th>
+            <th>
+                Eliminar
+            </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var con in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(o => con.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(o => con.IdProvincia)
+                </td>
+                <td>
+                    @Html.DisplayFor(o => con.Ciudad)
+                </td>
+                <td>
+                    @Html.ActionLink("Ver Unidades", "VerUnidades", new { id = con.IdConsorcio })
+                </td>
+                <td>
+                    @Html.ActionLink("Ver Expensas", "VerExpensas", new { id = con.IdConsorcio })
+                </td>
+                <td>
+                    @Html.ActionLink("Ver Gastos", "VerGastos", new { id = con.IdConsorcio })
+                </td>
+                <td>
+                    <a href="/Consorcio/Eliminar?idConsorcio=@con.IdConsorcio" class="text-danger">Eliminar</a>
+</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<hr>
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/Scripts/datatable/datatables.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/datatable/pagination.js"></script>
+}

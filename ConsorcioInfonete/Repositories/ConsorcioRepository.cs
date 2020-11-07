@@ -17,5 +17,12 @@ namespace Repositories
         {
             throw new NotImplementedException();
         }
+
+        public List<Consorcio> ObtenerConsorciosDeUnUsuario(int id)
+        {
+            
+            return ctx.Consorcio.Where(o => o.IdUsuarioCreador == id).ToList();
+        }
+
     }
 }

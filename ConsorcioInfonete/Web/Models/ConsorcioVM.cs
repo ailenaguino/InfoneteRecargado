@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Repositories.Context;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Web;
+
 
 
 namespace Web.Models
@@ -29,6 +33,25 @@ namespace Web.Models
         [Range(1, 31)]
         public int DiaVencimientoExpensas { get; set; }
 
+        public int IdConsorcio { get; set; }
+
         public int IdUsuarioCreador { get; set; }
+
+        public Consorcio Mapear(ConsorcioVM consorcio)
+        {
+            Consorcio cons = new Consorcio()
+            {
+                IdConsorcio = consorcio.IdConsorcio,
+                Nombre = consorcio.Nombre,
+                IdProvincia = consorcio.IdProvincia,
+                Ciudad = consorcio.Ciudad,
+                Calle = consorcio.Calle,
+                Altura = consorcio.Altura,
+                DiaVencimientoExpensas = consorcio.DiaVencimientoExpensas,
+                FechaCreacion = DateTime.Now,
+                IdUsuarioCreador = consorcio.IdUsuarioCreador,
+            };
+            return cons;
+        }
     }
 }
