@@ -4,6 +4,16 @@
     Layout = "~/Views/Shared/LogueadoLayout.cshtml";
 }
 
+<p>
+    <a href="/Consorcio/Listar">Mis Consorcios</a>
+    >
+    @Model.Consorcio.Nombre
+    >
+    @Html.ActionLink("Unidades", "VerUnidades", new { id = Model.IdConsorcio })
+    >
+    Eliminar Unidad
+</p>
+
 <h2>EliminarUnidad</h2>
 
 Esta seguro que desea eliminar la unidad @Model.Nombre del Consorcio @Model.Consorcio.Nombre?

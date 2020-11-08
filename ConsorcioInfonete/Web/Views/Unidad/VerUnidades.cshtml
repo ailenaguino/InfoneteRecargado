@@ -7,8 +7,24 @@
 
 }
 
+@foreach (var u in Model)
+{
+    <p>
+        <a href="/Consorcio/Listar">Mis Consorcios</a>
+        >
+        @u.Consorcio.Nombre
+        >
+        Unidades
+    </p>
+    break;
+}
+
 <h2>VerUnidades</h2>
-@Html.ActionLink("Crear Nueva", "CrearUnidad")
+@foreach (var u in Model)
+{
+    @Html.ActionLink("Crear Nueva", "CrearUnidad", new { id = u.IdConsorcio })
+    break;
+}
 
 <table id="tabla" class="table table-striped table-bordered" width="100%">
     <thead>

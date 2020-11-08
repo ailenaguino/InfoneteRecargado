@@ -24,20 +24,30 @@ namespace Web.Controllers
         // GET: Unidad
         public ActionResult VerUnidades(int id)
         {
-            List<Unidad> unidades = US.ObtenerTodos(id);
+            if (CS.ObtenerPorId(id).IdUsuarioCreador==SessionHelper.GetCurrentSession().IdUsuario)
+            {
+                List<Unidad> unidades = US.ObtenerTodos(id);
 
-            return View(unidades);
+                return View(unidades);
+            }
+
+            return RedirectToAction("/Consorcio/Lista");
         }
 
         public ActionResult CrearUnidad(int id)
         {
-            ViewData["Consorcio"] = CS.ObtenerPorId(id);
+            if (CS.ObtenerPorId(id).IdUsuarioCreador == SessionHelper.GetCurrentSession().IdUsuario)
+            {
+                ViewData["Consorcio"] = CS.ObtenerPorId(id);
 
-            return View();
+                return View();
+            }
+
+            return RedirectToAction("/Consorcio/Lista");
         }
 
         [HttpPost]
-        public ActionResult CrearUnidad(Unidad u)
+        public ActionResult CrearUnidad(Unidad u, string guardar)
         {
             ViewData["Consorcio"] = CS.ObtenerPorId(u.IdConsorcio);
 
@@ -45,17 +55,23 @@ namespace Web.Controllers
             {
                 u.IdUsuarioCreador = SessionHelper.GetCurrentSession().IdUsuario;
                 US.Alta(u);
-
-                return View();
+                if (guardar == "Guardar") {
+                    return RedirectToAction("/VerUnidades/" + u.Consorcio.IdConsorcio);
+                }
             }
-            return RedirectToAction("/VerUnidades/" + u.IdConsorcio);
+            return View();
         }
 
         public ActionResult EditarUnidad(int id)
         {
-            Unidad u = US.ObtenerPorId(id);
+            if (US.ObtenerPorId(id).IdUsuarioCreador == SessionHelper.GetCurrentSession().IdUsuario)
+            {
+                Unidad u = US.ObtenerPorId(id);
 
-            return View(u);
+                return View(u);
+            }
+
+            return RedirectToAction("/Consorcio/Lista");
         }
 
         [HttpPost]
@@ -78,8 +94,14 @@ namespace Web.Controllers
 
         public ActionResult EliminarUnidad(int id)
         {
-            Unidad u = US.ObtenerPorId(id);
-            return View(u);
+            if (US.ObtenerPorId(id).IdUsuarioCreador == SessionHelper.GetCurrentSession().IdUsuario)
+            {
+                Unidad u = US.ObtenerPorId(id);
+
+                return View(u);
+            }
+
+            return RedirectToAction("/Consorcio/Lista");
         }
 
         [HttpPost]
