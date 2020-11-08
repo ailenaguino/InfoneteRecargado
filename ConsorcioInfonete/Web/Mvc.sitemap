@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0">
+	<mvcSiteMapNode title="Mis Consorcios" controller="Consorcio" action="Listar">
+		<mvcSiteMapNode title="Mis Unidades" controller="Unidad" action="VerUnidades" />
+		<mvcSiteMapNode title="CrearUnidad" controller="Unidad" action="CrearUnidad" />
+		<mvcSiteMapNode title="Unidad" clickable="false">
+			<mvcSiteMapNode title="Editar Unidad" controller="Unidad" action="EditarUnidad" />
+			<mvcSiteMapNode title="Eliminar Unidad" controller="Unidad" action="EliminarUnidad" />
+		</mvcSiteMapNode>
+	</mvcSiteMapNode>
+</mvcSiteMap>

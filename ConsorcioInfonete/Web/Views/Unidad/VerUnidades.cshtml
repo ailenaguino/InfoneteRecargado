@@ -1,57 +1,63 @@
 ﻿@model List<Repositories.Context.Unidad>
 
-@{
-    ViewBag.Title = "VerUnidades";
-    Layout = "~/Views/Shared/LogueadoLayout.cshtml";
+    @{
+        ViewBag.Title = "VerUnidades";
+        Layout = "~/Views/Shared/LogueadoLayout.cshtml";
 
 
-}
+    }
 
-<h2>VerUnidades</h2>
-@Html.ActionLink("Crear Nueva", "CrearUnidad")
 
-<table id="tabla" class="table table-striped table-bordered" width="100%">
-    <thead>
-        <tr>
-            <th>
-                Unidad
-            </th>
-            <th>
-                Apellido
-            </th>
-            <th>
-                Nombre
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+    <h2>VerUnidades</h2>
+    @Html.MvcSiteMap().SiteMapPath("~/Views/Shared/SiteMapBreadcrumb.cshtml")
+    @Html.MvcSiteMap().SiteMapPath("SiteMapBreadcrumb")
+@{Html.RenderPartial("~/Views/Shared/SiteMapBreadcrumb.cshtml")};
 
-    <tbody>
-        @foreach (var u in Model)
-        {
+    <hr />
+    @Html.ActionLink("Crear Nueva", "CrearUnidad")
+
+    <table id="tabla" class="table table-striped table-bordered" width="100%">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(m => u.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => u.ApellidoPropietario)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => u.NombrePropietario)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "EditarUnidad", new { id = u.IdUnidad }) |
-                    @Html.ActionLink("Eliminar", "EliminarUnidad", new { id = u.IdUnidad })
-                </td>
+                <th>
+                    Unidad
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
+        </thead>
 
-</table>
-<hr>
+        <tbody>
+            @foreach (var u in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => u.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => u.ApellidoPropietario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => u.NombrePropietario)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "EditarUnidad", new { id = u.IdUnidad }) |
+                        @Html.ActionLink("Eliminar", "EliminarUnidad", new { id = u.IdUnidad })
+                    </td>
+                </tr>
+            }
+        </tbody>
 
-@section Scripts
+    </table>
+    <hr>
+
+    @section Scripts
 {
-    <script type="text/javascript" src="~/Scripts/datatable/datatables.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/datatable/pagination.js"></script>
-}
+        <script type="text/javascript" src="~/Scripts/datatable/datatables.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/datatable/pagination.js"></script>
+    }
