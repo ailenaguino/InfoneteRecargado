@@ -1,0 +1,4 @@
+----Tomas---
+<connectionStrings>
+	<add name="PW3_TP_20202CEntities" connectionString="metadata=res://*/Context.ConsorcioDB.csdl|res://*/Context.ConsorcioDB.ssdl|res://*/Context.ConsorcioDB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP-JVQNDN2\SQLEXPRESS;initial catalog=PW3_TP_20202C;user id=sa;password=1234;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+</connectionStrings>
