@@ -255,7 +255,7 @@
     <Compile Include="Helpers\SessionFilter.cs" />
     <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="Models\ConsorcioVM.cs" />
-    <Compile Include="Models\FileUploadModel.cs" />
+    <Compile Include="Models\FileVM.cs" />
     <Compile Include="Models\GastoVM.cs" />
     <Compile Include="Models\UsuarioRegistroVM.cs" />
     <Compile Include="Models\UsuarioVM.cs" />
