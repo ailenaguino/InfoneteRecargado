@@ -13,15 +13,17 @@
                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                 </div>
                 @Html.EditorFor(Model => Model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div> <!-- form-group// -->
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
                 @Html.EditorFor(Model => Model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Contraseña" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger " })
             </div> <!-- form-group// -->
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger " })
+
             <div class="form-group">
                 <span class="text-danger">@error</span>
                 <button type="submit" class="btn btn-primary btn-block"> Ingresar </button>

@@ -39,7 +39,7 @@ namespace Web.Controllers
                     servicio.UpdateLoginDate(usuario);
                     SessionHelper.SetSession(usuario);
                     if (SessionFilter.LastUrl != null) return Redirect(SessionFilter.LastUrl);
-                    return RedirectToAction("Index", "Consorcio");
+                    return RedirectToAction("Lista", "Consorcio");
 
                 }
 
@@ -75,6 +75,12 @@ namespace Web.Controllers
                 }
             }
             return View("Registro",new UsuarioRegistroVM());
+        }
+
+        public ActionResult LogOut()
+        {
+           SessionHelper.RemoveSession();
+           return View("Index");
         }
     }
 }
