@@ -47,7 +47,7 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult CrearUnidad(Unidad u)
+        public ActionResult CrearUnidad(Unidad u, string guardar)
         {
             ViewData["Consorcio"] = CS.ObtenerPorId(u.IdConsorcio);
 
@@ -55,10 +55,11 @@ namespace Web.Controllers
             {
                 u.IdUsuarioCreador = SessionHelper.GetCurrentSession().IdUsuario;
                 US.Alta(u);
-
-                return View();
+                if (guardar == "Guardar") {
+                    return RedirectToAction("/VerUnidades/" + u.Consorcio.IdConsorcio);
+                }
             }
-            return RedirectToAction("/VerUnidades/" + u.IdConsorcio);
+            return View();
         }
 
         public ActionResult EditarUnidad(int id)
