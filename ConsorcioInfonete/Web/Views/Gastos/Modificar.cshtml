@@ -12,7 +12,7 @@
 
 <form class="form-signin text-center" action="/Gastos/Modificar" method="post" enctype="multipart/form-data">
     <h2 class="h3 mb-3 font-weight-normal">Editando Gasto "@Model.Nombre" </h2>
-    <a href="/Gastos/Eliminar?idGasto=@Model.idGasto">Eliminar Gasto</a>
+    <a href="/Gastos/Eliminar?idGasto=@Model.idGasto" class="text-danger font-weight-bold">Eliminar Gasto</a>
 
     @Html.HiddenFor(Model => Model.idGasto, new { htmlAttributes = new { @Value = Model.idGasto } })
     @Html.HiddenFor(Model => Model.idUsuario, new { htmlAttributes = new { @Value = Model.idUsuario } })
@@ -55,16 +55,26 @@
             @Html.ValidationMessageFor(model => model.MesExpensa, "", new { @class = "text-danger" })
         </div>
     </div>
-
-    <div class="editor-field">
-        <label for="Files">@Model.ArchivoComprobante</label>
-        @Html.TextBoxFor(m => m.fileComrobante, new { type = "file", name = "Files"})
-        <a href="/Gastos/Download?t=@Model.ArchivoComprobante">Ver Comprobante</a>
+ 
+    <div class="editor-field mt-3">
+        <div class="row">
+        <div class="col-md-12">
+            <p class="text-left">@Model.ArchivoComprobante</p>
+        </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.fileComrobante, new { type = "file", name = "Files", @class = "form-control-file" })
+            </div>
+            <div class="col-md-6">
+                <a href="/Gastos/Download?t=@Model.ArchivoComprobante" class="align-middle">Ver Comprobante</a>
+            </div>
+        </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <input class="btn btn-lg btn-primary btn mt-4" type="submit" name="accion" value="Guardar" />
+            <input class="btn btn-lg btn-success btn mt-4" type="submit" name="accion" value="Guardar" />
         </div>
         <div class="col-md-6">
             <a href="/Gastos/VerGastos?idConsorcio=@Model.idConsorcio" class="btn btn-lg btn-danger btn mt-4">Cancelar</a>

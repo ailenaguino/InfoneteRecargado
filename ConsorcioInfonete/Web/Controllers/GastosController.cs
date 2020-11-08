@@ -47,22 +47,37 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult CrearGasto(GastoVM gasto, string accion)
+            public ActionResult CrearGasto(GastoVM gasto, string accion)
         {
-            if (gasto.fileComrobante == null)
+            //si no ingreso archivo
+            if (gasto.fileComrobante == null && gasto.ArchivoComprobante==null)
             {
+                
                 ViewBag.msj = "Ingrese el archivo comprobante";
                 return View(gasto);
             }
-                      
+            //no cargo el archivo pero ya tenia uno
+            /* else if (gasto.fileComrobante == null && gasto.ArchivoComprobante != null)//tengo un archivo y el file es null -> no lo toco
+             {
+                 HttpPostedFileBase FileBase = new FileVM(gasto.ArchivoComprobante);
+                 gasto.fileComrobante = FileBase;
+             }
+             else if (gasto.fileComrobante != null && gasto.ArchivoComprobante == null) //cargo un archivo y no habia cargado antes
+             {
+                 gasto.ArchivoComprobante = gasto.fileComrobante.FileName;
+                 fileModel.GuardarArchivo(gasto.fileComrobante, Server);
+             }
+             else if (gasto.fileComrobante != null && gasto.ArchivoComprobante != null) //cargo un archivo y tenia uno antes
+             {
+                 gasto.ArchivoComprobante = gasto.fileComrobante.FileName;
+                 fileModel.GuardarArchivo(gasto.fileComrobante, Server);
+             }*/
+             fileModel.AltaDeArchivoComprobante(gasto,Server);
             if (!ModelState.IsValid)
             {
                 return View(gasto);
             }
 
-            gasto.ArchivoComprobante=gasto.fileComrobante.FileName;
-            fileModel.GuardarArchivo(gasto.fileComrobante, Server);
-               
             int idUser = SessionHelper.GetCurrentSession().IdUsuario;
             gasto.idUsuario = idUser;   
             Gasto gast = gasto.Mapear(gasto);
@@ -95,9 +110,11 @@ namespace Web.Controllers
         {
             Gasto gasto = gastoService.ObtenerPorId(idGasto);              
             GastoVM gastoVM = new GastoVM();
-            HttpPostedFileBase FileBase = new FileVM(gasto.ArchivoComprobante);            
+
+            HttpPostedFileBase FileBase = new FileVM(gasto.ArchivoComprobante);             
             gastoVM = gastoVM.MapearInversa(gasto);
             gastoVM.fileComrobante = FileBase;
+
             return View(gastoVM);
         }       
      
