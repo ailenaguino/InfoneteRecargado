@@ -1,12 +1,9 @@
 ﻿@model Web.Models.GastoVM
 
 @{
-    ViewBag.Title = "CrearGasto";
     Layout = "~/Views/Shared/LogueadoLayout.cshtml";
     Services.TipoGastoService t = new Services.TipoGastoService(new Repositories.Context.PW3_TP_20202CEntities());
     List<Repositories.Context.TipoGasto> TipoGasto = t.ObtenerTodos();
-
-
     List<SelectListItem> tiposGastos = TipoGasto.Select(o => new SelectListItem()
     {
         Text = o.Nombre,
@@ -17,10 +14,10 @@
 
 <form class="form-signin text-center" action="/Gastos/CrearGasto" method="post" enctype="multipart/form-data">
     <h2 class="h3 mb-3 font-weight-normal">Cargar Nuevo Gasto</h2>
-
-    <div class="form-group">
-        @Html.HiddenFor(Model => Model.idConsorcio, new { htmlAttributes = new { @Value = Model.idConsorcio } })
-    </div>
+  
+    @Html.HiddenFor(Model => Model.idConsorcio, new { htmlAttributes = new { @Value = Model.idConsorcio } })
+    @Html.HiddenFor(Model => Model.ArchivoComprobante, new { @Value = Model.ArchivoComprobante})
+    
 
     <div class="form-group">
         @Html.DropDownListFor(Model => Model.idTipoGasto, tiposGastos, new { @class = "mt-1 form-control" })
@@ -45,7 +42,7 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                @Html.EditorFor(Model => Model.Monto, new { htmlAttributes = new { @min = 1, @Value = "0,00", @class = "mt-1 form-control", placeholder = "monto" } })
+                @Html.EditorFor(Model => Model.Monto, new { htmlAttributes = new { @min = 1, @Value = "0,00", @class = "form-control", placeholder = "monto" } })
                 @Html.ValidationMessageFor(model => model.Monto, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -64,16 +61,24 @@
             @Html.ValidationMessageFor(model => model.MesExpensa, "", new { @class = "text-danger" })
         </div>
     </div>
-    <!--<div class="editor-field">
-        <input type="file" name="file" />
-    </div>-->
-    @Html.TextBoxFor(m => m.fileComrobante, new { type = "file", name = "Files" })<br /><br />
-   @ViewBag.msj
+
+    <div class="editor-field mt-3">
+        <p class="float-left">@Model.ArchivoComprobante</p>
+        @Html.TextBoxFor(m => m.fileComrobante, new { type = "file", name = "Files", @class="form-control-file" })
+    </div>
+
+    <span class="text-danger">@ViewBag.msj</span>
 
 
+    @{
+        if (ViewBag.gastoCreado != null)
+        {
+            <div class="alert alert-success mt-3 mb-3" role="alert">
+                @ViewBag.gastoCreado
+            </div>
+        }
+    }
 
-
-    @ViewBag.gastoCreado
 
 
     <div class="row">
@@ -84,7 +89,7 @@
             <input class="btn btn-lg btn-outline-success btn mt-4" type="submit" name="accion" value="Guardar y Crear otro Gasto" />
         </div>
         <div class="col-md-4">
-            <a href="/Gastos/VerGastos?idConsorcio=@Model.idConsorcio" class="btn btn-lg btn-danger btn mt-4">"Cancelar"</a>
+            <a href="/Gastos/VerGastos?idConsorcio=@Model.idConsorcio" class="btn btn-lg btn-danger btn mt-4">Cancelar</a>
         </div>
     </div>
 </form>
