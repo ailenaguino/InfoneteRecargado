@@ -20,17 +20,22 @@ namespace Web.Models
 
         [Required(ErrorMessage = "Ingrese un año")]
         public int AnioExpensa { get; set; }
+
         [Required(ErrorMessage = "Ingrese un mes")]
         public int MesExpensa { get; set; }
 
         [Required(ErrorMessage = "Ingrese un monto")]
         public Decimal Monto { get; set; }
+                       
+        public HttpPostedFileBase fileComrobante { get; set; }
+        public string ArchivoComprobante { get; set; }
         public int idConsorcio { get; set; }
         public int idTipoGasto { get; set; }
         public int idUsuario { get; set; }
         public int idGasto { get; set; }
         public string Descripcion { get; set; } = string.Empty;
-        public string ArchivoComprobante { get; set; }
+
+       
         public Gasto Mapear(GastoVM gasto)
         {
             Gasto g = new Gasto()
