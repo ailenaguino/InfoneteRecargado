@@ -16,11 +16,12 @@ namespace Web.Controllers
     public class GastosController : Controller
     {
         private GastoService gastoService;
-
+        private FileVM fileModel;
         public GastosController()
         {
             PW3_TP_20202CEntities ctx = new PW3_TP_20202CEntities();
             gastoService = new GastoService(ctx);
+            fileModel = new FileVM();
         }
         public ActionResult Index()
         {
@@ -46,43 +47,57 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult CrearGasto(GastoVM gasto, string accion, HttpPostedFileBase file)
+            public ActionResult CrearGasto(GastoVM gasto, string accion)
         {
-
+            //si no ingreso archivo
+            if (gasto.fileComrobante == null && gasto.ArchivoComprobante==null)
+            {
+                
+                ViewBag.msj = "Ingrese el archivo comprobante";
+                return View(gasto);
+            }
+            //no cargo el archivo pero ya tenia uno
+            /* else if (gasto.fileComrobante == null && gasto.ArchivoComprobante != null)//tengo un archivo y el file es null -> no lo toco
+             {
+                 HttpPostedFileBase FileBase = new FileVM(gasto.ArchivoComprobante);
+                 gasto.fileComrobante = FileBase;
+             }
+             else if (gasto.fileComrobante != null && gasto.ArchivoComprobante == null) //cargo un archivo y no habia cargado antes
+             {
+                 gasto.ArchivoComprobante = gasto.fileComrobante.FileName;
+                 fileModel.GuardarArchivo(gasto.fileComrobante, Server);
+             }
+             else if (gasto.fileComrobante != null && gasto.ArchivoComprobante != null) //cargo un archivo y tenia uno antes
+             {
+                 gasto.ArchivoComprobante = gasto.fileComrobante.FileName;
+                 fileModel.GuardarArchivo(gasto.fileComrobante, Server);
+             }*/
+             fileModel.AltaDeArchivoComprobante(gasto,Server);
             if (!ModelState.IsValid)
             {
                 return View(gasto);
             }
-                if (file != null)
-                {
-                    var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Gastos/"), fileName);
-                    file.SaveAs(path);
-                    gasto.ArchivoComprobante = fileName;
-                }
-                else
-                {
-                    gasto.ArchivoComprobante = "";
-                }
-                int idUser = SessionHelper.GetCurrentSession().IdUsuario;
-                gasto.idUsuario = idUser;
-                Gasto gast = gasto.Mapear(gasto);
-                gastoService.Alta(gast);
-                if (accion == "Guardar")
-                {
-                    return Redirect("/Gastos/VerGastos?idConsorcio=" + gasto.idConsorcio);
-                }
-         
-              
-            return Redirect("/Gastos/VerGastos?idConsorcio=" + gasto.idConsorcio);
+
+            int idUser = SessionHelper.GetCurrentSession().IdUsuario;
+            gasto.idUsuario = idUser;   
+            Gasto gast = gasto.Mapear(gasto);
+            gastoService.Alta(gast);
+
+            if (accion == "Guardar")
+            {
+              return Redirect("/Gastos/VerGastos?idConsorcio=" + gasto.idConsorcio);
+            }
+            ViewBag.gastoCreado = "Gasto " + gasto.Nombre + " creado con exito";
+            return View(gasto);
         }
+        
 
         public ActionResult Eliminar(int idGasto)
         {
             Gasto gasto = gastoService.ObtenerPorId(idGasto);
             return View(gasto);
         }
-        
+
         public ActionResult EliminarGasto(int idGasto)
         {
             Gasto gasto = gastoService.ObtenerPorId(idGasto);
@@ -93,32 +108,35 @@ namespace Web.Controllers
 
         public ActionResult Modificar(int idGasto)
         {
-            Gasto gasto = gastoService.ObtenerPorId(idGasto);
-                     
+            Gasto gasto = gastoService.ObtenerPorId(idGasto);              
             GastoVM gastoVM = new GastoVM();
+
+            HttpPostedFileBase FileBase = new FileVM(gasto.ArchivoComprobante);             
             gastoVM = gastoVM.MapearInversa(gasto);
+            gastoVM.fileComrobante = FileBase;
+
             return View(gastoVM);
         }       
      
         [HttpPost]
-        public ActionResult Modificar(GastoVM gasto, HttpPostedFileBase file)
+        public ActionResult Modificar(GastoVM gasto)
         {
-            //gasto.idUsuario = SessionHelper.GetCurrentSession().IdUsuario;
+            if (gasto.fileComrobante != null)//entra cuando edite
+            { 
+                gasto.ArchivoComprobante = gasto.fileComrobante.FileName;
+                fileModel.GuardarArchivo(gasto.fileComrobante, Server);
+            }
+            else //entra cuando no edite y voy a recuperarlo
+            {
+                HttpPostedFileBase FileBase = new FileVM(gasto.ArchivoComprobante);
+                gasto.fileComrobante = FileBase;
+            }
+
             if (!ModelState.IsValid)
             {
                 return View(gasto);
             }
-            if (file != null || gasto.ArchivoComprobante=="")
-            {
-                var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/Gastos/"), fileName);
-                file.SaveAs(path);
-                gasto.ArchivoComprobante = fileName;
-            }
-            else
-            {
-                gasto.ArchivoComprobante = "";
-            }
+            
             Gasto g = gasto.Mapear(gasto);
             gastoService.Modificar(g);
             return Redirect("/Gastos/VerGastos?idConsorcio=" + g.IdConsorcio);

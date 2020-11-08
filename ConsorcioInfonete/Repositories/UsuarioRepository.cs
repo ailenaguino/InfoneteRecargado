@@ -29,5 +29,11 @@ namespace Repositories
             user.FechaUltLogin=DateTime.Now;
             ctx.SaveChanges();
         }
+
+        public bool CheckEmail(Usuario user)
+        {
+            if (ctx.Usuario.Any(usuario => usuario.Email == user.Email)) return false;
+            return true;
+        }
     }
 }

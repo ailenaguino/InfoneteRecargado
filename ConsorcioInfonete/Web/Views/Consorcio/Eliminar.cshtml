@@ -1,0 +1,16 @@
+﻿@model Repositories.Context.Consorcio
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/LogueadoLayout.cshtml";
+}
+<div class="container py-5 mt-5">
+    <form action="/Consorcio/EliminarConsorcio" class="form-signin text-center" method="post">
+        <h2>¿Estás seguro que deseas Eliminar el consorcio " @Model.Nombre "?</h2>
+        @Html.HiddenFor(Model => Model.IdConsorcio, new { htmlAttributes = new { @Value = Model.IdConsorcio } })
+        <div class="mt-3">
+            <button class="btn btn-lg btn-primary mr-4">Eliminar</button>
+            <a href="/Consorcio/Lista" class="btn btn-lg btn-danger">Cancelar</a>
+        </div>
+    </form>
+</div>
+

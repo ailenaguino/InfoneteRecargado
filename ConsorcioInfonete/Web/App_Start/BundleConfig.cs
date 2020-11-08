@@ -22,7 +22,7 @@ namespace Web.App_Start
                 "~/Scripts/bootstrap*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/bootstrap*", "~/Scripts/datatable/datatables.min.css"));
+                "~/Content/bootstrap*", "~/Scripts/datatable/datatables.min.css", "~/Content/css/font-awesome*"));
         }
     }
 }

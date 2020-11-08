@@ -12,14 +12,13 @@ namespace Web.Controllers
 {
     public class ConsorcioController : Controller
     {
-        private ConsorcioService consorcioService;
-        private UsuarioService usuarioService;
+        ConsorcioService consorcioService;
+
 
         public ConsorcioController()
         {
             PW3_TP_20202CEntities contexto = new PW3_TP_20202CEntities();
             consorcioService = new ConsorcioService(contexto);
-            usuarioService = new UsuarioService(contexto);
         }
         public ActionResult Index()
         {
@@ -29,13 +28,56 @@ namespace Web.Controllers
         public ActionResult Lista()
         {
             int idusuario = SessionHelper.GetCurrentSession().IdUsuario;
-            Usuario consorcios = usuarioService.ObtenerPorId(idusuario);
+            List<Consorcio> consorcios = consorcioService.ObtenerConsorciosDeUnUsuario(idusuario);
             return View(consorcios);
         }
 
-        
+        public ActionResult CrearConsorcio()
+        {
+            ConsorcioVM consorcio = new ConsorcioVM();
 
-        
+            return View(consorcio);
+        }
+
+        [HttpPost]
+        public ActionResult CrearConsorcio(ConsorcioVM consorcio, string accion)
+        {
+            if (ModelState.IsValid)
+            {
+                consorcio.IdUsuarioCreador = SessionHelper.GetCurrentSession().IdUsuario;
+                Consorcio con = consorcio.Mapear(consorcio);
+                consorcioService.Alta(con);
+                if (accion == "Guardar")
+                {
+                    return RedirectToAction("/Lista");
+                }if(accion == "Guardar y Crear otro Consorcio")
+                {
+                    return RedirectToAction("/CrearConsorcio");
+                }
+
+            }
+            
+
+            return RedirectToAction("/Lista");
+        }
+
+        public ActionResult Eliminar(int idConsorcio)
+        {
+            Consorcio con = consorcioService.ObtenerPorId(idConsorcio);
+            return View(con);
+        }
+
+        [HttpPost]
+        public ActionResult EliminarConsorcio(int idConsorcio)
+        {
+            Consorcio con = consorcioService.ObtenerPorId(idConsorcio);
+            consorcioService.Eliminar(con.IdConsorcio);
+            return Redirect("/Consorcio/Lista");
+        }
+
+
+
+
         public ActionResult Editar()
         {
             return View();

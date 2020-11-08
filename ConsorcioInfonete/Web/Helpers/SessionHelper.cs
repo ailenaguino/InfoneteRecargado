@@ -19,6 +19,14 @@ namespace Web.Helpers
             HttpContext.Current.Session["User"] = usuario;
         }
 
+        public static void RemoveSession()
+        {
+            if (GetCurrentSession() != null)
+            {
+                HttpContext.Current.Session["User"] = null;
+            }
+           
+        }
 
     }
 }
