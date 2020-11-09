@@ -113,3 +113,32 @@ nav.bg-primary.fixed-left.navbar.navbar-dark.navbar-expand-md {
 .bg-claro {
     background: #eef2df !important;
 }
+
+@media (min-width: 992px) {
+    .contai {
+        max-width: 960px;
+    }
+}
+@media (min-width: 768px) {
+    .contai {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 576px) {
+    .contai {
+        max-width: 540px;
+    }
+}
+.contai {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 576px) {
+    .jumbo {
+        padding: 4rem 2rem;
+    }
+}
