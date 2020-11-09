@@ -11,12 +11,15 @@
 <body>
 
     @RenderSection("NavBar", true)
-    <div class="container mb-5">
+   
         @RenderBody()
-    </div>
+    
     @{Html.RenderPartial("~/Views/Shared/pv_Footer.cshtml"); }
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("Scripts", false)
+<style>
+   
+</style>
 </body>
 </html>
