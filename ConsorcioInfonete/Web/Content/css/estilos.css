@@ -4,7 +4,9 @@
 body {
     padding-top: 0px;
 }
-
+.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4 {
+    background: #003973 !important;
+}
 @media (min-width:768px) {
     body {
         padding-top: 0px;
@@ -17,7 +19,7 @@ body {
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%); /* IE 9 */
     -webkit-transform: translate(-50%, -50%); /* Chrome, Safari, Opera */
-    width: 30em;
+    width: 20em;
 }
 
 .card-login {
@@ -29,11 +31,10 @@ body {
     background: #003973;
     color: #eef2df;
 }
-
-    .color-p:hover {
-        background: #003973;
-        color: #eef2df;
-    }
+.color-p:hover {
+    background: #003973;
+    color: #eef2df;
+}
 
 p a.text-p {
     color: #005aa7 !important;
@@ -52,41 +53,6 @@ p a.text-p {
         #eef2df*/
 
 
-
-.bg-claro {
-    background: #eef2df !important;
-}
-@media (min-width: 992px) {
-    .contai {
-        max-width: 960px;
-    }
-}
-
-@media (min-width: 768px) {
-    .contai {
-        max-width: 720px;
-    }
-}
-
-@media (min-width: 576px) {
-    .contai {
-        max-width: 540px;
-    }
-}
-
-.contai {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-@media (min-width: 576px) {
-    .jumbo {
-        padding: 4rem 2rem;
-    }
-}
 @media (min-width: 768px) {
     body {
         margin-right: 0px;
@@ -95,6 +61,10 @@ p a.text-p {
 
 @media (min-width: 768px) {
     body {
-        margin-left: 232px;
+        margin-left: 0px;
     }
+}
+.footer-fixeado {
+    position: absolute;
+    bottom: 0;
 }
