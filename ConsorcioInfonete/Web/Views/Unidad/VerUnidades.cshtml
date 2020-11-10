@@ -6,68 +6,74 @@
 
 
 }
-
-@foreach (var u in Model)
-{
-    <p>
-        <a href="/Consorcio/Listar">Mis Consorcios</a>
-        >
-        @u.Consorcio.Nombre
-        >
-        Unidades
-    </p>
-    break;
-}
-
-<h2>VerUnidades</h2>
-@foreach (var u in Model)
-{
-    @Html.ActionLink("Crear Nueva", "CrearUnidad", new { id = u.IdConsorcio })
-    break;
-}
-
-<table id="tabla" class="table table-striped table-bordered" width="100%">
-    <thead>
-        <tr>
-            <th>
-                Unidad
-            </th>
-            <th>
-                Apellido
-            </th>
-            <th>
-                Nombre
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-
-    <tbody>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
         @foreach (var u in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(m => u.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => u.ApellidoPropietario)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => u.NombrePropietario)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "EditarUnidad", new { id = u.IdUnidad }) |
-                    @Html.ActionLink("Eliminar", "EliminarUnidad", new { id = u.IdUnidad })
-                </td>
-            </tr>
+                <li class="breadcrumb-item"><a href="/Consorcio/Lista">Mis Consorcios</a></li>
+                <li class="breadcrumb-item">@u.Consorcio.Nombre</li>
+                <li class="breadcrumb-item active" aria-current="page">Unidades</li>
+            break;
         }
-    </tbody>
+  </ol>
+</nav>
+    <div class="row my-3">
+        <div class="col-sm">
+            <h2>VerUnidades</h2>
+        </div>
 
-</table>
-<hr>
+        <div class="col-sm text-right">
+        @foreach (var u in Model)
+        {
+            @Html.ActionLink("Crear Nueva", "CrearUnidad", new { id = u.IdConsorcio }, new{ @class="btn btn-outline-primary"})
+            break;
 
-@section Scripts
+        }
+        </div>
+    </div>
+    <hr />
+        <table id="tabla" class="table table-striped table-bordered" width="100%">
+            <thead>
+                <tr>
+                    <th>
+                        Unidad
+                    </th>
+                    <th>
+                        Apellido
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var u in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => u.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => u.ApellidoPropietario)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => u.NombrePropietario)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "EditarUnidad", new { id = u.IdUnidad }) |
+                            @Html.ActionLink("Eliminar", "EliminarUnidad", new { id = u.IdUnidad })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+        <hr>
+
+        @section Scripts
 {
-    <script type="text/javascript" src="~/Scripts/datatable/datatables.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/datatable/pagination.js"></script>
-}
+            <script type="text/javascript" src="~/Scripts/datatable/datatables.min.js"></script>
+            <script type="text/javascript" src="~/Scripts/datatable/pagination.js"></script>
+        }

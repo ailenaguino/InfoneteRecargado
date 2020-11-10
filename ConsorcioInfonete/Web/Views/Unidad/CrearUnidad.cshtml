@@ -5,46 +5,60 @@
     Repositories.Context.Consorcio Consorcio = (Repositories.Context.Consorcio)ViewData["Consorcio"];
 }
 
-<p>
-    <a href="/Consorcio/Listar">Mis Consorcios</a>
-    >
-    @Consorcio.Nombre
-    >
-    @Html.ActionLink("Unidades", "VerUnidades", new { id = Consorcio.IdConsorcio })
-    >
-    Crear Unidad
-</p>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        <li class="breadcrumb-item"><a href="/Consorcio/Lista">Mis Consorcios</a></li>
+        <li class="breadcrumb-item">@Consorcio.Nombre</li>
+        <li class="breadcrumb-item">@Html.ActionLink("Unidades", "VerUnidades", new { id = Consorcio.IdConsorcio })</li>
+        <li class="breadcrumb-item active" aria-current="page">Crear Unidad</li>
+
+    </ol>
+</nav>
 
 <h2>CrearUnidad</h2>
 
-<form action="/unidad/crearunidad" method="post">
-    <label>Consorcio:</label>
-    @Consorcio.Nombre
+<hr />
 
-    Nombre de la Unidad:
-    @Html.EditorFor(m => m.Nombre)
-    @Html.ValidationMessageFor(m => m.Nombre)
+<form action="/unidad/crearunidad" class="form-signin text-center" method="post" enctype="multipart/form-data">
+    <label class="display-4">@Consorcio.Nombre</label>
 
-    Nombre del propietario:
-    @Html.EditorFor(m => m.NombrePropietario)
-    @Html.ValidationMessageFor(m => m.NombrePropietario)
+    <div class="form-group">
+        @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Nombre de la Unidad(*)" } })
+        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+    </div>
 
-    Apellido del propietario:
-    @Html.EditorFor(m => m.ApellidoPropietario)
-    @Html.ValidationMessageFor(m => m.ApellidoPropietario)
+    <div class="form-group">
+        @Html.EditorFor(Model => Model.NombrePropietario, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Nombre del Propietario(*)" } })
+        @Html.ValidationMessageFor(model => model.NombrePropietario, "", new { @class = "text-danger" })
+    </div>
 
-    Email del propietario:
-    @Html.EditorFor(m => m.EmailPropietario)
-    @Html.ValidationMessageFor(m => m.EmailPropietario)
+    <div class="form-group">
+        @Html.EditorFor(Model => Model.ApellidoPropietario, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Apellido del Propietario(*)" } })
+        @Html.ValidationMessageFor(model => model.ApellidoPropietario, "", new { @class = "text-danger" })
+    </div>
 
-    Superficie (m2):
-    @Html.EditorFor(m => m.Superficie)
-    @Html.ValidationMessageFor(m => m.Superficie)
+    <div class="form-group">
+        @Html.EditorFor(Model => Model.EmailPropietario, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Email del Propietario(*)" } })
+        @Html.ValidationMessageFor(model => model.EmailPropietario, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.EditorFor(Model => Model.Superficie, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Superficie de la Unidad(m2)" } })
+        @Html.ValidationMessageFor(model => model.Superficie, "", new { @class = "text-danger" })
+    </div>
 
     <input type="hidden" name="IdConsorcio" value="@Consorcio.IdConsorcio" />
 
-    <input type="submit" name="guardar" value="Guardar" />
-    <input type="submit" name="guardar" value="Guardar y Crear otra Unidad" />
-    <a href="/Home/Index">Cancelar</a>
+    <input type="submit" name="guardar" value="Guardar" class="btn btn btn-primary btn mt-4" />
+    <input type="submit" name="guardar" value="Guardar y Crear otra Unidad" class="btn btn btn-primary btn mt-4"  />
+    <a href="/VerUnidades "class="btn btn btn-danger btn mt-4" >Cancelar</a>
 </form>
-
+@{
+    if (ViewData["alert"] != null)
+    {
+        <div class="alert alert-success mt-3 mb-3" role="alert">
+            @ViewData["alert"]
+        </div>
+    }
+}

@@ -4,15 +4,16 @@
     Layout = "~/Views/Shared/LogueadoLayout.cshtml";
 }
 
-<p>
-    <a href="/Consorcio/Listar">Mis Consorcios</a>
-    >
-    @Model.Consorcio.Nombre
-    >
-    @Html.ActionLink("Unidades", "VerUnidades", new { id = Model.IdConsorcio })
-    >
-    Eliminar Unidad
-</p>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        <li class="breadcrumb-item"><a href="/Consorcio/Lista">Mis Consorcios</a></li>
+        <li class="breadcrumb-item">@Model.Consorcio.Nombre</li>
+        <li class="breadcrumb-item">@Html.ActionLink("Unidades", "VerUnidades", new { id = @Model.Consorcio.IdConsorcio })</li>
+        <li class="breadcrumb-item active" aria-current="page">Eliminar Unidad</li>
+
+    </ol>
+</nav>
 
 <h2>EliminarUnidad</h2>
 

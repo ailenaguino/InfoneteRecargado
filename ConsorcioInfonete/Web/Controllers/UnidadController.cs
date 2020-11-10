@@ -39,7 +39,6 @@ namespace Web.Controllers
             if (CS.ObtenerPorId(id).IdUsuarioCreador == SessionHelper.GetCurrentSession().IdUsuario)
             {
                 ViewData["Consorcio"] = CS.ObtenerPorId(id);
-
                 return View();
             }
 
@@ -55,10 +54,14 @@ namespace Web.Controllers
             {
                 u.IdUsuarioCreador = SessionHelper.GetCurrentSession().IdUsuario;
                 US.Alta(u);
+
+                ViewData["alert"] = "Unidad " + u.Nombre + " creada con éxito";
+
                 if (guardar == "Guardar") {
                     return RedirectToAction("/VerUnidades/" + u.Consorcio.IdConsorcio);
                 }
             }
+
             return View();
         }
 
@@ -109,7 +112,7 @@ namespace Web.Controllers
         {
             Unidad unidadObtenida = US.ObtenerPorId(u.IdUnidad);
             US.Eliminar(u.IdUnidad);
-            return RedirectToAction("/VerUnidades/" + unidadObtenida.Consorcio.IdConsorcio);
+            return RedirectToAction("/VerUnidades/" + unidadObtenida.IdConsorcio);
         }
 
     }
