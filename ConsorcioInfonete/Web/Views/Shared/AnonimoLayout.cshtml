@@ -1,7 +1,10 @@
 ﻿@{
     Layout = "BaseLayout.cshtml";
 }
-@RenderSection("Styles",false)
+@RenderSection("Styles", false)
+@section BodyContent{
+    <link rel="stylesheet" type="text/css" href="~/Content/css/estilos.css">
+}
 @section NavBar{
     <div class="navbar navbar-expand-md navbar-dark bg-dark mb-4" role="navigation">
         <a class="navbar-brand" href="#">Consorcios Infonete</a>
@@ -14,5 +17,5 @@
 }
 
 @RenderBody()
-    </div>
-@RenderSection("Scripts",false)
+</div>
+@RenderSection("Scripts", false)

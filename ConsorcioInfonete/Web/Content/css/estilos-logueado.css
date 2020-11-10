@@ -2,16 +2,6 @@
     background-image: url("https://www.segurosdeconsorcio.com.ar/images/slider/slider-06.jpg");
 }
 
-.t-50 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%); /* IE 9 */
-    -webkit-transform: translate(-50%, -50%); /* Chrome, Safari, Opera */
-    width: 30em;
-}
-
 .card-login {
     background-color: rgba(0,0,0,0.7);
     color: #fff;
@@ -22,10 +12,10 @@
     color: #eef2df;
 }
 
-    .color-p:hover {
-        background: #003973;
-        color: #eef2df;
-    }
+.color-p:hover {
+    background: #003973;
+    color: #eef2df;
+}
 
 p a.text-p {
     color: #005aa7 !important;
@@ -64,7 +54,23 @@ body {
 nav.bg-primary.fixed-left.navbar.navbar-dark.navbar-expand-md {
     background: #003973 !important;
 }
+.z-20{
+    z-index:20;
+}
 
+@media (max-width:762px){
+    .navbar-secundaria{
+        display:none;
+    }
+    .container-post-navbar-secundaria{
+        margin-top:0;
+    }
+    .footer-fixeado{
+        position:sticky;
+        bottom:0;
+        z-index:1000;
+    }
+}
 @media (min-width:768px) {
     .navbar.fixed-left {
         bottom: 0;
@@ -72,7 +78,12 @@ nav.bg-primary.fixed-left.navbar.navbar-dark.navbar-expand-md {
         flex-flow: column nowrap;
         align-items: flex-start
     }
-
+    .container-post-navbar-secundaria {
+        margin-top: 1.5rem;
+    }
+    .cerrar-sesion{
+        display:none;
+    }
     .navbar.fixed-left .navbar-collapse {
         flex-grow: 0;
         flex-direction: column;
@@ -97,7 +108,7 @@ nav.bg-primary.fixed-left.navbar.navbar-dark.navbar-expand-md {
     .navbar.fixed-left {
         right: auto
     }
-
+    
      .navbar.fixed-left .navbar-nav .nav-item .dropdown-toggle:after {
         border-top: .3em solid transparent;
         border-left: .3em solid;
@@ -109,36 +120,24 @@ nav.bg-primary.fixed-left.navbar.navbar-dark.navbar-expand-md {
      .navbar.fixed-left .navbar-nav .nav-item .dropdown-menu {
         left: 100%
      }
+    .footer-fixeado{
+        position:absolute;
+        bottom:0; 
+        right:0;
+    }
 }
 .bg-claro {
     background: #eef2df !important;
 }
 
-@media (min-width: 992px) {
-    .contai {
-        max-width: 960px;
-    }
-}
 @media (min-width: 768px) {
-    .contai {
-        max-width: 720px;
+    body {
+        margin-right: 0px;
     }
 }
 
-@media (min-width: 576px) {
-    .contai {
-        max-width: 540px;
-    }
-}
-.contai {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-@media (min-width: 576px) {
-    .jumbo {
-        padding: 4rem 2rem;
+@media (min-width: 768px) {
+    body {
+        margin-left: 232px;
     }
 }
