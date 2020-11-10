@@ -39,11 +39,15 @@
                         Unidad
                     </th>
                     <th>
-                        Apellido
+                        Apellido del Propietario
                     </th>
                     <th>
-                        Nombre
+                        Nombre del Propietario
                     </th>
+                    <th>
+                        Email del Propietario
+                    </th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -51,21 +55,26 @@
             <tbody>
                 @foreach (var u in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(m => u.Nombre)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(m => u.ApellidoPropietario)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(m => u.NombrePropietario)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Editar", "EditarUnidad", new { id = u.IdUnidad }) |
-                            @Html.ActionLink("Eliminar", "EliminarUnidad", new { id = u.IdUnidad })
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => u.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => u.ApellidoPropietario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => u.NombrePropietario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => u.EmailPropietario)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "EditarUnidad", new { id = u.IdUnidad }) 
+                    </td>
+                    <td>
+                        @Html.ActionLink("Eliminar", "EliminarUnidad", new { id = u.IdUnidad }, new { @class="text-danger"})
+                    </td>
+                </tr>
                 }
             </tbody>
 

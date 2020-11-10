@@ -51,8 +51,8 @@
     <input type="hidden" name="IdConsorcio" value="@Consorcio.IdConsorcio" />
 
     <input type="submit" name="guardar" value="Guardar" class="btn btn btn-primary btn mt-4" />
-    <input type="submit" name="guardar" value="Guardar y Crear otra Unidad" class="btn btn btn-primary btn mt-4"  />
-    <a href="/VerUnidades "class="btn btn btn-danger btn mt-4" >Cancelar</a>
+    <input type="submit" name="guardar" value="Guardar y Crear otra Unidad" class="btn btn btn-primary btn mt-4" />
+    <a href="/Unidad/VerUnidades/@Consorcio.IdConsorcio" class="btn btn btn-danger btn mt-4">Cancelar</a>
 </form>
 @{
     if (ViewData["alert"] != null)
