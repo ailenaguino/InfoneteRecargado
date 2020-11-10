@@ -1,0 +1,144 @@
+﻿body {
+    background-image: url("https://www.segurosdeconsorcio.com.ar/images/slider/slider-06.jpg");
+}
+
+.t-50 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); /* IE 9 */
+    -webkit-transform: translate(-50%, -50%); /* Chrome, Safari, Opera */
+    width: 30em;
+}
+
+.card-login {
+    background-color: rgba(0,0,0,0.7);
+    color: #fff;
+}
+
+.color-p {
+    background: #003973;
+    color: #eef2df;
+}
+
+    .color-p:hover {
+        background: #003973;
+        color: #eef2df;
+    }
+
+p a.text-p {
+    color: #005aa7 !important;
+}
+.text {
+    color: #005aa7 !important;
+}
+.text-p:hover {
+    color: #005aa7 !important;
+    text-decoration: none;
+}
+
+/*
+        #003973
+            005aa7
+        #eef2df*/
+
+body {
+    padding-top: 90px
+}
+
+@media (min-width:768px) {
+    body {
+        padding-top: 0
+    }
+}
+
+.navbar.fixed-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030
+}
+
+nav.bg-primary.fixed-left.navbar.navbar-dark.navbar-expand-md {
+    background: #003973 !important;
+}
+
+@media (min-width:768px) {
+    .navbar.fixed-left {
+        bottom: 0;
+        width: 232px;
+        flex-flow: column nowrap;
+        align-items: flex-start
+    }
+
+    .navbar.fixed-left .navbar-collapse {
+        flex-grow: 0;
+        flex-direction: column;
+        width: 100%
+    }
+
+    .navbar.fixed-left .navbar-collapse .navbar-nav {
+        flex-direction: column;
+        width: 100%
+    }
+
+    .navbar.fixed-left .navbar-collapse .navbar-nav .nav-item {
+        width: 100%
+    }
+
+    .navbar.fixed-left .navbar-collapse .navbar-nav .nav-item .dropdown-menu {
+        top: 0
+    }
+}
+
+@media (min-width:768px) {
+    .navbar.fixed-left {
+        right: auto
+    }
+
+     .navbar.fixed-left .navbar-nav .nav-item .dropdown-toggle:after {
+        border-top: .3em solid transparent;
+        border-left: .3em solid;
+        border-bottom: .3em solid transparent;
+        border-right: none;
+        vertical-align: baseline
+     }
+
+     .navbar.fixed-left .navbar-nav .nav-item .dropdown-menu {
+        left: 100%
+     }
+}
+.bg-claro {
+    background: #eef2df !important;
+}
+
+@media (min-width: 992px) {
+    .contai {
+        max-width: 960px;
+    }
+}
+@media (min-width: 768px) {
+    .contai {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 576px) {
+    .contai {
+        max-width: 540px;
+    }
+}
+.contai {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 576px) {
+    .jumbo {
+        padding: 4rem 2rem;
+    }
+}
