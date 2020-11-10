@@ -31,7 +31,7 @@ namespace Web.Controllers
                 return View(unidades);
             }
 
-            return RedirectToAction("/Consorcio/Lista");
+            return Redirect("/Consorcio/Lista");
         }
 
         public ActionResult CrearUnidad(int id)
@@ -42,7 +42,7 @@ namespace Web.Controllers
                 return View();
             }
 
-            return RedirectToAction("/Consorcio/Lista");
+            return Redirect("/Consorcio/Lista");
         }
 
         [HttpPost]
@@ -58,7 +58,7 @@ namespace Web.Controllers
                 ViewData["alert"] = "Unidad " + u.Nombre + " creada con éxito";
 
                 if (guardar == "Guardar") {
-                    return RedirectToAction("/VerUnidades/" + u.Consorcio.IdConsorcio);
+                    return Redirect("/VerUnidades/" + u.Consorcio.IdConsorcio);
                 }
             }
 
@@ -74,7 +74,7 @@ namespace Web.Controllers
                 return View(u);
             }
 
-            return RedirectToAction("/Consorcio/Lista");
+            return Redirect("/Consorcio/Lista");
         }
 
         [HttpPost]
@@ -89,7 +89,7 @@ namespace Web.Controllers
                 u.IdUsuarioCreador = unidadObtenida.IdUsuarioCreador;
 
                 US.Modificar(u);
-                return RedirectToAction("/VerUnidades/" + u.Consorcio.IdConsorcio);
+                return Redirect("/VerUnidades/" + u.Consorcio.IdConsorcio);
             }
 
             return View(u);
@@ -104,7 +104,7 @@ namespace Web.Controllers
                 return View(u);
             }
 
-            return RedirectToAction("/Consorcio/Lista");
+            return Redirect("/Consorcio/Lista");
         }
 
         [HttpPost]
@@ -112,7 +112,7 @@ namespace Web.Controllers
         {
             Unidad unidadObtenida = US.ObtenerPorId(u.IdUnidad);
             US.Eliminar(u.IdUnidad);
-            return RedirectToAction("/VerUnidades/" + unidadObtenida.IdConsorcio);
+            return Redirect("/VerUnidades/" + unidadObtenida.IdConsorcio);
         }
 
     }
