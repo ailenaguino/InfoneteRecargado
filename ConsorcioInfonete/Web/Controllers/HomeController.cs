@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Ajax.Utilities;
 using Repositories.Context;
 using Services;
 using Web.Helpers;
@@ -44,9 +45,9 @@ namespace Web.Controllers
                 }
 
                 ViewBag.Error = "Email o contraseña incorrectos.";
-                return View("Login",new UsuarioVM());
+                return View("Login", new UsuarioVM());
             }
-            return View("Login",new UsuarioVM());
+            return View("Login", new UsuarioVM());
         }
 
         public ActionResult Registro()
@@ -66,21 +67,49 @@ namespace Web.Controllers
                         Password = usuario.Password
                     };
                     servicio.Register(u);
-                    return View("Login",new UsuarioVM());
+                    return View("Login", new UsuarioVM());
                 }
                 catch (Exception e)
                 {
                     ViewBag.Error = e.Message;
-                    return View("Registro",new UsuarioRegistroVM());
+                    return View("Registro", new UsuarioRegistroVM());
                 }
             }
-            return View("Registro",new UsuarioRegistroVM());
+            return View("Registro", new UsuarioRegistroVM());
         }
 
         public ActionResult LogOut()
         {
-           SessionHelper.RemoveSession();
-           return View("Index");
+            SessionHelper.RemoveSession();
+            return View("Index");
+        }
+
+        public ActionResult Error(int error = 0)
+        {
+            if(SessionHelper.GetCurrentSession() != null)
+            {
+                ViewBag.flag = true;
+            }
+            switch (error)
+            {
+                case 505:
+                    ViewBag.Error = error;
+                    ViewBag.Title = "Ocurrió un error inesperado";
+                    ViewBag.Description = "Su petición no pudo completarse, por favor intente de nuevo";
+                    break;
+
+                case 404:
+                    ViewBag.Title = "Página no encontrada";
+                    ViewBag.Description = "La URL que está intentando ingresar no existe";
+                    break;
+
+                default:
+                    ViewBag.Title = "Página no encontrada";
+                    ViewBag.Description = "Algo salio muy mal :( ..";
+                    break;
+            }
+
+            return View();
         }
     }
 }
