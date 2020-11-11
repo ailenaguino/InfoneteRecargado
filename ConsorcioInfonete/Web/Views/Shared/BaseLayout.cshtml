@@ -7,16 +7,19 @@
     <title>Consorcios Infonete</title>
     @Styles.Render("~/Content/css")
     @RenderSection("Styles", false)
+    @RenderSection("BodyContent", true)
 </head>
 <body>
 
-    @RenderSection("NavBar", true)
-    <div class="container mb-5">
-        @RenderBody()
-    </div>
+    @RenderSection("NavBar", true)   
+    @RenderBody()
+    
     @{Html.RenderPartial("~/Views/Shared/pv_Footer.cshtml"); }
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("Scripts", false)
+<style>
+   
+</style>
 </body>
 </html>

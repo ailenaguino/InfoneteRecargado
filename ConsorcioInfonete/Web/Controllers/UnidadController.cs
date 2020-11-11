@@ -31,7 +31,7 @@ namespace Web.Controllers
                 return View(unidades);
             }
 
-            return RedirectToAction("/Consorcio/Lista");
+            return Redirect("/Consorcio/Lista");
         }
 
         public ActionResult CrearUnidad(int id)
@@ -39,11 +39,10 @@ namespace Web.Controllers
             if (CS.ObtenerPorId(id).IdUsuarioCreador == SessionHelper.GetCurrentSession().IdUsuario)
             {
                 ViewData["Consorcio"] = CS.ObtenerPorId(id);
-
                 return View();
             }
 
-            return RedirectToAction("/Consorcio/Lista");
+            return Redirect("/Consorcio/Lista");
         }
 
         [HttpPost]
@@ -55,10 +54,14 @@ namespace Web.Controllers
             {
                 u.IdUsuarioCreador = SessionHelper.GetCurrentSession().IdUsuario;
                 US.Alta(u);
+
+                ViewData["alert"] = "Unidad " + u.Nombre + " creada con éxito";
+
                 if (guardar == "Guardar") {
-                    return RedirectToAction("/VerUnidades/" + u.Consorcio.IdConsorcio);
+                    return Redirect("/VerUnidades/" + u.Consorcio.IdConsorcio);
                 }
             }
+
             return View();
         }
 
@@ -71,7 +74,7 @@ namespace Web.Controllers
                 return View(u);
             }
 
-            return RedirectToAction("/Consorcio/Lista");
+            return Redirect("/Consorcio/Lista");
         }
 
         [HttpPost]
@@ -86,7 +89,7 @@ namespace Web.Controllers
                 u.IdUsuarioCreador = unidadObtenida.IdUsuarioCreador;
 
                 US.Modificar(u);
-                return RedirectToAction("/VerUnidades/" + u.Consorcio.IdConsorcio);
+                return Redirect("/VerUnidades/" + u.Consorcio.IdConsorcio);
             }
 
             return View(u);
@@ -101,7 +104,7 @@ namespace Web.Controllers
                 return View(u);
             }
 
-            return RedirectToAction("/Consorcio/Lista");
+            return Redirect("/Consorcio/Lista");
         }
 
         [HttpPost]
@@ -109,7 +112,7 @@ namespace Web.Controllers
         {
             Unidad unidadObtenida = US.ObtenerPorId(u.IdUnidad);
             US.Eliminar(u.IdUnidad);
-            return RedirectToAction("/VerUnidades/" + unidadObtenida.Consorcio.IdConsorcio);
+            return Redirect("/VerUnidades/" + unidadObtenida.IdConsorcio);
         }
 
     }

@@ -13,7 +13,7 @@ namespace Web.Helpers
         public static string LastUrl { get; set; }
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (filterContext.HttpContext.Request.RawUrl != "/Home/LogOut")
+            if (filterContext.HttpContext.Request.RawUrl != "/Home/LogOut" && filterContext.ActionDescriptor.ActionName != "Error")
             {
                 if (SessionHelper.GetCurrentSession() == null)
                 {
