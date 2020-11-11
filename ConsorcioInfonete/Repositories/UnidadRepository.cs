@@ -32,5 +32,15 @@ namespace Repositories
 
             ctx.SaveChanges();
         }
+
+        public List<Unidad> ObtenerTodosConsorcioId(int idConsorcio)
+        {
+            return (from u in ctx.Unidad
+                    where u.IdConsorcio == idConsorcio
+                    orderby u.IdUnidad descending
+                    select u).ToList();
+
+        }
+
     }
 }
