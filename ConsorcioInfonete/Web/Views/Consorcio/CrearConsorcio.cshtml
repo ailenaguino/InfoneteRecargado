@@ -2,6 +2,13 @@
 @{
     ViewBag.Title = "CrearConsorcio";
     Layout = "~/Views/Shared/LogueadoLayout.cshtml";
+    Services.ProvinciaService p = new Services.ProvinciaService(new Repositories.Context.PW3_TP_20202CEntities());
+    List<Repositories.Context.Provincia> Provincia = p.ObtenerTodos();
+    List<SelectListItem> provincia = Provincia.Select(o => new SelectListItem()
+    {
+        Text = o.Nombre,
+        Value = o.IdProvincia.ToString()
+    }).ToList();
 }
 
 <form class="form-signin text-center" action="/Consorcio/CrearConsorcio" method="post" enctype="multipart/form-data">
@@ -13,7 +20,7 @@
     </div>
 
     <div class="form-group">
-        @Html.EditorFor(Model => Model.IdProvincia, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Provincia" } })
+        @Html.DropDownListFor(Model => Model.IdProvincia, provincia, new { @class = "mt-1 form-control" })
     </div>
 
     <div class="form-group">

@@ -13,12 +13,14 @@ namespace Web.Controllers
     public class ConsorcioController : Controller
     {
         ConsorcioService consorcioService;
+        ProvinciaService provinciaService;
 
 
         public ConsorcioController()
         {
             PW3_TP_20202CEntities contexto = new PW3_TP_20202CEntities();
             consorcioService = new ConsorcioService(contexto);
+            provinciaService = new ProvinciaService(contexto);
         }
         public ActionResult Index()
         {
@@ -28,6 +30,8 @@ namespace Web.Controllers
         public ActionResult Lista()
         {
             int idusuario = SessionHelper.GetCurrentSession().IdUsuario;
+            List<Provincia> provincias = provinciaService.ObtenerTodos();
+            ViewBag.Provincias = provincias;
             List<Consorcio> consorcios = consorcioService.ObtenerConsorciosDeUnUsuario(idusuario);
             return View(consorcios);
         }
@@ -78,10 +82,29 @@ namespace Web.Controllers
 
 
 
-        public ActionResult Editar()
+        public ActionResult Editar(int idConsorcio)
         {
-            return View();
+            Consorcio consorcio = consorcioService.ObtenerPorId(idConsorcio);
+            ViewBag.Con = consorcio;
+            ConsorcioVM consorcioVM = new ConsorcioVM();
+
+            return View(consorcioVM);
         }
-       
+
+        [HttpPost]
+        public ActionResult EditarConsorcio(ConsorcioVM con)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View(con);
+            }
+
+
+            Consorcio consorcio = con.Mapear(con);
+            consorcioService.Modificar(consorcio);
+            return Redirect("/Consorcio/Lista");
+
+        }
     }
 }

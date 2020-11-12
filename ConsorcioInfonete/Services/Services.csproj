@@ -41,11 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiExpensasService.cs" />
     <Compile Include="BaseService.cs" />
     <Compile Include="ConsorcioService.cs" />
     <Compile Include="GastoService.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvinciaService.cs" />
     <Compile Include="TipoGastoService.cs" />
     <Compile Include="UnidadService.cs" />
     <Compile Include="UsuarioService.cs" />

@@ -42,29 +42,36 @@
 
         @foreach (var con in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(o => con.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(o => con.IdProvincia)
-                </td>
-                <td>
-                    @Html.DisplayFor(o => con.Ciudad)
-                </td>
-                <td>
-                    @Html.ActionLink("Ver Unidades", "VerUnidades", new { id = con.IdConsorcio })
-                </td>
-                <td>
-                    @Html.ActionLink("Ver Expensas", "VerExpensas", new { id = con.IdConsorcio })
-                </td>
-                <td>
-                    @Html.ActionLink("Ver Gastos", "VerGastos", new { id = con.IdConsorcio })
-                </td>
-                <td>
-                    <a href="/Consorcio/Eliminar?idConsorcio=@con.IdConsorcio" class="text-danger">Eliminar</a>
-</td>
-            </tr>
+        <tr>
+            <td>
+                <a href="/Consorcio/Editar?idConsorcio=@con.IdConsorcio">@Html.DisplayFor(o => con.Nombre)</a>
+            </td>
+            <td>
+                @foreach (var provincia in ViewBag.Provincias)
+                    {
+                        if (@provincia.IdProvincia == con.IdProvincia)
+                        {
+                <a>@provincia.Nombre</a>
+                        }
+                    }
+
+            </td>
+            <td>
+                @Html.DisplayFor(o => con.Ciudad)
+            </td>
+            <td>
+                @Html.ActionLink("Ver Unidades", "VerUnidades", new { id = con.IdConsorcio })
+            </td>
+            <td>
+                @Html.ActionLink("Ver Expensas", "VerExpensas", new { id = con.IdConsorcio })
+            </td>
+            <td>
+                @Html.ActionLink("Ver Gastos", "VerGastos", new { id = con.IdConsorcio })
+            </td>
+            <td>
+                <a href="/Consorcio/Eliminar?idConsorcio=@con.IdConsorcio" class="text-danger">Eliminar</a>
+            </td>
+        </tr>
         }
     </tbody>
 
