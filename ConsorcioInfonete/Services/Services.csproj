@@ -53,6 +53,10 @@
     <Compile Include="UsuarioService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{57d3cf4a-c4d2-4a9d-8e26-ca7f207f7869}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Repositories\Repositories.csproj">
       <Project>{eafda870-3efe-461c-a3be-c69c2fe952ef}</Project>
       <Name>Repositories</Name>
