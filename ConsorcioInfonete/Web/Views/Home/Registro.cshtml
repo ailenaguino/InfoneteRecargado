@@ -2,7 +2,7 @@
 @{ Layout = "~/Views/Shared/AnonimoLayout.cshtml";
                 var error = ViewBag.Error ?? ""; }
 
-<div class="card bg-light">
+<div class="card card-login t-50">
     <article class="card-body mx-auto" style="max-width: 400px;">
         <h4 class="card-title mt-3 text-center">Registro</h4>
         <form action="/Home/Register" method="post">
@@ -32,9 +32,9 @@
             <span class="text-danger">@error</span>
             <div class="form-group">
 
-                <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
+                <button type="submit" class="btn btn-secundario btn-block"> Create Account </button>
             </div> <!-- form-group// -->
-            <p class="text-center">Tienes una cuenta? <a href="/Home/Login">Log In</a> </p>
+            <p class="text-center">Tienes una cuenta? <a href="/Home/Login" class="enlace-color">Log In</a> </p>
         </form>
     </article>
 </div> 
