@@ -11,6 +11,16 @@
 
 }
 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        <li class="breadcrumb-item"><a href="/Consorcio/Lista">Mis Consorcios</a></li>
+        <li class="breadcrumb-item">Consorcio "@ViewBag.Con.Nombre"</li>
+        <li class="breadcrumb-item active" aria-current="page">Editando Consorcio</li>
+
+    </ol>
+</nav>
+
 <form class="form-signin text-center" action="/Consorcio/EditarConsorcio" method="post" enctype="multipart/form-data">
     <h2 class="h3 mb-3 font-weight-normal">Editando Consorcio "@ViewBag.Con.Nombre" </h2>
     <div class="row my-3">
@@ -48,6 +58,7 @@
             </div>
         </div>
         <div class="col- text-center my-auto">
+            <h3>@ViewBag.uni Unidades</h3>
             <a href="/Unidad/VerUnidades?id=@ViewBag.Con.IdConsorcio" class="font-weight-bold">Ver Unidades</a><br />
             <a href="/Gastos/VerGastos?idConsorcio=@ViewBag.Con.IdConsorcio" class="font-weight-bold">Ver Gastos</a><br />
             <a href="#" class="font-weight-bold">Ver Expensas</a> @*tiene que ir a expensas*@<br />

@@ -14,6 +14,7 @@ namespace Web.Controllers
     {
         ConsorcioService consorcioService;
         ProvinciaService provinciaService;
+        UnidadService unidadService;
 
 
         public ConsorcioController()
@@ -21,6 +22,7 @@ namespace Web.Controllers
             PW3_TP_20202CEntities contexto = new PW3_TP_20202CEntities();
             consorcioService = new ConsorcioService(contexto);
             provinciaService = new ProvinciaService(contexto);
+            unidadService = new UnidadService(contexto);
         }
         public ActionResult Index()
         {
@@ -82,10 +84,16 @@ namespace Web.Controllers
 
         public ActionResult Editar(int idConsorcio)
         {
+            int contar = 0;
             Consorcio consorcio = consorcioService.ObtenerPorId(idConsorcio);
             ViewBag.Con = consorcio;
             ConsorcioVM consorcioVM = new ConsorcioVM();
-
+            List<Unidad> unidades = unidadService.ObtenerTodos(idConsorcio);
+            foreach(Unidad u in unidades)
+            {
+                contar++;
+            }
+            ViewBag.uni = contar;
             return View(consorcioVM);
         }
 
