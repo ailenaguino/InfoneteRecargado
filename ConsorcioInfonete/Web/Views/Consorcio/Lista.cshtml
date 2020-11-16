@@ -7,8 +7,15 @@
 
 }
 
-<h2>Ver Consorcios</h2>
-@Html.ActionLink("Crear Nuevo", "CrearConsorcio")
+<div class="row my-3">
+    <div class="col-sm">
+        <h2>Listado Consorcios</h2>
+    </div>
+
+    <div class="col-sm text-right">
+        <a href="/Consorcio/CrearConsorcio" class="btn btn-outline-primary">Crear Nuevo</a>
+    </div>
+</div>
 
 <table id="tabla" class="table table-striped table-bordered" width="100%">
     <thead>
@@ -42,36 +49,36 @@
 
         @foreach (var con in Model)
         {
-        <tr>
-            <td>
-                <a href="/Consorcio/Editar?idConsorcio=@con.IdConsorcio">@Html.DisplayFor(o => con.Nombre)</a>
-            </td>
-            <td>
-                @foreach (var provincia in ViewBag.Provincias)
+            <tr>
+                <td>
+                    <a href="/Consorcio/Editar?idConsorcio=@con.IdConsorcio">@Html.DisplayFor(o => con.Nombre)</a>
+                </td>
+                <td>
+                    @foreach (var provincia in ViewBag.Provincias)
                     {
                         if (@provincia.IdProvincia == con.IdProvincia)
                         {
-                <a>@provincia.Nombre</a>
+                            <a>@provincia.Nombre</a>
                         }
                     }
 
-            </td>
-            <td>
-                @Html.DisplayFor(o => con.Ciudad)
-            </td>
-            <td>
-                @Html.ActionLink("Ver Unidades", "VerUnidades", new { id = con.IdConsorcio })
-            </td>
-            <td>
-                @Html.ActionLink("Ver Expensas", "VerExpensas", new { id = con.IdConsorcio })
-            </td>
-            <td>
-                @Html.ActionLink("Ver Gastos", "VerGastos", new { id = con.IdConsorcio })
-            </td>
-            <td>
-                <a href="/Consorcio/Eliminar?idConsorcio=@con.IdConsorcio" class="text-danger">Eliminar</a>
-            </td>
-        </tr>
+                </td>
+                <td>
+                    @Html.DisplayFor(o => con.Ciudad)
+                </td>
+                <td>
+                    <a href="/Unidad/VerUnidades?id=@con.IdConsorcio">Ver Unidades</a>
+                </td>
+                <td>
+                    @Html.ActionLink("Ver Expensas", "VerExpensas", new { id = con.IdConsorcio })
+                </td>
+                <td>
+                    <a href="/Gastos/VerGastos?idConsorcio=@con.IdConsorcio">Ver Gastos</a>
+                </td>
+                <td>
+                    <a href="/Consorcio/Eliminar?idConsorcio=@con.IdConsorcio" class="text-danger">Eliminar</a>
+                </td>
+            </tr>
         }
     </tbody>
 

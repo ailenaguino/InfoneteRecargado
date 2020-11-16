@@ -51,18 +51,16 @@ namespace Web.Controllers
                 consorcio.IdUsuarioCreador = SessionHelper.GetCurrentSession().IdUsuario;
                 Consorcio con = consorcio.Mapear(consorcio);
                 consorcioService.Alta(con);
+                ViewData["alerta"] = "Consorcio " + consorcio.Nombre + " creado con éxito";
                 if (accion == "Guardar")
                 {
                     return RedirectToAction("/Lista");
-                }if(accion == "Guardar y Crear otro Consorcio")
-                {
-                    return RedirectToAction("/CrearConsorcio");
                 }
-
+                
+                return View(consorcio);
             }
-            
 
-            return RedirectToAction("/Lista");
+            return View();
         }
 
         public ActionResult Eliminar(int idConsorcio)

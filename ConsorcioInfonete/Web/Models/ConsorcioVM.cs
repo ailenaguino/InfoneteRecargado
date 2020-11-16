@@ -15,23 +15,22 @@ namespace Web.Models
     {
 
         [Required(ErrorMessage = "Ingrese un nombre")]
-        public string Nombre { get; set; }
+        public string Nombre { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Ingrese una provincia")]
         public int IdProvincia { get; set; }
 
         [Required(ErrorMessage = "Ingrese una ciudad")]
-        public string Ciudad { get; set; }
+        public string Ciudad { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Ingrese una calle")]
-        public string Calle { get; set; }
+        public string Calle { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Ingrese una altura")]
         public int Altura { get; set; }
 
         [Required(ErrorMessage = "Ingrese un dia para la expensa")]
-        [Range(1, 31)]
-        public int DiaVencimientoExpensas { get; set; }
+        public int DiaVencimientoExpensas { get; set; } 
 
         public int IdConsorcio { get; set; }
 
