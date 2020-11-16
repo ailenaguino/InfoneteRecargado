@@ -7,24 +7,24 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
 
-        <li class="breadcrumb-item"><a href="/Consorcio/Lista">Mis Consorcios</a></li>
+        <li class="breadcrumb-item"><a href="/Consorcio/Lista" class="enlace-color">Mis Consorcios</a></li>
         <li class="breadcrumb-item">@Model.Consorcio.Nombre</li>
-        <li class="breadcrumb-item">@Html.ActionLink("Unidades", "VerUnidades", new { id = @Model.Consorcio.IdConsorcio })</li>
+        <li class="breadcrumb-item">@Html.ActionLink("Unidades", "VerUnidades", new { id = @Model.Consorcio.IdConsorcio }, new { @class = "enlace-color" })</li>
         <li class="breadcrumb-item active" aria-current="page">Eliminar Unidad</li>
 
     </ol>
 </nav>
 <div class="border rounded my-5 pb-5 shadow bg-white">
     <h2 class="display-4 text-center my-5">
-        ¿Esta seguro que desea eliminar la unidad <span class="text-primary">@Model.Nombre</span> del Consorcio
-        <span class="text-primary">@Model.Consorcio.Nombre</span>?
+        ¿Esta seguro que desea eliminar la unidad <span class="enlace-color">@Model.Nombre</span> del Consorcio
+        <span class="enlace-color">@Model.Consorcio.Nombre</span>?
     </h2>
 
     <form action="/Unidad/EliminarUnidad" method="post">
         <input type="hidden" name="IdUnidad" value="@Model.IdUnidad" />
         <div class="d-flex justify-content-around">
-            <input type="submit" name="name" value="Eliminar" class="btn btn-primary btn-lg mt-4 px-5" />
-            <a href="/Unidad/VerUnidades/@Model.IdConsorcio" class="btn btn-danger btn-lg mt-4 px-5">Cancelar</a>
+            <input type="submit" name="name" value="Eliminar" class="btn btn-secundario btn-lg mt-4 px-5" />
+            <a href="/Unidad/VerUnidades/@Model.IdConsorcio" class="btn btn-cancelar btn-lg text-light mt-4 px-5">Cancelar</a>
         </div>
     </form>
 

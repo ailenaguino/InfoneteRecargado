@@ -7,9 +7,9 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
 
-        <li class="breadcrumb-item"><a href="/Consorcio/Lista">Mis Consorcios</a></li>
+        <li class="breadcrumb-item"><a href="/Consorcio/Lista" class="enlace-color">Mis Consorcios</a></li>
         <li class="breadcrumb-item">@Model.Consorcio.Nombre</li>
-        <li class="breadcrumb-item">@Html.ActionLink("Unidades", "VerUnidades", new { id = @Model.Consorcio.IdConsorcio })</li>
+        <li class="breadcrumb-item">@Html.ActionLink("Unidades", "VerUnidades", new { id = @Model.Consorcio.IdConsorcio }, new { @class = "enlace-color" })</li>
         <li class="breadcrumb-item active" aria-current="page">Crear Unidad</li>
 
     </ol>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="col-sm text-right">
-            @Html.ActionLink("Eliminar Unidad", "EliminarUnidad", new { id = @Model.IdUnidad }, new { @class = "btn btn-outline-danger" })
+            @Html.ActionLink("Eliminar Unidad", "EliminarUnidad", new { id = @Model.IdUnidad }, new { @class = "btn btn-cancelar text-light" })
     </div>
 </div>
 <hr />
@@ -56,8 +56,8 @@
 
     <input type="hidden" name="IdUnidad" value="@Model.IdUnidad" />
 
-    <input type="submit" name="name" value="Guardar" class="btn btn btn-primary btn mt-4" />
-    <a href="/Unidad/VerUnidades/@Model.IdConsorcio" class="btn btn btn-danger btn mt-4">Cancelar</a>
+    <input type="submit" name="name" value="Guardar" class="btn btn btn-secundario btn mt-4" />
+    <a href="/Unidad/VerUnidades/@Model.IdConsorcio" class="btn btn btn-cancelar text-light mt-4">Cancelar</a>
 </form>
 
 
