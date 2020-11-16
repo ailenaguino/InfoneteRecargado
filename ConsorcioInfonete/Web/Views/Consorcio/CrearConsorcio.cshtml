@@ -14,11 +14,14 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
 
+
         <li class="breadcrumb-item"><a href="/Consorcio/Lista">Mis Consorcios</a></li>
         <li class="breadcrumb-item">Nuevo Consorcio</li>
 
     </ol>
 </nav>
+
+
 
 <form class="form-signin text-center" action="/Consorcio/CrearConsorcio" method="post" enctype="multipart/form-data">
     <h2 class="h3 mb-3 font-weight-normal">Crear Nuevo Consorcio</h2>
@@ -57,16 +60,16 @@
 
     <div class="row">
         <div class="col-sm">
-            <input class="btn btn-lg btn-primary btn mt-4" type="submit" name="accion" value="Guardar" />
+            <input class="btn btn-lg btn-secundario btn mt-4" type="submit" name="accion" value="Guardar" />
         </div>
         <div class="col-sm">
-            <input class="btn btn-lg btn-outline-success btn mt-4" type="submit" name="accion" value="Guardar y Crear otro Consorcio"/>
+            <input class="btn btn-lg btn-outline-primario btn mt-4" type="submit" name="accion" value="Guardar y Crear otro Consorcio"/>
         </div>
         <div class="col-sm">
-            <a href="/Unidad/CrearUnidad?id=@Model.IdConsorcio" class="btn btn-lg btn-danger btn mt-4">Guardar y Crear Unidad</a>
+            <a href="/Unidad/CrearUnidad?id=@Model.IdConsorcio" class="btn btn-lg btn-terciario text-light btn mt-4">Guardar y Crear Unidad</a>
         </div>
         <div class="col-sm">
-            <a href="/Consorcio/Lista" class="btn btn-lg btn-danger btn mt-4">Cancelar</a>
+            <a href="/Consorcio/Lista" class="btn btn-lg btn-cancelar text-light btn mt-4">Cancelar</a>
         </div>
     </div>
 </form>

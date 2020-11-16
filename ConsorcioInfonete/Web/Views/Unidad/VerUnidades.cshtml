@@ -6,11 +6,11 @@
 
 
 }
-<nav aria-label="breadcrumb">
+<nav aria-label="breadcrumb bg-gris">
     <ol class="breadcrumb">
         @foreach (var u in Model)
         {
-                <li class="breadcrumb-item"><a href="/Consorcio/Lista">Mis Consorcios</a></li>
+                <li class="breadcrumb-item"><a href="/Consorcio/Lista" class="enlace-color">Mis Consorcios</a></li>
                 <li class="breadcrumb-item">@u.Consorcio.Nombre</li>
                 <li class="breadcrumb-item active" aria-current="page">Unidades</li>
             break;
@@ -25,7 +25,7 @@
         <div class="col-sm text-right">
         @foreach (var u in Model)
         {
-            @Html.ActionLink("Crear Nueva", "CrearUnidad", new { id = u.IdConsorcio }, new{ @class="btn btn-outline-primary"})
+            @Html.ActionLink("Crear Nueva", "CrearUnidad", new { id = u.IdConsorcio }, new{ @class="btn btn-secundario"})
             break;
 
         }
@@ -69,7 +69,7 @@
                         @Html.DisplayFor(m => u.EmailPropietario)
                     </td>
                     <td>
-                        @Html.ActionLink("Editar", "EditarUnidad", new { id = u.IdUnidad }) 
+                        @Html.ActionLink("Editar", "EditarUnidad", new { id = u.IdUnidad }, new { @class = "enlace-secundario" }) 
                     </td>
                     <td>
                         @Html.ActionLink("Eliminar", "EliminarUnidad", new { id = u.IdUnidad }, new { @class="text-danger"})

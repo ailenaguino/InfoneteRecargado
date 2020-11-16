@@ -2,44 +2,62 @@
     background-image: url("https://www.segurosdeconsorcio.com.ar/images/slider/slider-06.jpg");
 }
 
-.card-login {
-    background-color: rgba(0,0,0,0.7);
-    color: #fff;
+.table .thead-dark th {
+    background-color: #303841;
 }
 
-.color-p {
-    background: #003973;
-    color: #eef2df;
+.navbar-secundaria a:hover {
+    color: #eeeeee;
 }
 
-.color-p:hover {
-    background: #003973;
-    color: #eef2df;
+.bg-secundario {
+    background: #00adb5;
 }
-
-p a.text-p {
-    color: #005aa7 !important;
+.enlace-color {
+    color: #ff5722;
+    text-decoration:none;
 }
-.text {
-    color: #005aa7 !important;
+.enlace-color:hover{
+    color: #c83d11;
+    text-decoration:none;
 }
-.text-p:hover {
-    color: #005aa7 !important;
+.enlace-secundario {
+    color: #00adb5;
+}
+.enlace-secundario:hover {
+    color: #00adb5;
     text-decoration: none;
 }
-
-/*
-        #003973
-            005aa7
-        #eef2df*/
-
 body {
     padding-top: 90px
+}
+.btn-cancelar {
+    background: #f05454;
+    color: #fafafa;
+}
+.btn-secundario {
+    background: #00adb5;
+}
+.btn-outline-primario {
+    border-color:#303841;
+}
+.btn-outline-primario:hover {
+    color: #58616c;
+}
+.btn-terciario {
+    background: #ff5722;
+}
+.bg-gris{
+    background:#eee !important;
 }
 
 @media (min-width:768px) {
     body {
         padding-top: 0
+    }
+    .container-post-navbar-secundaria {
+        margin-top: 0;
+        min-height:93vh;
     }
 }
 
@@ -52,7 +70,7 @@ body {
 }
 
 nav.bg-primary.fixed-left.navbar.navbar-dark.navbar-expand-md {
-    background: #003973 !important;
+    background: #303841 !important;
 }
 .z-20{
     z-index:20;
@@ -64,6 +82,7 @@ nav.bg-primary.fixed-left.navbar.navbar-dark.navbar-expand-md {
     }
     .container-post-navbar-secundaria{
         margin-top:0;
+        min-height:82vh;
     }
     .footer-fixeado{
         position:sticky;
@@ -120,15 +139,15 @@ nav.bg-primary.fixed-left.navbar.navbar-dark.navbar-expand-md {
      .navbar.fixed-left .navbar-nav .nav-item .dropdown-menu {
         left: 100%
      }
-    .footer-fixeado{
-        position:absolute;
-        bottom:0; 
-        right:0;
+    .footer-fixeado {
+        position: sticky;
+        bottom: 0;
+        color: #fafafa;
+        background: #ff5722;
+        z-index: 100;
     }
 }
-.bg-claro {
-    background: #eef2df !important;
-}
+
 
 @media (min-width: 768px) {
     body {
@@ -141,3 +160,4 @@ nav.bg-primary.fixed-left.navbar.navbar-dark.navbar-expand-md {
         margin-left: 232px;
     }
 }
+  
