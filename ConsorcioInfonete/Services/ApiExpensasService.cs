@@ -3,6 +3,7 @@ using Repositories;
 using Repositories.Context;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,29 +14,32 @@ namespace Services
     {
         GastoRepository gastoRepo;
         UnidadRepository unidadRepo;
-
+        PW3_TP_20202CEntities ctx;
         public ApiExpensasService(PW3_TP_20202CEntities contexto)
         {
             gastoRepo = new GastoRepository(contexto);
             unidadRepo = new UnidadRepository(contexto);
+            ctx = contexto;
         }
 
         public List<Expensa> ObtenerExpensas(int idConsorcio)
         {
-            var gastos= gastoRepo.ObtenerGastoPorConsorcio(idConsorcio);
-            var unidades= unidadRepo.ObtenerTodosConsorcioId(idConsorcio);
-
-            decimal gastoTotal = 0;
-
-            foreach (var g in gastos)
+            var unidadesPorConsorcio = unidadRepo.ObtenerTodosConsorcioId(idConsorcio);
+            ObjectResult<ObtenerExpensasProc_Result> res =ctx.ObtenerExpensasProc(idConsorcio);
+            List<Expensa> expensas = new List<Expensa>();
+            foreach (var item in res)
             {
-                gastoTotal += g.Monto;
+                Expensa expensa = new Expensa()
+                {
+                    Año=item.Anio,
+                    GastoTotal= (decimal)item.GastoTotal,
+                    Mes=item.Mes,
+                    ExpensasPorUnidad= (double)item.GastoPorUnidad,
+                    unidades= unidadesPorConsorcio.Count()
+                };
+                expensas.Add(expensa);
             }
-            foreach (var u in unidades)
-            {
-
-            }
-            return null;
+            return expensas;
         }
     }
 }
