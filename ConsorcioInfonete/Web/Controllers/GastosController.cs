@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using Web.Helpers;
+using Common;
 using Web.Models;
 
 namespace Web.Controllers
@@ -17,15 +18,19 @@ namespace Web.Controllers
     {
         private GastoService gastoService;
         private FileVM fileModel;
+        ApiExpensasService x;
         public GastosController()
         {
             PW3_TP_20202CEntities ctx = new PW3_TP_20202CEntities();
+            x=new ApiExpensasService(ctx);
             gastoService = new GastoService(ctx);
             fileModel = new FileVM();
         }
-        public ActionResult Index()
+        public ActionResult ApiGastos(int id)
         {
-            return View();
+            List<Expensa> expensaList=x.ObtenerExpensas(id);
+           
+            return View(expensaList);
         }
         
         public ActionResult VerGastos(int idConsorcio)

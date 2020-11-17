@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Repositories.Context;
+using Common;
 using Services;
 
 namespace Web.Controllers
@@ -33,12 +34,12 @@ namespace Web.Controllers
         {
             return new string[] { "value1", "value2" };
         }
-
+       
         // GET: api/ApiExpensas/5
-        public string Get(int id)
+        public List<Expensa> Get(int id)
         {
-
-            return "value";
+            List<Expensa> expensas= expensasService.ObtenerExpensas(id);
+            return expensas;
         }
 
         // POST: api/ApiExpensas

@@ -1,0 +1,14 @@
+﻿@model List<Common.Expensa>
+@{
+    Layout = "~/Views/Shared/LogueadoLayout.cshtml";
+}
+<h2>ApiGastos</h2>
+@foreach (var item in Model)
+{<p>
+    @item.unidades
+    @item.Mes
+    @item.Año
+    @item.ExpensasPorUnidad
+    @item.GastoTotal
+    </p>
+}

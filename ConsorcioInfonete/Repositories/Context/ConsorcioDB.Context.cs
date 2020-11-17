@@ -12,6 +12,8 @@ namespace Repositories.Context
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class PW3_TP_20202CEntities : DbContext
     {
@@ -31,5 +33,14 @@ namespace Repositories.Context
         public virtual DbSet<TipoGasto> TipoGasto { get; set; }
         public virtual DbSet<Unidad> Unidad { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+    
+        public virtual ObjectResult<ObtenerExpensasProc_Result> ObtenerExpensasProc(Nullable<int> consorcioId)
+        {
+            var consorcioIdParameter = consorcioId.HasValue ?
+                new ObjectParameter("ConsorcioId", consorcioId) :
+                new ObjectParameter("ConsorcioId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ObtenerExpensasProc_Result>("ObtenerExpensasProc", consorcioIdParameter);
+        }
     }
 }
