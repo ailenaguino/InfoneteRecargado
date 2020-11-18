@@ -311,6 +311,10 @@
     <Content Include="Views\Home\Registro.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Gastos\ApiGastos.cshtml" />
+    <Content Include="Views\Consorcio\CrearConsorcio.cshtml" />
+    <Content Include="Views\Consorcio\Editar.cshtml" />
+    <Content Include="Views\Consorcio\Eliminar.cshtml" />
+    <Content Include="Views\Consorcio\Lista.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
