@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiExpensasRepository.cs" />
     <Compile Include="BaseRepository.cs" />
     <Compile Include="ConsorcioRepository.cs" />
     <Compile Include="Context\Consorcio.cs">
@@ -123,6 +124,12 @@
       <DependentUpon>ConsorcioDB.edmx</DependentUpon>
       <LastGenOutput>ConsorcioDB.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{57D3CF4A-C4D2-4A9D-8E26-CA7F207F7869}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

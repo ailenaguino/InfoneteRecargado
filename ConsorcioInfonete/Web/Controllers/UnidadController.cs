@@ -58,7 +58,7 @@ namespace Web.Controllers
                 ViewData["alert"] = "Unidad " + u.Nombre + " creada con éxito";
 
                 if (guardar == "Guardar") {
-                    return Redirect("/VerUnidades/" + u.Consorcio.IdConsorcio);
+                    return Redirect("/Unidad/VerUnidades/" + u.Consorcio.IdConsorcio);
                 }
             }
 
@@ -89,7 +89,7 @@ namespace Web.Controllers
                 u.IdUsuarioCreador = unidadObtenida.IdUsuarioCreador;
 
                 US.Modificar(u);
-                return Redirect("/VerUnidades/" + u.Consorcio.IdConsorcio);
+                return Redirect("/Unidad/VerUnidades/" + u.Consorcio.IdConsorcio);
             }
 
             return View(u);
@@ -112,7 +112,7 @@ namespace Web.Controllers
         {
             Unidad unidadObtenida = US.ObtenerPorId(u.IdUnidad);
             US.Eliminar(u.IdUnidad);
-            return Redirect("/VerUnidades/" + unidadObtenida.IdConsorcio);
+            return Redirect("/Unidad/VerUnidades/" + unidadObtenida.IdConsorcio);
         }
 
     }

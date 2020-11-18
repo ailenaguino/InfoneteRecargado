@@ -23,6 +23,8 @@ namespace Repositories
              where gasto.IdConsorcio == idConsorcio
              group gasto.Monto by gasto.MesExpensa into gastoMes
                     select gastoMes).ToList();
+            List<Expensa> e = new List<Expensa>();
+            return e;
         }
     }
 }
