@@ -74,6 +74,9 @@
     <Compile Include="Context\Gasto.cs">
       <DependentUpon>ConsorcioDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Context\ObtenerExpensasProc_Result.cs">
+      <DependentUpon>ConsorcioDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="GastoRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Context\Provincia.cs">

@@ -6,8 +6,8 @@
 
 <nav aria-label="breadcrumb ">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a class="item-bread" href="/Consorcio/Lista">Mis Consorcios</a></li>
-        <li class="breadcrumb-item"><a class="item-bread" href="/Consorcio/VerConsorcio?id=@ViewBag.id">@ViewBag.nombre</a></li>
+        <li class="breadcrumb-item"><a class="item-bread enlace-color text-decoration-none" href="/Consorcio/Lista">Mis Consorcios</a></li>
+        <li class="breadcrumb-item"><a class="item-bread enlace-color text-decoration-none" href="/Consorcio/VerConsorcio?id=@ViewBag.id">@ViewBag.nombre</a></li>
         <li class="breadcrumb-item" aria-current="page">Gastos</li>
     </ol>
 </nav>
@@ -15,8 +15,7 @@
 <h2>Consorcio "@ViewBag.nombre" - Gastos</h2>
 
     <div class="d-flex justify-content-end">
-        <a href="/Gastos/CrearGasto?idConsorcio=@ViewBag.id" class="mb-2 text">Nuevo Gasto</a>
-
+        <a href="/Gastos/CrearGasto?idConsorcio=@ViewBag.id" class="mb-2 enlace-color">Nuevo Gasto</a>
     </div>
     <table id="tabla" class="table table-light table-hover table-bordered table-responsive">
         <thead class="thead-dark">
@@ -57,7 +56,7 @@
                     </td>
                     <td>
                         @Html.DisplayFor(Model => m.ArchivoComprobante)
-                        <a target="_blank" href="/Gastos/Download?t=@m.ArchivoComprobante">archivo</a>
+                        <a target="_blank" href="/Gastos/Download?t=@m.ArchivoComprobante" class="enlace-color">archivo</a>
                     </td>
                     <td>
                         <a href="/Gastos/Modificar?idGasto=@m.IdGasto" class="text-success">

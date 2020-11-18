@@ -8,54 +8,71 @@
         Text = o.Nombre,
         Value = o.IdProvincia.ToString()
     }).ToList();
+
 }
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        <li class="breadcrumb-item"><a href="/Consorcio/Lista">Mis Consorcios</a></li>
+        <li class="breadcrumb-item">Consorcio "@ViewBag.Con.Nombre"</li>
+        <li class="breadcrumb-item active" aria-current="page">Editando Consorcio</li>
+
+    </ol>
+</nav>
 
 <form class="form-signin text-center" action="/Consorcio/EditarConsorcio" method="post" enctype="multipart/form-data">
     <h2 class="h3 mb-3 font-weight-normal">Editando Consorcio "@ViewBag.Con.Nombre" </h2>
-    <a href="/Unidad/VerUnidades?id=@ViewBag.Con.IdConsorcio" class="font-weight-bold">Ver Unidades</a><br />
-    <a href="/Gastos/VerGastos?idConsorcio=@ViewBag.Con.IdConsorcio" class="font-weight-bold">Ver Gastos</a><br />
-    <a href="#" class="font-weight-bold">Ver Expensas</a> @*tiene que ir a expensas*@<br />
-    <a href="/Consorcio/Eliminar?idConsorcio=@ViewBag.Con.IdConsorcio" class="btn btn-lg btn-danger btn mt-4">Eliminar Consorcio</a>
+    <div class="row my-3">
 
-    @Html.HiddenFor(Model => Model.IdConsorcio, new { htmlAttributes = new { @Value = Model.IdConsorcio } })
-    @Html.HiddenFor(Model => Model.IdUsuarioCreador, new { htmlAttributes = new { @Value = Model.IdUsuarioCreador } })
-
-    <div class="form-group">
-        @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Nombre" } })
-        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
-    </div>
+        @Html.HiddenFor(Model => Model.IdConsorcio, new { htmlAttributes = new { @Value = Model.IdConsorcio } })
+        @Html.HiddenFor(Model => Model.IdUsuarioCreador, new { htmlAttributes = new { @Value = Model.IdUsuarioCreador } })
+        <div class="col-lg">
+            <div class="form-group">
+                @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Nombre" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
 
 
-    <div class="form-group">
-        @Html.DropDownListFor(Model => Model.IdProvincia, provincia, new { @class = "mt-1 form-control" })
-    </div>
-    <div class="form-group">
-        @Html.EditorFor(Model => Model.Ciudad, new { htmlAttributes = new { @class = "mt-1 form-control", rows = "3", placeholder = "Ciudad" } })
-        @Html.ValidationMessageFor(model => model.Ciudad, "", new { @class = "text-danger" })
-    </div>
+            <div class="form-group">
+                @Html.DropDownListFor(Model => Model.IdProvincia, provincia, new { @class = "mt-1 form-control" })
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(Model => Model.Ciudad, new { htmlAttributes = new { @class = "mt-1 form-control", rows = "3", placeholder = "Ciudad" } })
+                @Html.ValidationMessageFor(model => model.Ciudad, "", new { @class = "text-danger" })
+            </div>
 
-    <div class="form-group">
-        @Html.EditorFor(Model => Model.Calle, new { htmlAttributes = new { @class = "mt-1 form-control", rows = "3", placeholder = "Calle" } })
-        @Html.ValidationMessageFor(model => model.Calle, "", new { @class = "text-danger" })
-    </div>
+            <div class="form-group">
+                @Html.EditorFor(Model => Model.Calle, new { htmlAttributes = new { @class = "mt-1 form-control", rows = "3", placeholder = "Calle" } })
+                @Html.ValidationMessageFor(model => model.Calle, "", new { @class = "text-danger" })
+            </div>
 
-    <div class="form-group">
-        @Html.EditorFor(Model => Model.Altura, new { htmlAttributes = new { @class = "mt-1 form-control", rows = "3", placeholder = "Altura" } })
-        @Html.ValidationMessageFor(model => model.Altura, "", new { @class = "text-danger" })
-    </div>
+            <div class="form-group">
+                @Html.EditorFor(Model => Model.Altura, new { htmlAttributes = new { @class = "mt-1 form-control", rows = "3", placeholder = "Altura" } })
+                @Html.ValidationMessageFor(model => model.Altura, "", new { @class = "text-danger" })
+            </div>
 
-    <div class="form-group">
-        @Html.EditorFor(Model => Model.DiaVencimientoExpensas, new { htmlAttributes = new { @min = 1, @max = "31", @Value = "24", @class = "mt-1 form-control", placeholder = "Dia vencimiento expensa" } })
-        @Html.ValidationMessageFor(model => model.DiaVencimientoExpensas, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <input class="btn btn-lg btn-success btn mt-4" type="submit" name="accion" value="Guardar" />
+            <div class="form-group">
+                @Html.EditorFor(Model => Model.DiaVencimientoExpensas, new { htmlAttributes = new { @min = 1, @max = "31", @Value = "24", @class = "mt-1 form-control", placeholder = "Dia vencimiento expensa" } })
+                @Html.ValidationMessageFor(model => model.DiaVencimientoExpensas, "", new { @class = "text-danger" })
+            </div>
         </div>
-        <div class="col-md-6">
-            <a href="/Consorcio/Lista" class="btn btn-lg btn-danger btn mt-4">Cancelar</a>
+        <div class="col- text-center my-auto">
+            <h3>@ViewBag.uni Unidades</h3>
+            <a href="/Unidad/VerUnidades?id=@ViewBag.Con.IdConsorcio" class="font-weight-bold">Ver Unidades</a><br />
+            <a href="/Gastos/VerGastos?idConsorcio=@ViewBag.Con.IdConsorcio" class="font-weight-bold">Ver Gastos</a><br />
+            <a href="#" class="font-weight-bold">Ver Expensas</a> @*tiene que ir a expensas*@<br />
+            <a href="/Consorcio/Eliminar?idConsorcio=@ViewBag.Con.IdConsorcio" class="btn btn-lg btn-danger btn mt-4">Eliminar Consorcio</a>
         </div>
-    </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <input class="btn btn-lg btn-success btn mt-4" type="submit" name="accion" value="Guardar" />
+            </div>
+            <div class="col-md-6">
+                <a href="/Consorcio/Lista" class="btn btn-lg btn-danger btn mt-4">Cancelar</a>
+            </div>
+        </div>
 </form>
 

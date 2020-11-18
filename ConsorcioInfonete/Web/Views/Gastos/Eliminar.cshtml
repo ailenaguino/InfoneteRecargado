@@ -8,8 +8,8 @@
         <h2>¿Estás seguro que deseas Eliminar el gasto " @Model.Nombre " del consorcio " @Model.Consorcio.Nombre"?</h2>
         @Html.HiddenFor(Model => Model.IdGasto, new { htmlAttributes = new { @Value = Model.IdGasto } })
         <div class="mt-3">
-            <button class="btn btn-lg btn-primary mr-4">Eliminar</button>        
-            <a href="/Gastos/VerGastos?idConsorcio=@Model.IdConsorcio" class="btn btn-lg btn-danger">Cancelar</a>         
+            <button class="btn btn-lg btn-secundario mr-4 text-light">Eliminar</button>        
+            <a href="/Gastos/VerGastos?idConsorcio=@Model.IdConsorcio" class="btn btn-lg btn-cancelar text-light">Cancelar</a>         
         </div> 
     </form>
 </div>

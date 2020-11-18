@@ -299,7 +299,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\pv_Footer.cshtml" />
     <Content Include="Views\Consorcio\Index.cshtml" />
-    <Content Include="VerUnidades.cshtml" />
     <Content Include="Views\Unidad\CrearUnidad.cshtml" />
     <Content Include="Views\Gastos\Eliminar.cshtml" />
     <Content Include="Views\Gastos\Modificar.cshtml" />
@@ -311,6 +310,11 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Registro.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Gastos\ApiGastos.cshtml" />
+    <Content Include="Views\Consorcio\CrearConsorcio.cshtml" />
+    <Content Include="Views\Consorcio\Editar.cshtml" />
+    <Content Include="Views\Consorcio\Eliminar.cshtml" />
+    <Content Include="Views\Consorcio\Lista.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -331,6 +335,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{57D3CF4A-C4D2-4A9D-8E26-CA7F207F7869}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Repositories\Repositories.csproj">
       <Project>{eafda870-3efe-461c-a3be-c69c2fe952ef}</Project>
       <Name>Repositories</Name>

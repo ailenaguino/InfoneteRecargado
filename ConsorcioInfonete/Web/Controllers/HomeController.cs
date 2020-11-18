@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.Ajax.Utilities;
+using Repositories;
 using Repositories.Context;
 using Services;
 using Web.Helpers;
@@ -81,7 +82,7 @@ namespace Web.Controllers
         public ActionResult LogOut()
         {
             SessionHelper.RemoveSession();
-            return View("Index");
+            return View("Login",new UsuarioVM());
         }
 
         public ActionResult Error(int error = 0)
