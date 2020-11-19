@@ -315,6 +315,7 @@
     <Content Include="Views\Consorcio\Editar.cshtml" />
     <Content Include="Views\Consorcio\Eliminar.cshtml" />
     <Content Include="Views\Consorcio\Lista.cshtml" />
+    <Content Include="Views\Expensas\Lista.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -325,7 +326,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Gastos\" />
-    <Folder Include="Views\Expensas\" />
     <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>

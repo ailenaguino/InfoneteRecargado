@@ -62,7 +62,7 @@ namespace Web.Controllers
                 return View(consorcio);
             }
 
-            return View();
+            return View(new ConsorcioVM());
         }
 
         public ActionResult Eliminar(int idConsorcio)
@@ -98,12 +98,14 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditarConsorcio(ConsorcioVM con)
+        public ActionResult Editar(ConsorcioVM con)
         {
 
             if (!ModelState.IsValid)
             {
-                return View(con);
+                ViewBag.Con = consorcioService.ObtenerPorId(con.IdConsorcio);
+                ViewBag.uni = unidadService.ObtenerTodos(con.IdConsorcio).Count;
+                return View("Editar",con);
             }
 
 

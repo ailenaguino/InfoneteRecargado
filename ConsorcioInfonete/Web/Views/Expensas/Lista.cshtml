@@ -1,0 +1,67 @@
+﻿@using System.Globalization
+@using Common
+@model List<Common.Expensa>
+
+@{
+    Layout = "~/Views/Shared/LogueadoLayout.cshtml";
+    var ultimo = (Expensa)ViewBag.Ultimo;
+}
+<div class="row my-3">
+    <div class="col-sm">
+        <h2>Listado Expensas</h2>
+    </div>
+</div>
+<div>
+    Gasto total mes actual @DateTime.Now.ToString("MMMM", CultureInfo.CreateSpecificCulture("es")) : @ultimo.GastoTotal
+    Monto por unidad: @ultimo.ExpensasPorUnidad
+    Unidades: @(Model.FirstOrDefault()?.unidades)
+</div>
+<table id="tabla" class="table table-striped table-bordered" width="100%">
+    <thead>
+        <tr>
+            <th>
+                Mes
+            </th>
+            <th>
+                Año
+            </th>
+            <th>
+                Gasto Total
+            </th>
+            <th>
+                Gasto por unidad
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var con in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(o => con.Mes)
+                </td>
+                <td>
+                    @Html.DisplayFor(o => con.Año)
+                </td>
+                <td>
+                    @Html.DisplayFor(o => con.GastoTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(o => con.ExpensasPorUnidad)
+                </td>
+            </tr>
+
+        }
+    </tbody>
+
+</table>
+<hr>
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/Scripts/datatable/datatables.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/datatable/pagination.js"></script>
+}
