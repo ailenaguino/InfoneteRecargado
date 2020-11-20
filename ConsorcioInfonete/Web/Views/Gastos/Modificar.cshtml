@@ -9,7 +9,13 @@
         Value = o.IdTipoGasto.ToString()
     }).ToList();
 }
-
+<nav aria-label="breadcrumb ">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a class="item-bread enlace-color text-decoration-none" href="/Consorcio/Lista">Mis Consorcios</a></li>
+        <li class="breadcrumb-item"><a class="item-bread enlace-color text-decoration-none" href="/Consorcio/Editar?idConsorcio=@ViewBag.id">@ViewBag.nombre</a></li>
+        <li class="breadcrumb-item" aria-current="page">Gastos</li>
+    </ol>
+</nav>
 <form class="form-signin text-center" action="/Gastos/Modificar" method="post" enctype="multipart/form-data">
     <h2 class="h3 mb-3 font-weight-normal">Editando Gasto "@Model.Nombre" </h2>
     <a href="/Gastos/Eliminar?idGasto=@Model.idGasto" class="enlace-color font-weight-bold">Eliminar Gasto</a>
