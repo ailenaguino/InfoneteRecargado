@@ -3,18 +3,14 @@
 @{
     ViewBag.Title = "VerUnidades";
     Layout = "~/Views/Shared/LogueadoLayout.cshtml";
-
+    Repositories.Context.Consorcio cons = ViewBag.Consorcio;
 
 }
 <nav aria-label="breadcrumb bg-gris">
     <ol class="breadcrumb">
-        @foreach (var u in Model)
-        {
                 <li class="breadcrumb-item"><a href="/Consorcio/Lista" class="enlace-color">Mis Consorcios</a></li>
-                <li class="breadcrumb-item">@u.Consorcio.Nombre</li>
+                <li class="breadcrumb-item">@cons.Nombre</li>
                 <li class="breadcrumb-item active" aria-current="page">Unidades</li>
-            break;
-        }
   </ol>
 </nav>
     <div class="row my-3">
@@ -23,12 +19,8 @@
         </div>
 
         <div class="col-sm text-right">
-        @foreach (var u in Model)
-        {
-            @Html.ActionLink("Crear Nueva", "CrearUnidad", new { id = u.IdConsorcio }, new{ @class="btn btn-secundario"})
-            break;
+            @Html.ActionLink("Crear Nueva", "CrearUnidad", new { id = cons.IdConsorcio }, new{ @class="btn btn-secundario"})
 
-        }
         </div>
     </div>
     <hr />
