@@ -24,7 +24,7 @@ namespace Services
 
         public List<Expensa> ObtenerExpensas(int idConsorcio)
         {
-            var unidadesPorConsorcio = unidadRepo.ObtenerTodosConsorcioId(idConsorcio);
+            var unidadesPorConsorcio = unidadRepo.ObtenerTodosConsorcio(idConsorcio);
             ObjectResult<ObtenerExpensasProc_Result> res =ctx.ObtenerExpensasProc(idConsorcio);
             List<Expensa> expensas = new List<Expensa>();
             foreach (var item in res)
