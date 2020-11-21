@@ -11,12 +11,24 @@
         <h2>Listado Expensas</h2>
     </div>
 </div>
-<div>
-    Gasto total mes actual @DateTime.Now.ToString("MMMM", CultureInfo.CreateSpecificCulture("es")) : @ultimo.GastoTotal
-    Monto por unidad: @ultimo.ExpensasPorUnidad
-    Unidades: @(Model.FirstOrDefault()?.unidades)
+<div class="row">
+    <div class="col-md-12">
+        <p class="font-weight-bold text-capitalize">
+            gasto total mes actual @DateTime.Now.ToString("MMMM", CultureInfo.CreateSpecificCulture("es")) (hasta el momento) : $@ultimo.GastoTotal
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p class="font-weight-bold">
+            Unidades: @(Model.FirstOrDefault()?.unidades)
+        </p>
+    </div>
+    <div class="col-md-6">
+        <p class="font-weight-bold">
+            Monto x unidad: $@ultimo.ExpensasPorUnidad   
+        </p>
+    </div>
 </div>
-<table id="tabla" class="table table-striped table-bordered" width="100%">
+<table id="tabla" class="table text-center table-striped table-bordered" width="100%">
     <thead>
         <tr>
             <th>
@@ -26,10 +38,10 @@
                 Año
             </th>
             <th>
-                Gasto Total
+                Gasto Total ($)
             </th>
             <th>
-                Gasto por unidad
+                Expensas x Unidad ($)
             </th>
 
         </tr>

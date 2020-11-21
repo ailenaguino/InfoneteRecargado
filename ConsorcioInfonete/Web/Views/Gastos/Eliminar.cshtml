@@ -3,13 +3,26 @@
     ViewBag.Title = "Eliminar";
     Layout = "~/Views/Shared/LogueadoLayout.cshtml";
 }
-<div class="container py-5 mt-5">
-    <form action="/Gastos/EliminarGasto" class="form-signin text-center" method="post">
-        <h2>¿Estás seguro que deseas Eliminar el gasto " @Model.Nombre " del consorcio " @Model.Consorcio.Nombre"?</h2>
+<nav aria-label="breadcrumb ">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a class="item-bread enlace-color text-decoration-none" href="/Consorcio/Lista">Mis Consorcios</a></li>
+        <li class="breadcrumb-item"><a class="item-bread enlace-color text-decoration-none" href="/Consorcio/Editar?idConsorcio=@ViewBag.id">@ViewBag.nombre</a></li>
+        <li class="breadcrumb-item" aria-current="page">Gastos</li>
+    </ol>
+</nav>
+
+<div class="border rounded my-5 pb-5 shadow bg-white">
+    <h2 class="display-4 text-center my-5">
+        ¿Esta seguro que desea eliminar el gasto "<span class="enlace-color">@Model.Nombre</span>" del Consorcio
+        <span class="enlace-color">@Model.Consorcio.Nombre</span>?
+    </h2>
+
+    <form action="/Gastos/EliminarGasto" method="post">
         @Html.HiddenFor(Model => Model.IdGasto, new { htmlAttributes = new { @Value = Model.IdGasto } })
-        <div class="mt-3">
-            <button class="btn btn-lg btn-secundario mr-4 text-light">Eliminar</button>        
-            <a href="/Gastos/VerGastos?idConsorcio=@Model.IdConsorcio" class="btn btn-lg btn-cancelar text-light">Cancelar</a>         
-        </div> 
+        <div class="d-flex justify-content-around">
+            <button class="btn btn-secundario btn-lg mt-4 px-5">Eliminar</button>
+            <a href="/Gastos/VerGastos?idConsorcio=@Model.IdConsorcio" class="btn btn-cancelar btn-lg text-light mt-4 px-5">Cancelar</a>
+        </div>
     </form>
+
 </div>
