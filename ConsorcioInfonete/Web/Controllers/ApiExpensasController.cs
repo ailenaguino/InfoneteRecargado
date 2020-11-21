@@ -28,34 +28,12 @@ namespace Web.Controllers
             expensasService = new ApiExpensasService(contexto);
         
         }
-
-        // GET: api/ApiExpensas
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
        
-        // GET: api/ApiExpensas/5
         public List<Expensa> Get(int id)
         {
             List<Expensa> expensas= expensasService.ObtenerExpensas(id);
             return expensas;
         }
 
-        // POST: api/ApiExpensas
-        public void Post([FromBody]string value)
-        {
-
-        }
-
-        // PUT: api/ApiExpensas/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/ApiExpensas/5
-        public void Delete(int id)
-        {
-        }
     }
 }
