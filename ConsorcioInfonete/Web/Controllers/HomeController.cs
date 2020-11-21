@@ -21,10 +21,7 @@ namespace Web.Controllers
             PW3_TP_20202CEntities contexto = new PW3_TP_20202CEntities();
             servicio = new UsuarioService(contexto);
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
+
         public ActionResult Login()
         {
             return View(new UsuarioVM());

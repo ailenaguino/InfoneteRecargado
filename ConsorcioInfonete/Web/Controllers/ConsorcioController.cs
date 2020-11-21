@@ -24,10 +24,6 @@ namespace Web.Controllers
             provinciaService = new ProvinciaService(contexto);
             unidadService = new UnidadService(contexto);
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         public ActionResult Lista()
         {
