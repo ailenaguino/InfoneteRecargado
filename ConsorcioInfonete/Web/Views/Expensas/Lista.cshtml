@@ -12,19 +12,30 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-12">
-        <p class="font-weight-bold text-capitalize">
-            gasto total mes actual @DateTime.Now.ToString("MMMM", CultureInfo.CreateSpecificCulture("es")) (hasta el momento) : $@ultimo.GastoTotal
-        </p>
-    </div>
+    @if (ultimo != null)
+    {
+        <div class="col-md-12">
+            <p class="font-weight-bold text-capitalize">
+                gasto total mes actual @DateTime.Now.ToString("MMMM", CultureInfo.CreateSpecificCulture("es")) (hasta el momento) : $@ultimo.GastoTotal
+            </p>
+        </div>
+        <div class="col-md-6">
+            <p class="font-weight-bold">
+                Monto x unidad: $@ultimo.ExpensasPorUnidad
+            </p>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-6">
+            <p class="font-weight-bold">
+                No se encontró una expensa para el mes actual
+            </p>
+        </div>
+    }
     <div class="col-md-6">
         <p class="font-weight-bold">
             Unidades: @(Model.FirstOrDefault()?.unidades)
-        </p>
-    </div>
-    <div class="col-md-6">
-        <p class="font-weight-bold">
-            Monto x unidad: $@ultimo.ExpensasPorUnidad   
         </p>
     </div>
 </div>
@@ -50,7 +61,8 @@
 
         @foreach (var con in Model)
         {
-
+            if (con != ultimo)
+            {
             <tr>
                 <td>
                     @Html.DisplayFor(o => con.Mes)
@@ -65,7 +77,7 @@
                     @Html.DisplayFor(o => con.ExpensasPorUnidad)
                 </td>
             </tr>
-
+            }
         }
     </tbody>
 

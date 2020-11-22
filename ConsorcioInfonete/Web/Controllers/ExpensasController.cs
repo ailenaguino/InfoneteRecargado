@@ -40,8 +40,13 @@ namespace Web.Controllers
                     }
                 }
             }
+            Expensa ultimo = null;
 
-            var ultimo = result.Find(expensa => expensa.Año == DateTime.Now.Year && expensa.Mes == DateTime.Now.Month);
+            if (!(result == null || result.Count == 0))
+            {
+                ultimo = result.Find(expensa => expensa.Año == DateTime.Now.Year && expensa.Mes == DateTime.Now.Month);
+            }
+
             ViewBag.Ultimo = ultimo;
             return View(result);
         }
