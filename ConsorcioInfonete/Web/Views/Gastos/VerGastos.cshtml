@@ -7,7 +7,7 @@
 <nav aria-label="breadcrumb ">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a class="item-bread enlace-color text-decoration-none" href="/Consorcio/Lista">Mis Consorcios</a></li>
-        <li class="breadcrumb-item"><a class="item-bread enlace-color text-decoration-none" href="/Consorcio/VerConsorcio?id=@ViewBag.id">@ViewBag.nombre</a></li>
+        <li class="breadcrumb-item"><a class="item-bread enlace-color text-decoration-none" href="/Consorcio/Editar?idConsorcio=@ViewBag.id">@ViewBag.nombre</a></li>
         <li class="breadcrumb-item" aria-current="page">Gastos</li>
     </ol>
 </nav>
@@ -17,7 +17,7 @@
     <div class="d-flex justify-content-end">
         <a href="/Gastos/CrearGasto?idConsorcio=@ViewBag.id" class="mb-2 enlace-color">Nuevo Gasto</a>
     </div>
-    <table id="tabla" class="table table-light table-hover table-bordered table-responsive">
+    <table id="tabla" class="table table-light table-hover table-bordered table-responsive ">
         <thead class="thead-dark">
             <tr>
                 <th class="align-middle text-center">Año Expensa</th>
@@ -83,23 +83,3 @@
     <script type="text/javascript" src="~/Scripts/datatable/datatables.min.js"></script>
     <script type="text/javascript" src="~/Scripts/datatable/pagination.js"></script>
 }
-
-<style>
-    ol.breadcrumb{
-        background-color:#ffffff;
-    }
-    .breadcrumb-item + .breadcrumb-item::before {
-        display: inline-block;
-        padding-right: 0.5rem;
-        color: #6c757d;
-        content: ">";
-    }
-    .breadcrumb-item.active {
-        color: #000000;
-        font-weight:bold;
-    }
-    .item-bread{
-        text-decoration:underline;
-    }
-
-</style>

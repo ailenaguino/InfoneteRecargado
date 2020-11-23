@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.Ajax.Utilities;
+using Repositories;
 using Repositories.Context;
 using Services;
 using Web.Helpers;
@@ -20,10 +21,7 @@ namespace Web.Controllers
             PW3_TP_20202CEntities contexto = new PW3_TP_20202CEntities();
             servicio = new UsuarioService(contexto);
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
+
         public ActionResult Login()
         {
             return View(new UsuarioVM());
@@ -81,7 +79,7 @@ namespace Web.Controllers
         public ActionResult LogOut()
         {
             SessionHelper.RemoveSession();
-            return View("Index");
+            return View("Login",new UsuarioVM());
         }
 
         public ActionResult Error(int error = 0)

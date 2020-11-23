@@ -1,0 +1,91 @@
+﻿@using System.Globalization
+@using Common
+@model List<Common.Expensa>
+
+@{
+    Layout = "~/Views/Shared/LogueadoLayout.cshtml";
+    var ultimo = (Expensa)ViewBag.Ultimo;
+}
+<div class="row my-3">
+    <div class="col-sm">
+        <h2>Listado Expensas</h2>
+    </div>
+</div>
+<div class="row">
+    @if (ultimo != null)
+    {
+        <div class="col-md-12">
+            <p class="font-weight-bold text-capitalize">
+                gasto total mes actual @DateTime.Now.ToString("MMMM", CultureInfo.CreateSpecificCulture("es")) (hasta el momento) : $@ultimo.GastoTotal
+            </p>
+        </div>
+        <div class="col-md-6">
+            <p class="font-weight-bold">
+                Monto x unidad: $@ultimo.ExpensasPorUnidad
+            </p>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-6">
+            <p class="font-weight-bold">
+                No se encontró una expensa para el mes actual
+            </p>
+        </div>
+    }
+    <div class="col-md-6">
+        <p class="font-weight-bold">
+            Unidades: @(Model.FirstOrDefault()?.unidades)
+        </p>
+    </div>
+</div>
+<table id="tabla" class="table text-center table-striped table-bordered" width="100%">
+    <thead>
+        <tr>
+            <th>
+                Mes
+            </th>
+            <th>
+                Año
+            </th>
+            <th>
+                Gasto Total ($)
+            </th>
+            <th>
+                Expensas x Unidad ($)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var con in Model)
+        {
+            if (con != ultimo)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(o => con.Mes)
+                </td>
+                <td>
+                    @Html.DisplayFor(o => con.Año)
+                </td>
+                <td>
+                    @Html.DisplayFor(o => con.GastoTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(o => con.ExpensasPorUnidad)
+                </td>
+            </tr>
+            }
+        }
+    </tbody>
+
+</table>
+<hr>
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/Scripts/datatable/datatables.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/datatable/pagination.js"></script>
+}

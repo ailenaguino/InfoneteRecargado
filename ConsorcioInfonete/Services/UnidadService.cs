@@ -20,9 +20,7 @@ namespace Services
 
         public List<Unidad> ObtenerTodos(int idConsorcio)
         {
-            Consorcio c = CR.ObtenerPorId(idConsorcio);
-
-            return repo.ObtenerTodosConsorcio(c);
+            return repo.ObtenerTodosConsorcio(idConsorcio);
         }
 
         public override void Alta(Unidad u)

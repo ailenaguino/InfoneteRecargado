@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Repositories.Context;
+using Common;
 using Services;
 
 namespace Web.Controllers
@@ -27,34 +28,12 @@ namespace Web.Controllers
             expensasService = new ApiExpensasService(contexto);
         
         }
-
-        // GET: api/ApiExpensas
-        public IEnumerable<string> Get()
+       
+        public List<Expensa> Get(int id)
         {
-            return new string[] { "value1", "value2" };
+            List<Expensa> expensas= expensasService.ObtenerExpensas(id);
+            return expensas;
         }
 
-        // GET: api/ApiExpensas/5
-        public string Get(int id)
-        {
-
-            return "value";
-        }
-
-        // POST: api/ApiExpensas
-        public void Post([FromBody]string value)
-        {
-
-        }
-
-        // PUT: api/ApiExpensas/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/ApiExpensas/5
-        public void Delete(int id)
-        {
-        }
     }
 }

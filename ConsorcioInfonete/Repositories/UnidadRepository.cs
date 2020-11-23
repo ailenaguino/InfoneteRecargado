@@ -12,12 +12,12 @@ namespace Repositories
 
         public UnidadRepository(PW3_TP_20202CEntities ctx) : base(ctx) { }
 
-        public List<Unidad> ObtenerTodosConsorcio(Consorcio c)
+        public List<Unidad> ObtenerTodosConsorcio(int idConsorcio)
         {
             return (from u in ctx.Unidad
-                 where u.IdConsorcio == c.IdConsorcio
-                 orderby u.IdUnidad descending
-                 select u).ToList();
+                    where u.IdConsorcio == idConsorcio
+                    orderby u.IdUnidad descending
+                    select u).ToList();
 
         }
 
@@ -33,14 +33,6 @@ namespace Repositories
             ctx.SaveChanges();
         }
 
-        public List<Unidad> ObtenerTodosConsorcioId(int idConsorcio)
-        {
-            return (from u in ctx.Unidad
-                    where u.IdConsorcio == idConsorcio
-                    orderby u.IdUnidad descending
-                    select u).ToList();
-
-        }
 
     }
 }

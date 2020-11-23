@@ -70,7 +70,8 @@
                     <a href="/Unidad/VerUnidades?id=@con.IdConsorcio">Ver Unidades</a>
                 </td>
                 <td>
-                    @Html.ActionLink("Ver Expensas", "VerExpensas", new { id = con.IdConsorcio })
+                    <a href="/Expensas/Lista/@con.IdConsorcio">Ver Expensas</a>
+
                 </td>
                 <td>
                     <a href="/Gastos/VerGastos?idConsorcio=@con.IdConsorcio">Ver Gastos</a>
