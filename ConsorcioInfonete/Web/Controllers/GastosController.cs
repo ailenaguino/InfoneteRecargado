@@ -30,6 +30,10 @@ namespace Web.Controllers
 
         public ActionResult VerGastos(int idConsorcio)
         {
+            if (gastoService.ObtenerGastoPorConsorcio(idConsorcio).FirstOrDefault() == null)
+            {
+                return Redirect("/Consorcio/Lista");
+            }
             if (gastoService.ObtenerGastoPorConsorcio(idConsorcio).FirstOrDefault().IdUsuarioCreador != SessionHelper.GetCurrentSession().IdUsuario)
             {
                 return Redirect("/Consorcio/Lista");
@@ -66,31 +70,12 @@ namespace Web.Controllers
             //si no ingreso archivo
             if (gasto.fileComrobante == null && gasto.ArchivoComprobante == null)
             {
-
                 ViewBag.msj = "Ingrese el archivo comprobante";
                 return View(gasto);
             }
-            //no cargo el archivo pero ya tenia uno
-            /* else if (gasto.fileComrobante == null && gasto.ArchivoComprobante != null)//tengo un archivo y el file es null -> no lo toco
-             {
-                 HttpPostedFileBase FileBase = new FileVM(gasto.ArchivoComprobante);
-                 gasto.fileComrobante = FileBase;
-             }
-             else if (gasto.fileComrobante != null && gasto.ArchivoComprobante == null) //cargo un archivo y no habia cargado antes
-             {
-                 gasto.ArchivoComprobante = gasto.fileComrobante.FileName;
-                 fileModel.GuardarArchivo(gasto.fileComrobante, Server);
-             }
-             else if (gasto.fileComrobante != null && gasto.ArchivoComprobante != null) //cargo un archivo y tenia uno antes
-             {
-                 gasto.ArchivoComprobante = gasto.fileComrobante.FileName;
-                 fileModel.GuardarArchivo(gasto.fileComrobante, Server);
-             }*/
+         
             fileModel.AltaDeArchivoComprobante(gasto, Server);
-            if (!ModelState.IsValid)
-            {
-                return View(gasto);
-            }
+            if (!ModelState.IsValid)return View(gasto);
 
             int idUser = SessionHelper.GetCurrentSession().IdUsuario;
             gasto.idUsuario = idUser;
@@ -185,18 +170,16 @@ namespace Web.Controllers
             var document = t;
             var cd = new System.Net.Mime.ContentDisposition
             {
-                // for example foo.bak
                 FileName = t,
-
-                // always prompt the user for downloading, set to true if you want 
-                // the browser to try to show the file inline
-                Inline = false,
+                Inline = true,
             };
-            Response.AppendHeader("Content-Disposition", "attachment; filename=" + t);
+            /*Response.AppendHeader("Content-Disposition", "attachment; filename=" + t);
             Response.TransmitFile(t);
-            Response.End();
+            Response.End();*/
+
             return File(t, document);
-            // return RedirectToAction("Lista");
+
+
         }
     }
 }

@@ -61,7 +61,7 @@
             <h3>@ViewBag.uni Unidades</h3>
             <a href="/Unidad/VerUnidades?id=@ViewBag.Con.IdConsorcio" class="font-weight-bold">Ver Unidades</a><br />
             <a href="/Gastos/VerGastos?idConsorcio=@ViewBag.Con.IdConsorcio" class="font-weight-bold">Ver Gastos</a><br />
-            <a href="#" class="font-weight-bold">Ver Expensas</a> @*tiene que ir a expensas*@<br />
+            <a href="/Expensas/Lista/@ViewBag.Con.IdConsorcio" class="font-weight-bold">Ver Expensas</a><br />
             <a href="/Consorcio/Eliminar?idConsorcio=@ViewBag.Con.IdConsorcio" class="btn btn-lg btn-danger btn mt-4">Eliminar Consorcio</a>
         </div>
         </div>
