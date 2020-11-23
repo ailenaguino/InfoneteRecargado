@@ -3,9 +3,11 @@
     ViewBag.Title = "Eliminar";
     Layout = "~/Views/Shared/LogueadoLayout.cshtml";
 }
-<div class="container py-5 mt-5">
+<div class="border rounded my-5 pb-5 shadow bg-white">
     <form action="/Consorcio/EliminarConsorcio" class="form-signin text-center" method="post">
-        <h2>¿Estás seguro que deseas Eliminar el consorcio " @Model.Nombre "?</h2>
+        <h2 class="display-4 text-center my-5">
+            ¿Esta seguro que desea eliminar el Consorcio <span class="enlace-color">@Model.Nombre</span>?
+        </h2>
         @Html.HiddenFor(Model => Model.IdConsorcio, new { htmlAttributes = new { @Value = Model.IdConsorcio } })
         <div class="mt-3">
             <button class="btn btn-lg btn-primary mr-4">Eliminar</button>

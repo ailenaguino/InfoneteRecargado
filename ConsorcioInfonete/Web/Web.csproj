@@ -303,7 +303,6 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\pv_Footer.cshtml" />
-    <Content Include="Views\Consorcio\Index.cshtml" />
     <Content Include="Views\Unidad\CrearUnidad.cshtml" />
     <Content Include="Views\Gastos\Eliminar.cshtml" />
     <Content Include="Views\Gastos\Modificar.cshtml" />
