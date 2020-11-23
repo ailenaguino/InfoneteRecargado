@@ -26,7 +26,7 @@ namespace Web.Helpers
                 else
                 {
                     LastUrl = null;
-                    if (filterContext.Controller is HomeController)
+                    if (filterContext.Controller is HomeController && filterContext.ActionDescriptor.ActionName!="Contacto")
                     {
                         filterContext.HttpContext.Response.Redirect("~/Consorcio/Lista");
                     }
