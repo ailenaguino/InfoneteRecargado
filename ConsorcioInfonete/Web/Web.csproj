@@ -141,8 +141,12 @@
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\img\ailux.jpg" />
     <Content Include="Content\img\edificio.png" />
     <Content Include="Content\img\error.png" />
+    <Content Include="Content\img\fede.jpg" />
+    <Content Include="Content\img\marquitos.jpg" />
+    <Content Include="Content\img\tomi.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -320,6 +324,7 @@
     <Content Include="Views\Consorcio\Eliminar.cshtml" />
     <Content Include="Views\Consorcio\Lista.cshtml" />
     <Content Include="Views\Expensas\Lista.cshtml" />
+    <Content Include="Views\Home\Contacto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
