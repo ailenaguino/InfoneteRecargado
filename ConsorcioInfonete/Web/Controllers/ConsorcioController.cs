@@ -32,10 +32,12 @@ namespace Web.Controllers
         public ActionResult Lista()
         {
             int idusuario = SessionHelper.GetCurrentSession().IdUsuario;
-            List<Provincia> provincias = provinciaService.ObtenerTodos();
-            ViewBag.Provincias = provincias;
-            List<Consorcio> consorcios = consorcioService.ObtenerConsorciosDeUnUsuario(idusuario);
-            return View(consorcios);
+      
+                    List<Provincia> provincias = provinciaService.ObtenerTodos();
+                    ViewBag.Provincias = provincias;
+                    List<Consorcio> consorcios = consorcioService.ObtenerConsorciosDeUnUsuario(idusuario);
+                    return View(consorcios);
+         
         }
 
         public ActionResult CrearConsorcio()

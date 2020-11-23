@@ -27,7 +27,7 @@
     <h2 class="h3 mb-3 font-weight-normal">Crear Nuevo Consorcio</h2>
 
     <div class="form-group">
-        @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Nombre" } })
+        @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @Value = "" , @class = "mt-1 form-control", placeholder = "Nombre" } })
         @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
     </div>
 
@@ -36,22 +36,22 @@
     </div>
 
     <div class="form-group">
-        @Html.EditorFor(Model => Model.Ciudad, new { htmlAttributes = new { @class = "mt-1 form-control", rows = "3", placeholder = "Ciudad" } })
+        @Html.EditorFor(Model => Model.Ciudad, new { htmlAttributes = new { @Value = "" , @class = "mt-1 form-control", rows = "3", placeholder = "Ciudad" } })
         @Html.ValidationMessageFor(model => model.Ciudad, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
-        @Html.EditorFor(Model => Model.Calle, new { htmlAttributes = new { @class = "mt-1 form-control", rows = "3", placeholder = "Calle" } })
+        @Html.EditorFor(Model => Model.Calle, new { htmlAttributes = new { @Value = "", @class = "mt-1 form-control", rows = "3", placeholder = "Calle" } })
         @Html.ValidationMessageFor(model => model.Calle, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
-        @Html.EditorFor(Model => Model.Altura, new { htmlAttributes = new { @class = "mt-1 form-control",@Value = "", rows = "3", placeholder = "Altura" } })
+        @Html.EditorFor(Model => Model.Altura, new { htmlAttributes = new { @Value = "", @class = "mt-1 form-control",  rows = "3", placeholder = "Altura" } })
         @Html.ValidationMessageFor(model => model.Altura, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
-        @Html.EditorFor(Model => Model.DiaVencimientoExpensas, new { htmlAttributes = new { @min = 1, @max = "31", @Value = "", @class = "mt-1 form-control", placeholder = "Dia vencimiento expensa" } })
+        @Html.EditorFor(Model => Model.DiaVencimientoExpensas, new { htmlAttributes = new { @min = 1, @max = "31", @Value = "" ,  @class = "mt-1 form-control", placeholder = "Dia vencimiento expensa" } })
         @Html.ValidationMessageFor(model => model.DiaVencimientoExpensas, "", new { @class = "text-danger" })
     </div>
 
