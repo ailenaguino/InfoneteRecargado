@@ -20,7 +20,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                     </div>
-                    @Html.EditorFor(Model => Model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Contraseña" } })
+                    @Html.EditorFor(Model => Model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Contraseña", @type = "password" } })
                 </div> <!-- form-group// -->
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger " })
 
