@@ -30,32 +30,39 @@ namespace Web.Controllers
 
         public ActionResult VerGastos(int idConsorcio)
         {
-            if (gastoService.ObtenerGastoPorConsorcio(idConsorcio).FirstOrDefault().IdUsuarioCreador != SessionHelper.GetCurrentSession().IdUsuario)
+            Consorcio cs = consorcioService.ObtenerPorId(idConsorcio);
+            if (cs == null || cs.IdUsuarioCreador != SessionHelper.GetCurrentSession().IdUsuario)
+            {
+                return Redirect("/Consorcio/Lista");
+            }
+            if (cs.IdUsuarioCreador!= SessionHelper.GetCurrentSession().IdUsuario)
             {
                 return Redirect("/Consorcio/Lista");
             }
             List<Gasto> gastos = gastoService.ObtenerGastoPorConsorcio(idConsorcio);
-            ViewBag.nombre = consorcioService.ObtenerPorId(idConsorcio).Nombre;
-            if (gastos.Count > 0)
-            {
-                ViewBag.id = gastos[0].Consorcio.IdConsorcio;
-            }
-
+            ViewBag.nombre = cs.Nombre;
+            ViewBag.id = cs.IdConsorcio;
+            
             return View(gastos);
         }
 
         public ActionResult CrearGasto(int idConsorcio)
         {
-            if (gastoService.ObtenerGastoPorConsorcio(idConsorcio).FirstOrDefault().IdUsuarioCreador != SessionHelper.GetCurrentSession().IdUsuario)
+            List<Gasto> gastos = gastoService.ObtenerGastoPorConsorcio(idConsorcio);
+            Consorcio cs = consorcioService.ObtenerPorId(idConsorcio);
+            if (cs == null)
+            {
+                return Redirect("/Consorcio/Lista");
+            }
+
+            if (cs.IdUsuarioCreador != SessionHelper.GetCurrentSession().IdUsuario)
             {
                 return Redirect("/Consorcio/Lista");
             }
             GastoVM gasto = new GastoVM();
-            List<Gasto> gastos = gastoService.ObtenerGastoPorConsorcio(idConsorcio);
-            if (gastos.Count > 0)
-            {
-                ViewBag.nombre = gastos[0].Consorcio.Nombre;
-            }
+            
+            ViewBag.nombre =cs.Nombre;
+            
             gasto.idConsorcio = idConsorcio;
             return View(gasto);
         }
@@ -66,31 +73,12 @@ namespace Web.Controllers
             //si no ingreso archivo
             if (gasto.fileComrobante == null && gasto.ArchivoComprobante == null)
             {
-
                 ViewBag.msj = "Ingrese el archivo comprobante";
                 return View(gasto);
             }
-            //no cargo el archivo pero ya tenia uno
-            /* else if (gasto.fileComrobante == null && gasto.ArchivoComprobante != null)//tengo un archivo y el file es null -> no lo toco
-             {
-                 HttpPostedFileBase FileBase = new FileVM(gasto.ArchivoComprobante);
-                 gasto.fileComrobante = FileBase;
-             }
-             else if (gasto.fileComrobante != null && gasto.ArchivoComprobante == null) //cargo un archivo y no habia cargado antes
-             {
-                 gasto.ArchivoComprobante = gasto.fileComrobante.FileName;
-                 fileModel.GuardarArchivo(gasto.fileComrobante, Server);
-             }
-             else if (gasto.fileComrobante != null && gasto.ArchivoComprobante != null) //cargo un archivo y tenia uno antes
-             {
-                 gasto.ArchivoComprobante = gasto.fileComrobante.FileName;
-                 fileModel.GuardarArchivo(gasto.fileComrobante, Server);
-             }*/
+         
             fileModel.AltaDeArchivoComprobante(gasto, Server);
-            if (!ModelState.IsValid)
-            {
-                return View(gasto);
-            }
+            if (!ModelState.IsValid)return View(gasto);
 
             int idUser = SessionHelper.GetCurrentSession().IdUsuario;
             gasto.idUsuario = idUser;
@@ -109,7 +97,12 @@ namespace Web.Controllers
         public ActionResult Eliminar(int idGasto)
         {
             Gasto gasto = gastoService.ObtenerPorId(idGasto);
-            if (gastoService.ObtenerGastoPorConsorcio(gasto.IdConsorcio).FirstOrDefault().IdUsuarioCreador != SessionHelper.GetCurrentSession().IdUsuario)
+            if (gasto == null)
+            {
+                return Redirect("/Consorcio/Lista");
+            }
+          
+            if (gasto.IdUsuarioCreador!= SessionHelper.GetCurrentSession().IdUsuario)
             {
                 return Redirect("/Consorcio/Lista");
             }
@@ -185,18 +178,16 @@ namespace Web.Controllers
             var document = t;
             var cd = new System.Net.Mime.ContentDisposition
             {
-                // for example foo.bak
                 FileName = t,
-
-                // always prompt the user for downloading, set to true if you want 
-                // the browser to try to show the file inline
-                Inline = false,
+                Inline = true,
             };
-            Response.AppendHeader("Content-Disposition", "attachment; filename=" + t);
+            /*Response.AppendHeader("Content-Disposition", "attachment; filename=" + t);
             Response.TransmitFile(t);
-            Response.End();
+            Response.End();*/
+
             return File(t, document);
-            // return RedirectToAction("Lista");
+
+
         }
     }
 }

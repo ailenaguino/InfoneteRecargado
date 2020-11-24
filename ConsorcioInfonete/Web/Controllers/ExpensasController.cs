@@ -40,6 +40,7 @@ namespace Web.Controllers
                     }
                 }
             }
+
             Expensa ultimo = null;
 
             if (!(result == null || result.Count == 0))

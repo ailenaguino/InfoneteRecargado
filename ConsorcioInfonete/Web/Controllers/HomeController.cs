@@ -109,5 +109,14 @@ namespace Web.Controllers
 
             return View();
         }
+
+        public ActionResult Contacto()
+        {
+            if (SessionHelper.GetCurrentSession() != null)
+            {
+                ViewBag.flag = true;
+            }
+            return View();
+        }
     }
 }

@@ -55,6 +55,9 @@ namespace Web.Controllers
                 if (accion == "Guardar")
                 {
                     return RedirectToAction("/Lista");
+                }else if(accion == "Guardar y Crear Unidad")
+                {
+                    return RedirectToAction("CrearUnidad","Unidad", new { id = con.IdConsorcio });
                 }
                 
                 return View(consorcio);
@@ -91,6 +94,7 @@ namespace Web.Controllers
             {
                 contar++;
             }
+            consorcioVM.IdProvincia = consorcio.IdProvincia;
             ViewBag.uni = contar;
             return View(consorcioVM);
         }

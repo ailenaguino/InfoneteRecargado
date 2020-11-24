@@ -49,7 +49,7 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                @Html.EditorFor(Model => Model.Monto, new { htmlAttributes = new { @min = 1, @Value = "0,00", @class = "form-control", placeholder = "monto" } })
+                @Html.EditorFor(Model => Model.Monto, new { htmlAttributes = new {@Value = Model.Monto, @class = "form-control", placeholder = "monto" } })
                 @Html.ValidationMessageFor(model => model.Monto, "", new { @class = "text-danger" })
             </div>
         </div>

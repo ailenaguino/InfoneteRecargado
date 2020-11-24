@@ -1,0 +1,44 @@
+﻿
+@{
+    if (ViewBag.flag != null)
+    {
+        Layout = "~/Views/Shared/LogueadoLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/AnonimoLayout.cshtml";
+    }
+}
+
+<h2 class="display-4 my-3 text-center">Nuestro Equipo</h2>
+<hr />
+<div class="card-deck my-3 mx-2">
+    <div class="card shadow bg-white rounded">
+        <img src="~/Content/img/fede.jpg" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Federico J Rodriguez</h5>
+            <p class="card-text">Me encargué de trabajar en la seccion de consorcios, ayuda en la seccion expensas y fixes..</p>
+        </div>
+    </div>
+    <div class="card shadow bg-white rounded">
+        <img src="~/Content/img/ailux.jpg" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Ailen M Aguino</h5>
+            <p class="card-text">Me encargué de crear la sección de unidades, errores, datatables y fixear cosas :)</p>
+        </div>
+    </div>
+    <div class="card shadow bg-white rounded">
+        <img src="~/Content/img/marquitos.jpg" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Marcos G Cabral</h5>
+            <p class="card-text">Me encargué de trabajar con la sección de los gastos, el front y el estilo final del sitio.</p>
+        </div>
+    </div>
+    <div class="card shadow bg-white rounded">
+        <img src="~/Content/img/tomi.jpg" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Tomas S García</h5>
+            <p class="card-text">Me encargué del registrar, el logueo al sitio y la api para las expensas.</p>
+        </div>
+    </div>
+</div>

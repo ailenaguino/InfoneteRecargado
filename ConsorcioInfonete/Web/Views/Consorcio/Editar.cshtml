@@ -29,13 +29,12 @@
         @Html.HiddenFor(Model => Model.IdUsuarioCreador, new { htmlAttributes = new { @Value = Model.IdUsuarioCreador } })
         <div class="col-lg">
             <div class="form-group">
-                @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @class = "mt-1 form-control", @Value = @ViewBag.Con.Nombre , placeholder = "Nombre" } })
+                @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @class = "mt-1 form-control", @Value = @ViewBag.Con.Nombre, placeholder = "Nombre" } })
                 @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
             </div>
-
-
+            
             <div class="form-group">
-                @Html.DropDownListFor(Model => Model.IdProvincia, provincia, new { @Value = @ViewBag.Con.IdProvincia , @class = "mt-1 form-control" })
+                @Html.DropDownListFor(Model => Model.IdProvincia, provincia, new {@class = "mt-1 form-control" })
             </div>
             <div class="form-group">
                 @Html.EditorFor(Model => Model.Ciudad, new { htmlAttributes = new { @Value = @ViewBag.Con.Ciudad, @class = "mt-1 form-control", rows = "3", placeholder = "Ciudad" } })
@@ -48,7 +47,7 @@
             </div>
 
             <div class="form-group">
-                @Html.EditorFor(Model => Model.Altura, new { htmlAttributes = new { @Value = @ViewBag.Con.Altura , @class = "mt-1 form-control", rows = "3", placeholder = "Altura" } })
+                @Html.EditorFor(Model => Model.Altura, new { htmlAttributes = new { @Value = @ViewBag.Con.Altura, @class = "mt-1 form-control", rows = "3", placeholder = "Altura" } })
                 @Html.ValidationMessageFor(model => model.Altura, "", new { @class = "text-danger" })
             </div>
 
@@ -61,7 +60,7 @@
             <h3>@ViewBag.uni Unidades</h3>
             <a href="/Unidad/VerUnidades?id=@ViewBag.Con.IdConsorcio" class="font-weight-bold">Ver Unidades</a><br />
             <a href="/Gastos/VerGastos?idConsorcio=@ViewBag.Con.IdConsorcio" class="font-weight-bold">Ver Gastos</a><br />
-            <a href="#" class="font-weight-bold">Ver Expensas</a> @*tiene que ir a expensas*@<br />
+            <a href="/Expensas/Lista/@ViewBag.Con.IdConsorcio" class="font-weight-bold">Ver Expensas</a><br />
             <a href="/Consorcio/Eliminar?idConsorcio=@ViewBag.Con.IdConsorcio" class="btn btn-lg btn-danger btn mt-4">Eliminar Consorcio</a>
         </div>
         </div>

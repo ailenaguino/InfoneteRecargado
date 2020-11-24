@@ -6,6 +6,14 @@
     Layout = "~/Views/Shared/LogueadoLayout.cshtml";
     var ultimo = (Expensa)ViewBag.Ultimo;
 }
+
+    <nav aria-label="breadcrumb bg-gris">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Consorcio/Lista" class="enlace-color">Mis Consorcios</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Expensa</li>
+        </ol>
+    </nav>
+
 <div class="row my-3">
     <div class="col-sm">
         <h2>Listado Expensas</h2>
@@ -63,20 +71,20 @@
         {
             if (con != ultimo)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(o => con.Mes)
-                </td>
-                <td>
-                    @Html.DisplayFor(o => con.Año)
-                </td>
-                <td>
-                    @Html.DisplayFor(o => con.GastoTotal)
-                </td>
-                <td>
-                    @Html.DisplayFor(o => con.ExpensasPorUnidad)
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(o => con.Mes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(o => con.Año)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(o => con.GastoTotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(o => con.ExpensasPorUnidad)
+                    </td>
+                </tr>
             }
         }
     </tbody>
