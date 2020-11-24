@@ -15,7 +15,16 @@ namespace Repositories
 
         public override void Modificar(Consorcio m)
         {
-            throw new NotImplementedException();
+            Consorcio consorcioActual = ObtenerPorId(m.IdConsorcio);
+            consorcioActual.IdProvincia= m.IdProvincia;
+            consorcioActual.Nombre = m.Nombre;
+            consorcioActual.Ciudad = m.Ciudad;
+            consorcioActual.Calle = m.Calle;
+            consorcioActual.Altura = m.Altura;
+            consorcioActual.DiaVencimientoExpensas = m.DiaVencimientoExpensas;
+      
+
+            ctx.SaveChanges();
         }
 
         public List<Consorcio> ObtenerConsorciosDeUnUsuario(int id)
