@@ -30,36 +30,39 @@ namespace Web.Controllers
 
         public ActionResult VerGastos(int idConsorcio)
         {
-            if (gastoService.ObtenerGastoPorConsorcio(idConsorcio).FirstOrDefault() == null)
+            Consorcio cs = consorcioService.ObtenerPorId(idConsorcio);
+            if (cs == null || cs.IdUsuarioCreador != SessionHelper.GetCurrentSession().IdUsuario)
             {
                 return Redirect("/Consorcio/Lista");
             }
-            if (gastoService.ObtenerGastoPorConsorcio(idConsorcio).FirstOrDefault().IdUsuarioCreador != SessionHelper.GetCurrentSession().IdUsuario)
+            if (cs.IdUsuarioCreador!= SessionHelper.GetCurrentSession().IdUsuario)
             {
                 return Redirect("/Consorcio/Lista");
             }
             List<Gasto> gastos = gastoService.ObtenerGastoPorConsorcio(idConsorcio);
-            ViewBag.nombre = consorcioService.ObtenerPorId(idConsorcio).Nombre;
-            if (gastos.Count > 0)
-            {
-                ViewBag.id = gastos[0].Consorcio.IdConsorcio;
-            }
-
+            ViewBag.nombre = cs.Nombre;
+            ViewBag.id = cs.IdConsorcio;
+            
             return View(gastos);
         }
 
         public ActionResult CrearGasto(int idConsorcio)
         {
-            if (gastoService.ObtenerGastoPorConsorcio(idConsorcio).FirstOrDefault().IdUsuarioCreador != SessionHelper.GetCurrentSession().IdUsuario)
+            List<Gasto> gastos = gastoService.ObtenerGastoPorConsorcio(idConsorcio);
+            Consorcio cs = consorcioService.ObtenerPorId(idConsorcio);
+            if (cs == null)
+            {
+                return Redirect("/Consorcio/Lista");
+            }
+
+            if (cs.IdUsuarioCreador != SessionHelper.GetCurrentSession().IdUsuario)
             {
                 return Redirect("/Consorcio/Lista");
             }
             GastoVM gasto = new GastoVM();
-            List<Gasto> gastos = gastoService.ObtenerGastoPorConsorcio(idConsorcio);
-            if (gastos.Count > 0)
-            {
-                ViewBag.nombre = gastos[0].Consorcio.Nombre;
-            }
+            
+            ViewBag.nombre =cs.Nombre;
+            
             gasto.idConsorcio = idConsorcio;
             return View(gasto);
         }
@@ -94,7 +97,12 @@ namespace Web.Controllers
         public ActionResult Eliminar(int idGasto)
         {
             Gasto gasto = gastoService.ObtenerPorId(idGasto);
-            if (gastoService.ObtenerGastoPorConsorcio(gasto.IdConsorcio).FirstOrDefault().IdUsuarioCreador != SessionHelper.GetCurrentSession().IdUsuario)
+            if (gasto == null)
+            {
+                return Redirect("/Consorcio/Lista");
+            }
+          
+            if (gasto.IdUsuarioCreador!= SessionHelper.GetCurrentSession().IdUsuario)
             {
                 return Redirect("/Consorcio/Lista");
             }
