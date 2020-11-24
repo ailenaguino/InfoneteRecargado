@@ -91,6 +91,7 @@ namespace Web.Controllers
             {
                 contar++;
             }
+            consorcioVM.IdProvincia = consorcio.IdProvincia;
             ViewBag.uni = contar;
             return View(consorcioVM);
         }
