@@ -51,7 +51,7 @@
     </div>
 
     <div class="form-group">
-        @Html.EditorFor(Model => Model.DiaVencimientoExpensas, new { htmlAttributes = new { @min = 1, @max = "31", @Value = "" ,  @class = "mt-1 form-control", placeholder = "Dia vencimiento expensa" } })
+        @Html.EditorFor(Model => Model.DiaVencimientoExpensas, new { htmlAttributes = new {@Value = "" ,  @class = "mt-1 form-control", placeholder = "Dia vencimiento expensa" } })
         @Html.ValidationMessageFor(model => model.DiaVencimientoExpensas, "", new { @class = "text-danger" })
     </div>
 
