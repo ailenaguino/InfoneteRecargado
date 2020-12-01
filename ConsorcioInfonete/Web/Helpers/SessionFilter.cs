@@ -20,7 +20,7 @@ namespace Web.Helpers
                     if (filterContext.Controller is HomeController == false)
                     {
                         LastUrl = "~" + filterContext.HttpContext.Request.RawUrl;
-                        filterContext.HttpContext.Response.Redirect("~/Home/Login");
+                        filterContext.Result = new RedirectResult("~/Home/Login");
                     }
                 }
                 else
@@ -28,7 +28,7 @@ namespace Web.Helpers
                     LastUrl = null;
                     if (filterContext.Controller is HomeController && filterContext.ActionDescriptor.ActionName!="Contacto")
                     {
-                        filterContext.HttpContext.Response.Redirect("~/Consorcio/Lista");
+                        filterContext.Result = new RedirectResult("~/Consorcio/Lista");
                     }
 
                 }

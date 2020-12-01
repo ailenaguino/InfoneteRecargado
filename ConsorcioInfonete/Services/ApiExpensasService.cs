@@ -1,6 +1,7 @@
-﻿using Common;
+﻿
 using Repositories;
 using Repositories.Context;
+using Repositories.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
@@ -29,12 +30,13 @@ namespace Services
             List<Expensa> expensas = new List<Expensa>();
             foreach (var item in res)
             {
+                
                 Expensa expensa = new Expensa()
                 {
                     Año=item.Anio,
                     GastoTotal= (decimal)item.GastoTotal,
                     Mes=item.Mes,
-                    ExpensasPorUnidad= (double)item.GastoPorUnidad,
+                    ExpensasPorUnidad= (decimal)item.GastoPorUnidad,
                     unidades= unidadesPorConsorcio.Count()
                 };
                 expensas.Add(expensa);

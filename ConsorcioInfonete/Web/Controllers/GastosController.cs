@@ -9,7 +9,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using Web.Helpers;
-using Common;
 using Web.Models;
 
 namespace Web.Controllers
@@ -150,7 +149,7 @@ namespace Web.Controllers
             if (gasto.fileComrobante != null)//entra cuando edite
             {
                 gasto.ArchivoComprobante = gasto.fileComrobante.FileName;
-                fileModel.GuardarArchivo(gasto.fileComrobante, Server);
+                fileModel.GuardarArchivo(gasto.fileComrobante, Server, gasto);
             }
             else //entra cuando no edite y voy a recuperarlo
             {

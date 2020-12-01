@@ -91,6 +91,7 @@
     <Compile Include="Context\Usuario.cs">
       <DependentUpon>ConsorcioDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Expensa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProvinciaRepository.cs" />
     <Compile Include="TipoGastoRepository.cs" />
@@ -127,12 +128,6 @@
       <DependentUpon>ConsorcioDB.edmx</DependentUpon>
       <LastGenOutput>ConsorcioDB.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{57D3CF4A-C4D2-4A9D-8E26-CA7F207F7869}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

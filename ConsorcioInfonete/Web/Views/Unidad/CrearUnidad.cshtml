@@ -23,27 +23,32 @@
 <form action="/unidad/crearunidad" class="form-signin text-center" method="post" enctype="multipart/form-data">
     <label class="display-4">@Consorcio.Nombre</label>
 
+    <h5 class="font-weight text-left">Nombre(*)</h5>
     <div class="form-group">
         @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Nombre de la Unidad(*)" } })
         @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
+        <h5 class="font-weight text-left">Nombre Propietario(*)</h5>
         @Html.EditorFor(Model => Model.NombrePropietario, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Nombre del Propietario(*)" } })
         @Html.ValidationMessageFor(model => model.NombrePropietario, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
+        <h5 class="font-weight text-left">Apellido Propietario(*)</h5>
         @Html.EditorFor(Model => Model.ApellidoPropietario, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Apellido del Propietario(*)" } })
         @Html.ValidationMessageFor(model => model.ApellidoPropietario, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
+        <h5 class="font-weight text-left">Email Propietario(*)</h5>
         @Html.EditorFor(Model => Model.EmailPropietario, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Email del Propietario(*)" } })
         @Html.ValidationMessageFor(model => model.EmailPropietario, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
+        <h5 class="font-weight text-left">Superficie(m2)</h5>
         @Html.EditorFor(Model => Model.Superficie, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Superficie de la Unidad(m2)" } })
         @Html.ValidationMessageFor(model => model.Superficie, "", new { @class = "text-danger" })
     </div>

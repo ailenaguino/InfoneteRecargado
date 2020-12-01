@@ -29,26 +29,31 @@
     <label class="display-4">@Model.Consorcio.Nombre</label>
 
     <div class="form-group">
+        <h5 class="font-weight text-left">Nombre(*)</h5>
         @Html.EditorFor(m => m.Nombre, new { htmlAttributes = new { @class = "mt-1 form-control" } })
         @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
+        <h5 class="font-weight text-left">Nombre Propietario(*)</h5>
         @Html.EditorFor(m => m.NombrePropietario, new { htmlAttributes = new { @class = "mt-1 form-control" } })
         @Html.ValidationMessageFor(m => m.NombrePropietario, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
+        <h5 class="font-weight text-left">Apellido Propietario(*)</h5>
         @Html.EditorFor(m => m.ApellidoPropietario, new { htmlAttributes = new { @class = "mt-1 form-control" } })
         @Html.ValidationMessageFor(m => m.ApellidoPropietario, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
+        <h5 class="font-weight text-left">Email Propietario(*)</h5>
         @Html.EditorFor(m => m.EmailPropietario, new { htmlAttributes = new { @class = "mt-1 form-control" } })
         @Html.ValidationMessageFor(m => m.EmailPropietario, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
+        <h5 class="font-weight text-left">Superficie(m2)</h5>
         @Html.EditorFor(m => m.Superficie, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Superficie(m2)" } })
         @Html.ValidationMessageFor(m => m.Superficie, "", new { @class = "text-danger" })
     </div>
