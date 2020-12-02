@@ -15,15 +15,18 @@ namespace Web.Models
     {
 
         [Required(ErrorMessage = "Ingrese un nombre")]
+        [StringLength(200, ErrorMessage = "El nombre del consorcio no puede tener más de {1} caracteres")]
         public string Nombre { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Ingrese una provincia")]
         public int IdProvincia { get; set; }
 
         [Required(ErrorMessage = "Ingrese una ciudad")]
+        [StringLength(200, ErrorMessage = "El nombre de la ciudad no puede tener más de {1} caracteres")]
         public string Ciudad { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Ingrese una calle")]
+        [StringLength(200, ErrorMessage = "El nombre de la calle no puede tener más de {1} caracteres")]
         public string Calle { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Ingrese una altura")]

@@ -13,6 +13,7 @@ namespace Web.Models
     {
        
         [Required(ErrorMessage = "Ingrese un nombre")]
+        [StringLength(200, ErrorMessage = "El nombre del gasto no puede tener más de {1} caracteres")]
         public string Nombre { get; set; } = string.Empty;       
         
         [Required(ErrorMessage = "Ingrese una fecha")]
