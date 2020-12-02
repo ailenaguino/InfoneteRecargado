@@ -25,6 +25,7 @@ namespace Web.Models
         public int MesExpensa { get; set; }
 
         [Required(ErrorMessage = "Ingrese un monto")]
+        [DisplayFormat(DataFormatString = "{0:N}", ApplyFormatInEditMode = true)]
         [Range(1, Double.PositiveInfinity, ErrorMessage = "El monto debe ser mayor a 0")]
         public Decimal Monto { get; set; }
                        

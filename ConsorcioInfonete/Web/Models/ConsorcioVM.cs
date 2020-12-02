@@ -30,6 +30,7 @@ namespace Web.Models
         public int Altura { get; set; }
 
         [Required(ErrorMessage = "Ingrese un dia para la expensa")]
+        [Range(1, 28, ErrorMessage = "El dia de vencimiento de las expensas debe ser del 1 al 28")]
         public int DiaVencimientoExpensas { get; set; } 
 
         public int IdConsorcio { get; set; }
