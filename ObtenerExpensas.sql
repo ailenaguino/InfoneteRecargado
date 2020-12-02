@@ -1,4 +1,5 @@
-﻿CREATE FUNCTION ObtenerExpensas(@consorcioId int) 
+﻿USE PW3_TP_20202C
+CREATE FUNCTION ObtenerExpensas(@consorcioId int) 
 RETURNS @Expensas TABLE 
   ( 
     Anio int ,  
@@ -41,7 +42,7 @@ DEALLOCATE GastoCursor
 
 DECLARE @CantUnidades AS INT
 SELECT @CantUnidades = COUNT(*) FROM Unidad WHERE IdConsorcio=@IdConsorcio
-UPDATE @Expensas SET GastoPorUnidad=(GastoTotal/@CantUnidades)
+UPDATE  @Expensas SET GastoPorUnidad= CEILING(GastoTotal/@CantUnidades)
 RETURN 
 END 
 
@@ -49,3 +50,5 @@ END 
 CREATE PROC ObtenerExpensasProc @ConsorcioId INT
 AS
 SELECT * FROM ObtenerExpensas(@ConsorcioId)
+
+

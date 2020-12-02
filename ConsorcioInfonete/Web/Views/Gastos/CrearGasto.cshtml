@@ -21,26 +21,30 @@
 
 <form class="form-signin text-center" action="/Gastos/CrearGasto" method="post" enctype="multipart/form-data">
     <h2 class="h3 mb-3 font-weight-normal">Cargar Nuevo Gasto</h2>
-  
-    @Html.HiddenFor(Model => Model.idConsorcio, new { htmlAttributes = new { @Value = Model.idConsorcio } })
-    @Html.HiddenFor(Model => Model.ArchivoComprobante, new { @Value = Model.ArchivoComprobante})
-    
 
+    @Html.HiddenFor(Model => Model.idConsorcio, new { htmlAttributes = new { @Value = Model.idConsorcio } })
+    @Html.HiddenFor(Model => Model.ArchivoComprobante, new { @Value = Model.ArchivoComprobante })
+
+    <h5 class="font-weight text-left">Tipo Gasto(*)</h5>
     <div class="form-group">
         @Html.DropDownListFor(Model => Model.idTipoGasto, tiposGastos, new { @class = "mt-1 form-control" })
     </div>
 
+    <h5 class="font-weight text-left">Nombre(*)</h5>
     <div class="form-group">
         @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @class = "mt-1 form-control", placeholder = "Nombre" } })
         @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
     </div>
 
+    <h5 class="font-weight text-left">Descripcion</h5>
     <div class="form-group">
         @Html.EditorFor(Model => Model.Descripcion, new { htmlAttributes = new { @class = "mt-1 form-control", rows = "3", placeholder = "Descripcion del gasto" } })
     </div>
 
+
     <div class="row">
         <div class="col-md-6">
+            <h5 class="font-weight text-left">Fecha(*)</h5>
             <div class="form-group">
                 @Html.EditorFor(Model => Model.Fecha, new { htmlAttributes = new { @type = "date", @min = "2000-01-01", @max = "2020-12-31", @Value = "2020-11-24", @class = "form-control", placeholder = "fecha" } })
                 @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
@@ -48,30 +52,35 @@
         </div>
 
         <div class="col-md-6">
+            <h5 class="font-weight text-left">Monto(*)</h5>
             <div class="form-group">
-                @Html.EditorFor(Model => Model.Monto, new { htmlAttributes = new {@Value = Model.Monto, @class = "form-control", placeholder = "monto" } })
+                @Html.EditorFor(Model => Model.Monto, new { htmlAttributes = new { @Value = Model.Monto, @class = "form-control", placeholder = "monto" } })
                 @Html.ValidationMessageFor(model => model.Monto, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
 
     <div class="row">
-
+        
         <div class="col-md-6">
+            <h5 class="font-weight text-left">Año(*)</h5>
             @Html.EditorFor(Model => Model.AnioExpensa, new { htmlAttributes = new { @type = "number", @Value = "2020", @min = "2000", @max = "2020", @class = "mt-1 form-control", placeholder = "anio" } })
             @Html.ValidationMessageFor(model => model.AnioExpensa, "", new { @class = "text-danger" })
 
         </div>
 
+        
         <div class="col-md-6">
+            <h5 class="font-weight text-left">Mes(*)</h5>
             @Html.EditorFor(Model => Model.MesExpensa, new { htmlAttributes = new { @type = "number", @Value = "11", @min = "1", @max = "12", @class = "mt-1 form-control", placeholder = "mes" } })
             @Html.ValidationMessageFor(model => model.MesExpensa, "", new { @class = "text-danger" })
         </div>
     </div>
 
+    <h5 class="font-weight text-left">Archivo(*)</h5>
     <div class="editor-field mt-3">
         <p class="float-left">@Model.ArchivoComprobante</p>
-        @Html.TextBoxFor(m => m.fileComrobante, new { type = "file", name = "Files", @class="form-control-file" })
+        @Html.TextBoxFor(m => m.fileComrobante, new { type = "file", name = "Files", @class = "form-control-file" })
     </div>
 
     <span class="text-danger">@ViewBag.msj</span>

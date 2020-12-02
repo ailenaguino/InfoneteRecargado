@@ -18,10 +18,11 @@ namespace Web.Models
         {
             fileName = s;
         }
-        public void GuardarArchivo(HttpPostedFileBase file,HttpServerUtilityBase server)
+        public void GuardarArchivo(HttpPostedFileBase file,HttpServerUtilityBase server, GastoVM gasto)
         {
-            var fileName = Path.GetFileName(file.FileName);
+            string fileName = string.Format("{0} {1}", DateTime.Now.ToString("_MMddyyyy_HHmmss"), file.FileName);
             var path = Path.Combine(server.MapPath("~/Gastos/"), fileName);
+            gasto.ArchivoComprobante = fileName;
             file.SaveAs(path);            
         }
 
@@ -35,13 +36,11 @@ namespace Web.Models
             }
             else if (gasto.fileComrobante != null && gasto.ArchivoComprobante == null) //cargo un archivo y no habia cargado antes
             {
-                gasto.ArchivoComprobante = gasto.fileComrobante.FileName;
-                GuardarArchivo(gasto.fileComrobante, server);
+                GuardarArchivo(gasto.fileComrobante, server, gasto);
             }
             else if (gasto.fileComrobante != null && gasto.ArchivoComprobante != null) //cargo un archivo y tenia uno antes
             {
-                gasto.ArchivoComprobante = gasto.fileComrobante.FileName;
-                GuardarArchivo(gasto.fileComrobante, server);
+                GuardarArchivo(gasto.fileComrobante, server, gasto);
             }
         }
     }

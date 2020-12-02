@@ -28,29 +28,37 @@
         @Html.HiddenFor(Model => Model.IdConsorcio, new { htmlAttributes = new { @Value = Model.IdConsorcio } })
         @Html.HiddenFor(Model => Model.IdUsuarioCreador, new { htmlAttributes = new { @Value = Model.IdUsuarioCreador } })
         <div class="col-lg">
+
+            <h5 class="font-weight text-left">Nombre(*)</h5>
             <div class="form-group">
                 @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @class = "mt-1 form-control", @Value = @ViewBag.Con.Nombre, placeholder = "Nombre" } })
                 @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
             </div>
-            
+
+            <h5 class="font-weight text-left">Provincia(*)</h5>
             <div class="form-group">
-                @Html.DropDownListFor(Model => Model.IdProvincia, provincia, new {@class = "mt-1 form-control" })
+                @Html.DropDownListFor(Model => Model.IdProvincia, provincia, new { @class = "mt-1 form-control" })
             </div>
+
+            <h5 class="font-weight text-left">Ciudad(*)</h5>
             <div class="form-group">
                 @Html.EditorFor(Model => Model.Ciudad, new { htmlAttributes = new { @Value = @ViewBag.Con.Ciudad, @class = "mt-1 form-control", rows = "3", placeholder = "Ciudad" } })
                 @Html.ValidationMessageFor(model => model.Ciudad, "", new { @class = "text-danger" })
             </div>
 
+            <h5 class="font-weight text-left">Calle(*)</h5>
             <div class="form-group">
                 @Html.EditorFor(Model => Model.Calle, new { htmlAttributes = new { @Value = @ViewBag.Con.Calle, @class = "mt-1 form-control", rows = "3", placeholder = "Calle" } })
                 @Html.ValidationMessageFor(model => model.Calle, "", new { @class = "text-danger" })
             </div>
 
+            <h5 class="font-weight text-left">Altura(*)</h5>
             <div class="form-group">
                 @Html.EditorFor(Model => Model.Altura, new { htmlAttributes = new { @Value = @ViewBag.Con.Altura, @class = "mt-1 form-control", rows = "3", placeholder = "Altura" } })
                 @Html.ValidationMessageFor(model => model.Altura, "", new { @class = "text-danger" })
             </div>
 
+            <h5 class="font-weight text-left">Dia de vencimiento(*)</h5>
             <div class="form-group">
                 @Html.EditorFor(Model => Model.DiaVencimientoExpensas, new { htmlAttributes = new { @min = 1, @max = "31", @Value = @ViewBag.Con.DiaVencimientoExpensas, @class = "mt-1 form-control", placeholder = "Dia vencimiento expensa" } })
                 @Html.ValidationMessageFor(model => model.DiaVencimientoExpensas, "", new { @class = "text-danger" })

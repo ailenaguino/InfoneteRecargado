@@ -26,32 +26,38 @@
 <form class="form-signin text-center" action="/Consorcio/CrearConsorcio" method="post" enctype="multipart/form-data">
     <h2 class="h3 mb-3 font-weight-normal">Crear Nuevo Consorcio</h2>
 
+    <h5 class="font-weight text-left">Nombre(*)</h5>
     <div class="form-group">
-        @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @Value = "" , @class = "mt-1 form-control", placeholder = "Nombre" } })
+        @Html.EditorFor(Model => Model.Nombre, new { htmlAttributes = new { @Value = "", @class = "mt-1 form-control", placeholder = "Nombre" } })
         @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
     </div>
 
+    <h5 class="font-weight text-left">Provincia(*)</h5>
     <div class="form-group">
         @Html.DropDownListFor(Model => Model.IdProvincia, provincia, new { @class = "mt-1 form-control" })
     </div>
 
+    <h5 class="text-left font-weight">Ciudad(*)</h5>
     <div class="form-group">
-        @Html.EditorFor(Model => Model.Ciudad, new { htmlAttributes = new { @Value = "" , @class = "mt-1 form-control", rows = "3", placeholder = "Ciudad" } })
+        @Html.EditorFor(Model => Model.Ciudad, new { htmlAttributes = new { @Value = "", @class = "mt-1 form-control", rows = "3", placeholder = "Ciudad" } })
         @Html.ValidationMessageFor(model => model.Ciudad, "", new { @class = "text-danger" })
     </div>
 
+    <h5 class="font-weight text-left">Calle(*)</h5>
     <div class="form-group">
         @Html.EditorFor(Model => Model.Calle, new { htmlAttributes = new { @Value = "", @class = "mt-1 form-control", rows = "3", placeholder = "Calle" } })
         @Html.ValidationMessageFor(model => model.Calle, "", new { @class = "text-danger" })
     </div>
 
+    <h5 class="font-weight text-left">Altura(*)</h5>
     <div class="form-group">
-        @Html.EditorFor(Model => Model.Altura, new { htmlAttributes = new { @Value = "", @class = "mt-1 form-control",  rows = "3", placeholder = "Altura" } })
+        @Html.EditorFor(Model => Model.Altura, new { htmlAttributes = new { @Value = "", @class = "mt-1 form-control", rows = "3", placeholder = "Altura" } })
         @Html.ValidationMessageFor(model => model.Altura, "", new { @class = "text-danger" })
     </div>
 
+    <h5 class="font-weight text-left">Dia de vencimiento(*)</h5>
     <div class="form-group">
-        @Html.EditorFor(Model => Model.DiaVencimientoExpensas, new { htmlAttributes = new {@Value = "" ,  @class = "mt-1 form-control", placeholder = "Dia vencimiento expensa" } })
+        @Html.EditorFor(Model => Model.DiaVencimientoExpensas, new { htmlAttributes = new { @Value = "", @class = "mt-1 form-control", placeholder = "Dia vencimiento expensa" } })
         @Html.ValidationMessageFor(model => model.DiaVencimientoExpensas, "", new { @class = "text-danger" })
     </div>
 
@@ -63,7 +69,7 @@
             <input class="btn btn-lg btn-secundario btn mt-4" type="submit" name="accion" value="Guardar" />
         </div>
         <div class="col-sm">
-            <input class="btn btn-lg btn-outline-primario btn mt-4" type="submit" name="accion" value="Guardar y Crear otro Consorcio"/>
+            <input class="btn btn-lg btn-outline-primario btn mt-4" type="submit" name="accion" value="Guardar y Crear otro Consorcio" />
         </div>
         <div class="col-sm">
             <input class="btn btn-lg btn-outline-primario btn mt-4" type="submit" name="accion" value="Guardar y Crear Unidad" />

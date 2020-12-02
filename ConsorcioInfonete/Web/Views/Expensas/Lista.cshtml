@@ -1,10 +1,10 @@
 ﻿@using System.Globalization
-@using Common
-@model List<Common.Expensa>
+@using Repositories.Models
+@model List<Repositories.Models.Expensa>
 
 @{
     Layout = "~/Views/Shared/LogueadoLayout.cshtml";
-    var ultimo = (Expensa)ViewBag.Ultimo;
+    var ultimo = (Repositories.Models.Expensa)ViewBag.Ultimo;
 }
 
     <nav aria-label="breadcrumb bg-gris">
